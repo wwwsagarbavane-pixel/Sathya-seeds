@@ -1,0 +1,155 @@
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import { 
+  ProductGrainIcon, 
+  ProductPepperIcon, 
+  ProductCottonIcon,
+  OilseedFlowerIcon,
+  PulsePodIcon
+} from './Icons';
+
+interface ProductItem {
+  id: string;
+  category: string;
+  description: string;
+  image: string;
+  icon: React.ReactNode;
+  isFeatured?: boolean;
+}
+
+const PRODUCTS_DATA: ProductItem[] = [
+  {
+    id: 'field-crops',
+    category: 'Field Crops',
+    description: 'Maize, Paddy, Bajra, Jowar, Castor and more.',
+    image: './crops/field-crops.jpg',
+    icon: <ProductGrainIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
+  },
+  {
+    id: 'vegetables',
+    category: 'Vegetables',
+    description: 'F1 Chilli, Tomato, Bitter Gourds, Ridge Gourds.',
+    image: './crops/vegetables.jpg',
+    icon: <ProductPepperIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
+  },
+  {
+    id: 'cotton',
+    category: 'Cotton',
+    description: 'Sathya Diamond BG II, Sathya ROBO BG II, Bt Cotton.',
+    image: './crops/cotton.jpg',
+    icon: <ProductCottonIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
+    isFeatured: true,
+  },
+  {
+    id: 'oilseeds',
+    category: 'Oilseeds',
+    description: 'Mustard, Groundnut, Soybean, Sunflower and more.',
+    image: './crops/oilseeds.jpg',
+    icon: <OilseedFlowerIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
+  },
+  {
+    id: 'pulses',
+    category: 'Pulses',
+    description: 'Red Gram, Chickpea, Black Gram, Green Gram.',
+    image: './crops/pulses.jpg',
+    icon: <PulsePodIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
+  },
+];
+
+export const Products: React.FC = () => {
+  return (
+    <section 
+      id="solutions" 
+      className="relative w-full bg-white pt-10 sm:pt-12 lg:pt-14 pb-20 sm:pb-28 lg:pb-32 overflow-hidden select-none"
+      aria-label="Our Products"
+    >
+      <div className="relative max-w-[1920px] mx-auto px-5 sm:px-10 lg:px-14 xl:px-16">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-4xl lg:max-w-5xl mx-auto">
+          {/* Eyebrow with green lines on left and right */}
+          <div className="inline-flex items-center justify-center gap-3">
+            <span className="w-8 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
+            <span className="text-xs sm:text-[13px] font-extrabold tracking-[0.18em] text-[#087C19] uppercase">
+              OUR PRODUCTS
+            </span>
+            <span className="w-8 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
+          </div>
+
+          {/* Main Section Headline: Stays on one unified line */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-[#102235] mt-3 sm:mt-4 leading-tight">
+            High-Quality Seeds for <span className="text-[#087C19] whitespace-nowrap">Better Yields</span>
+          </h2>
+
+          {/* Subtitle Description */}
+          <p className="text-xs sm:text-sm lg:text-[15px] text-slate-600 max-w-2xl mx-auto mt-3 sm:mt-3.5 leading-relaxed font-normal">
+            A trusted range of high-performing seeds for key crops, designed for higher productivity, resilience, and greater farm profitability.
+          </p>
+        </div>
+
+        {/* 5 Product Cards Grid - Balanced Ratio & Responsive Breakpoints */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 max-w-[1720px] xl:max-w-[1800px] mx-auto">
+          {PRODUCTS_DATA.map((product) => (
+            <div
+              key={product.id}
+              className="relative bg-white rounded-[26px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(8,124,25,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group"
+            >
+              {/* Product Card Image Container (overflow-hidden ONLY for the image corners) */}
+              <div className="relative w-full h-[165px] sm:h-[180px] lg:h-[190px] overflow-hidden rounded-t-[26px] sm:rounded-t-[28px] bg-slate-100">
+                <img
+                  src={product.image}
+                  alt={product.category}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Overlapping circular category icon badge (100% unclipped, centered on boundary) */}
+              <div className="absolute top-[165px] sm:top-[180px] lg:top-[190px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#E0F7D4] border-[3.5px] border-white shadow-[0_4px_14px_rgba(0,0,0,0.12)] flex items-center justify-center z-20 transition-transform duration-300 group-hover:scale-110">
+                {product.icon}
+              </div>
+
+              {/* Product Card Content Body */}
+              <div className="pt-8 sm:pt-9 pb-6 sm:pb-7 px-4 sm:px-5 flex flex-col items-center text-center flex-1 justify-between">
+                <div>
+                  <h3 className="text-lg sm:text-[20px] font-black text-[#102235] tracking-tight group-hover:text-[#087C19] transition-colors leading-tight">
+                    {product.category}
+                  </h3>
+
+                  <p className="text-[11.5px] sm:text-xs text-slate-500 mt-1.5 font-medium leading-relaxed max-w-[220px] mx-auto min-h-[34px]">
+                    {product.description}
+                  </p>
+                </div>
+
+                {/* Action CTA Button */}
+                <a
+                  href={`#${product.id}`}
+                  className={`mt-5 px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-all duration-200 active:scale-95 ${
+                    product.isFeatured
+                      ? 'bg-[#075B19] hover:bg-[#064e15] text-white shadow-[0_4px_14px_rgba(7,91,25,0.35)] hover:shadow-[0_6px_20px_rgba(7,91,25,0.45)]'
+                      : 'border-2 border-[#087C19] text-[#087C19] bg-white hover:bg-[#087C19] hover:text-white shadow-sm'
+                  }`}
+                >
+                  <span>Know More</span>
+                  <ArrowRight className="w-3.5 h-3.5 stroke-[2.4]" />
+                </a>
+              </div>
+
+              {/* Decorative subtle bottom-right corner leaf flourish */}
+              <div className="absolute bottom-0 right-0 w-10 h-10 pointer-events-none overflow-hidden rounded-br-[26px] sm:rounded-br-[28px]">
+                <svg viewBox="0 0 40 40" fill="none" className="w-full h-full text-[#DDF4C9]/85" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 0C40 22 22 40 0 40H40V0Z" fill="currentColor" />
+                </svg>
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+    </section>
+  );
+};
+
+export default Products;
