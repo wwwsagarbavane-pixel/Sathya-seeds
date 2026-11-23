@@ -197,15 +197,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         )}
       </header>
 
-      {/* 3. Hero Content: Perfectly Centered Vertically in the Middle ("proper bich me") */}
-      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-center py-6 sm:py-8 lg:py-10">
+      {/* 3. Hero Content: Positioned higher up in the open sky */}
+      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-3 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20">
         <div className="max-w-lg sm:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
       </div>
 
-      {/* 4. Natural Bottom Spacer */}
-      <div className="h-6 sm:h-10 lg:h-12 pointer-events-none" aria-hidden="true" />
+      {/* 4. Natural Bottom Landscape Spacer */}
+      <div className="h-8 sm:h-12 lg:h-16 pointer-events-none" aria-hidden="true" />
 
     </section>
   );
