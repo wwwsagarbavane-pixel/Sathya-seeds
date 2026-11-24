@@ -24,15 +24,15 @@ const PRODUCTS_DATA: ProductItem[] = [
     category: 'Field Crops',
     cropName: 'Paddy',
     description: 'Paddy (16+ Varieties), Maize, Bajra, Jowar, Castor and more.',
-    image: './crops/field-crops.jpg',
+    image: '/crops/field-crops.jpg',
     icon: <ProductGrainIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
   },
   {
     id: 'vegetables',
     category: 'Vegetables',
-    cropName: 'Vegetables',
+    cropName: 'Chilli',
     description: 'F1 Chilli, Tomato, Okra, Brinjal, Watermelon, Gourds.',
-    image: './crops/vegetables.jpg',
+    image: '/crops/vegetables.jpg',
     icon: <ProductPepperIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
   },
   {
@@ -40,7 +40,7 @@ const PRODUCTS_DATA: ProductItem[] = [
     category: 'Cotton',
     cropName: 'Cotton',
     description: 'Sathya Diamond BG II, SSCH-333 BG II, SSCH-444, Bt Cotton.',
-    image: './crops/cotton.jpg',
+    image: '/crops/cotton.jpg',
     icon: <ProductCottonIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
     isFeatured: true,
   },
@@ -49,7 +49,7 @@ const PRODUCTS_DATA: ProductItem[] = [
     category: 'Oilseeds',
     cropName: 'Mustard',
     description: 'Mustard, Sunflower, Groundnut, Soybean and more.',
-    image: './crops/oilseeds.jpg',
+    image: '/crops/oilseeds.jpg',
     icon: <OilseedFlowerIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
   },
   {
@@ -57,7 +57,7 @@ const PRODUCTS_DATA: ProductItem[] = [
     category: 'Pulses',
     cropName: 'Redgram',
     description: 'Red Gram (Arhar / Toor), Chickpea, Black Gram, Green Gram.',
-    image: './crops/pulses.jpg',
+    image: '/crops/pulses.jpg',
     icon: <PulsePodIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
   },
 ];
@@ -70,9 +70,12 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
   return (
     <section 
       id="solutions" 
-      className="relative w-full bg-white pt-10 sm:pt-12 lg:pt-14 pb-20 sm:pb-28 lg:pb-32 overflow-hidden select-none"
+      className="relative w-full bg-white pt-10 sm:pt-12 lg:pt-14 pb-20 sm:pb-28 lg:pb-32 overflow-hidden select-none scroll-mt-6"
       aria-label="Our Products"
     >
+      {/* Anchor for #products */}
+      <span id="products" className="absolute -top-16 left-0" />
+
       <div className="relative max-w-[1920px] mx-auto px-5 sm:px-10 lg:px-14 xl:px-16">
         
         {/* Section Header */}
@@ -97,12 +100,16 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
           </p>
         </div>
 
-        {/* 5 Product Cards Grid - Clean, Balanced Layout */}
+        {/* 5 Product Cards Grid - Fully Clickable */}
         <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 max-w-[1720px] xl:max-w-[1800px] mx-auto">
           {PRODUCTS_DATA.map((product) => (
             <div
               key={product.id}
-              className="relative bg-white rounded-[24px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(8,124,25,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group max-w-[320px] xs:max-w-[340px] sm:max-w-none w-full mx-auto"
+              onClick={() => {
+                onNavigate?.('Products', product.cropName);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="relative bg-white rounded-[24px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(8,124,25,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group max-w-[320px] xs:max-w-[340px] sm:max-w-none w-full mx-auto cursor-pointer"
             >
               {/* Product Card Image Container */}
               <div className="relative w-full h-[165px] sm:h-[180px] lg:h-[190px] overflow-hidden rounded-t-[26px] sm:rounded-t-[28px] bg-slate-100">
@@ -132,21 +139,16 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
                 </div>
 
                 {/* Action CTA Button */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    onNavigate?.('Products', product.cropName);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className={`mt-5 px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-all duration-200 active:scale-95 cursor-pointer ${
+                <span
+                  className={`mt-5 px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-all duration-200 ${
                     product.isFeatured
-                      ? 'bg-[#075B19] hover:bg-[#064e15] text-white shadow-[0_4px_14px_rgba(7,91,25,0.35)] hover:shadow-[0_6px_20px_rgba(7,91,25,0.45)]'
-                      : 'border-2 border-[#087C19] text-[#087C19] bg-white hover:bg-[#087C19] hover:text-white shadow-sm'
+                      ? 'bg-[#075B19] group-hover:bg-[#064e15] text-white shadow-[0_4px_14px_rgba(7,91,25,0.35)] group-hover:shadow-[0_6px_20px_rgba(7,91,25,0.45)]'
+                      : 'border-2 border-[#087C19] text-[#087C19] bg-white group-hover:bg-[#087C19] group-hover:text-white shadow-sm'
                   }`}
                 >
                   <span>Explore Varieties</span>
                   <ArrowRight className="w-3.5 h-3.5 stroke-[2.4]" />
-                </button>
+                </span>
               </div>
 
               {/* Decorative subtle bottom-right corner leaf flourish */}

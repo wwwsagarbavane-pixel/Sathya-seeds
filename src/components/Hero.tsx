@@ -123,8 +123,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <button
                 type="button"
                 onClick={() => {
-                  onNavigate?.('Products');
-                  setProductsDropdownOpen(!productsDropdownOpen);
+                  const el = document.getElementById('solutions') || document.getElementById('products');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    onNavigate?.('Products');
+                  }
                 }}
                 className="text-white hover:text-[#A3E635] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer flex items-center gap-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
               >

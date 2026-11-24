@@ -43,17 +43,22 @@ export const App: React.FC = () => {
       } else if (hash === '#rd' || hash === '#research' || hash === '#rnd') {
         setCurrentPage('R&D');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#products' || hash.startsWith('#product') || hash === '#paddy' || hash === '#cotton' || hash === '#field-crops' || hash === '#vegetables') {
+      } else if (
+        hash === '#products' || 
+        hash.startsWith('#product') || 
+        ['#paddy', '#cotton', '#bt-cotton', '#maize', '#mustard', '#bajra', '#jowar', '#wheat', '#redgram', '#chilli', '#tomato', '#okra', '#brinjal', '#watermelon'].includes(hash)
+      ) {
         setCurrentPage('Products');
-        if (hash === '#paddy') setSelectedCrop('Paddy');
-        else if (hash === '#cotton' || hash === '#bt-cotton') setSelectedCrop('Cotton');
-        else if (hash === '#maize') setSelectedCrop('Maize');
-        else if (hash === '#mustard') setSelectedCrop('Mustard');
-        else if (hash === '#chilli') setSelectedCrop('Chilli');
-        else if (hash === '#tomato') setSelectedCrop('Tomato');
+        const cropName = hash.replace('#', '').replace('bt-', '');
+        setSelectedCrop(cropName.charAt(0).toUpperCase() + cropName.slice(1));
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#home' || hash === '') {
+      } else if (hash === '#home' || hash === '#solutions' || hash === '#purpose' || hash === '#contact-us' || hash === '') {
         setCurrentPage('Home');
+        if (hash === '#solutions') {
+          setTimeout(() => {
+            document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
       }
     };
 

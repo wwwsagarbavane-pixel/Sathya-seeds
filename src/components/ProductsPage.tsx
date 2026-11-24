@@ -17,6 +17,22 @@ interface ProductsPageProps {
   onNavigate?: (page: string, crop?: string) => void;
 }
 
+const CROP_PILLS = [
+  { key: 'paddy', label: '🌾 Paddy (Dhan)' },
+  { key: 'cotton', label: '🌱 Bt Cotton' },
+  { key: 'maize', label: '🌽 Maize' },
+  { key: 'mustard', label: '🌼 Mustard' },
+  { key: 'chilli', label: '🌶️ Chilli' },
+  { key: 'tomato', label: '🍅 Tomato' },
+  { key: 'okra', label: '🌿 Okra' },
+  { key: 'brinjal', label: '🍆 Brinjal' },
+  { key: 'watermelon', label: '🍉 Watermelon' },
+  { key: 'bajra', label: '🌾 Bajra' },
+  { key: 'wheat', label: '🌾 Wheat' },
+  { key: 'jowar', label: '🌾 Jowar' },
+  { key: 'redgram', label: '🌾 Redgram' },
+];
+
 export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, onNavigate }) => {
   // Normalize initialCrop to a key in CROPS_DB
   const resolveCropKey = (cropName?: string): string => {
@@ -91,19 +107,56 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, onNavig
         </div>
 
         {/* 2. Breadcrumbs Bar */}
-        <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium">
-          <button 
+        <div className="max-w-[1400px] mx-auto px-6 pt-4 pb-2 flex items-center justify-between gap-2 text-xs sm:text-sm text-slate-500 font-medium">
+          <div className="flex items-center gap-2">
+            <button 
+              type="button"
+              onClick={() => onNavigate?.('Home')}
+              className="flex items-center text-slate-400 hover:text-[#087C19] transition-colors cursor-pointer"
+              title="Go to Home"
+            >
+              <Home className="w-4 h-4" />
+            </button>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+            <button
+              type="button"
+              onClick={() => onNavigate?.('Home')}
+              className="text-slate-600 hover:text-[#087C19] cursor-pointer"
+            >
+              Home
+            </button>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+            <span className="font-bold text-[#087C19]">{activeCrop.name}</span>
+          </div>
+
+          <button
             type="button"
             onClick={() => onNavigate?.('Home')}
-            className="flex items-center text-slate-400 hover:text-[#087C19] transition-colors cursor-pointer"
-            title="Go to Home"
+            className="text-xs text-[#087C19] hover:underline font-bold flex items-center gap-1 cursor-pointer"
           >
-            <Home className="w-4 h-4" />
+            <span>← Back to Home</span>
           </button>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-          <span className="text-slate-600">Products</span>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-          <span className="font-bold text-[#087C19]">{activeCrop.name}</span>
+        </div>
+
+        {/* Quick Crop Selector Pills */}
+        <div className="max-w-[1400px] mx-auto px-6 py-2 overflow-x-auto no-scrollbar scrollbar-none flex items-center gap-2">
+          {CROP_PILLS.map((pill) => {
+            const isActive = currentCropKey === pill.key;
+            return (
+              <button
+                key={pill.key}
+                type="button"
+                onClick={() => setCurrentCropKey(pill.key)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer shadow-xs ${
+                  isActive
+                    ? 'bg-[#087C19] text-white shadow-sm scale-105'
+                    : 'bg-white text-slate-700 hover:bg-slate-100 hover:text-[#087C19] border border-gray-200/80'
+                }`}
+              >
+                {pill.label}
+              </button>
+            );
+          })}
         </div>
 
         {/* 3. Section Title & Subtitle with Green Underline */}
