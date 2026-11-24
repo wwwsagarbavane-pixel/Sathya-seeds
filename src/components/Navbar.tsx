@@ -140,23 +140,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                         setActiveItem('Products');
                         setProductsOpen(!productsOpen);
                       }}
-                      className={`relative flex items-center gap-1.5 py-2 text-[15px] font-semibold transition-all duration-200 ${
-                        isCurrent || productsOpen
-                          ? 'text-[#1CA308]'
-                          : 'text-[#102235] hover:text-[#1CA308]'
+                      className={`relative flex items-center gap-1.5 transition-all duration-200 cursor-pointer ${
+                        isCurrent
+                          ? 'bg-[#087C19] text-white px-3.5 py-1.5 rounded-full text-sm font-bold shadow-sm'
+                          : 'py-2 text-[15px] font-semibold text-[#102235] hover:text-[#087C19]'
                       }`}
                     >
                       <span>{item.label}</span>
                       <ChevronDown 
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          productsOpen ? 'rotate-180 text-[#1CA308]' : 'text-slate-500'
-                        }`} 
+                          productsOpen ? 'rotate-180' : ''
+                        } ${isCurrent ? 'text-white' : 'text-slate-500'}`} 
                       />
-
-                      {/* Active / Open Underline Bar */}
-                      {(isCurrent || productsOpen) && (
-                        <span className="absolute -bottom-4 lg:-bottom-[18px] left-0 right-0 h-[2.5px] bg-[#1CA308] rounded-full" />
-                      )}
                     </button>
 
                     {/* Products Multi-Level Dropdown */}
