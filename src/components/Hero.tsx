@@ -12,14 +12,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
       id="home"
-      className="relative w-full min-h-[580px] xs:min-h-[620px] sm:min-h-[640px] md:aspect-[1671/941] lg:min-h-[680px] overflow-hidden select-none bg-slate-900 flex flex-col justify-between"
+      className="relative w-full h-[520px] xs:h-[560px] sm:h-auto sm:aspect-[1671/941] overflow-hidden select-none bg-slate-900 flex flex-col justify-between"
       aria-label="Sathya Seeds Hero Section"
     >
-      {/* 1. Main Background Image: 100% Full Panoramic Photo (Farmer anchored nicely on right on mobile) */}
+      {/* 1. Main Background Image: 100% Full Panoramic Photo without any zoom/crop on desktop */}
       <img
         src="/hero-farmer-halo.png"
         alt="Farmer Beneath a Sunset Halo"
-        className="absolute inset-0 w-full h-full object-cover object-[75%_top] sm:object-top z-0 pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-cover object-right sm:object-center z-0 pointer-events-none select-none"
       />
 
       {/* 2. Floating Header in the Open Sky */}
@@ -197,15 +197,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         )}
       </header>
 
-      {/* 3. Hero Content: Positioned higher up in the open sky, constrained on mobile to avoid farmer overlap */}
-      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-3 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20">
-        <div className="w-full max-w-[80%] xs:max-w-[74%] sm:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
+      {/* 3. Hero Content: Perfectly Centered Vertically in the Sky */}
+      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-center py-6 sm:py-8 lg:py-10">
+        <div className="w-full max-w-[85%] xs:max-w-[78%] sm:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
       </div>
 
-      {/* 4. Natural Bottom Landscape Spacer */}
-      <div className="h-8 sm:h-12 lg:h-16 pointer-events-none" aria-hidden="true" />
+      {/* 4. Natural Bottom Spacer */}
+      <div className="h-6 sm:h-10 lg:h-12 pointer-events-none" aria-hidden="true" />
 
     </section>
   );
