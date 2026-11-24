@@ -62,11 +62,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 2: FARMER (z-index: 2)
-          Transparent 'Proud Farmer in Traditional White Attire' on the right side.
-          Elevated higher up into the open sky, smiling with folded arms.
+          Transparent 'Proud Farmer in Traditional White Attire' grounded at bottom.
+          Natural height below navbar, lower body seamlessly nestled in sunflowers.
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-[5%] xs:bottom-[7%] sm:bottom-[9%] md:bottom-[10%] lg:bottom-[12%] xl:bottom-[13%] pointer-events-none flex items-end justify-center right-[-2%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[58%] xs:h-[63%] sm:h-[68%] md:h-[75%] lg:h-[80%] xl:h-[84%] max-h-[740px]"
+        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[58%] xs:h-[63%] sm:h-[68%] md:h-[72%] lg:h-[76%] xl:h-[80%] max-h-[660px]"
         aria-hidden="true"
       >
         <img
@@ -80,33 +80,17 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* =========================================================================
           LAYER 3: SUNFLOWER FOREGROUND (z-index: 3)
           Transparent 'Sunflower Border with Open Center' across full width.
-          Leaves and sunflowers naturally overlap the farmer's lower body in front.
+          Vibrant sunflowers & leaves overlap farmer's lower torso for 100% natural blend.
           ========================================================================= */}
       <div
         className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
-        style={{ height: 'clamp(140px, 22vw, 270px)' }}
+        style={{ height: 'clamp(180px, 28vw, 340px)' }}
         aria-hidden="true"
       >
         <img
           src="/sunflower-border-foreground.png"
           alt="Foreground Sunflower Border"
           className="w-full h-full object-cover object-bottom pointer-events-none select-none"
-          loading="eager"
-        />
-      </div>
-
-      {/* =========================================================================
-          LAYER 4: RED & WHITE LAYERED WAVE BANNER (z-index: 10)
-          Natural curved brand wave transition along the bottom edge into next section
-          ========================================================================= */}
-      <div
-        className="absolute bottom-0 left-0 w-full z-[10] pointer-events-none select-none overflow-hidden leading-none"
-        aria-hidden="true"
-      >
-        <img
-          src="/red-white-layered-wave-banner.png"
-          alt="Red and White Layered Wave Banner"
-          className="w-full h-auto block select-none pointer-events-none"
           loading="eager"
         />
       </div>
@@ -337,7 +321,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           UI LAYER: HERO CONTENT (z-index: 20)
-          Positioned higher up on the left side: heading, subtitle, and CTA buttons
+          Positioned comfortably on the left side: heading, subtitle, and CTA buttons
           No floating cards or unnecessary decorative elements
           ========================================================================= */}
       <div className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-3 xs:pt-5 sm:pt-7 md:pt-8 lg:pt-11 xl:pt-14 pb-48 xs:pb-56 sm:pb-64 md:pb-0">
