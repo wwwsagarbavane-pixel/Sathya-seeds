@@ -431,7 +431,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "High-yield hybrid corn with excellent tip filling and stay-green fodder quality.",
     "title": "Maize Seed Varieties",
     "subtitle": "Superior hybrid maize varieties bred for robust cob filling and high starch yield.",
-    "banner": "/crops/field-crops.jpg",
+    "banner": "/products/banner-maize.jpg",
     "varieties": [
       {
         "code": "SMH-34",
@@ -478,7 +478,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "High oil recovery and bold grains with superior frost and disease tolerance.",
     "title": "Mustard Seed Varieties",
     "subtitle": "Premium high-oil content mustard varieties engineered for bumper harvests.",
-    "banner": "/crops/oilseeds.jpg",
+    "banner": "/products/banner-mustard.jpg",
     "varieties": [
       {
         "code": "SMUH-654",
@@ -525,7 +525,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "Drought-resilient pearl millet with dense earheads and rich nutritious grain.",
     "title": "Bajra Seed Varieties",
     "subtitle": "Drought-hardy hybrid pearl millet varieties for dependable yield and quality fodder.",
-    "banner": "/crops/field-crops.jpg",
+    "banner": "/products/banner-bajra.jpg",
     "varieties": [
       {
         "code": "SBH-1122",
@@ -560,7 +560,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "Dual-purpose grain and sweet juicy fodder sorghum for enhanced farm returns.",
     "title": "Jowar Seed Varieties",
     "subtitle": "High-performing sorghum hybrids with excellent grain quality and juicy stalks.",
-    "banner": "/crops/field-crops.jpg",
+    "banner": "/products/banner-jowar.jpg",
     "varieties": [
       {
         "code": "SSH-369",
@@ -607,7 +607,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "Rust-tolerant wheat with golden lustrous grains and superior chapatty making quality.",
     "title": "Wheat Seed Varieties",
     "subtitle": "High-yielding wheat varieties with rust resilience and premium grain hardness.",
-    "banner": "/crops/field-crops.jpg",
+    "banner": "/products/banner-wheat.jpg",
     "varieties": [
       {
         "code": "SWV-234",
@@ -642,7 +642,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "Wilt-resistant pigeonpea with profuse pod bearing and high dal recovery.",
     "title": "Redgram Seed Varieties",
     "subtitle": "High-performing redgram (Toor / Arhar) varieties with high protein and dal turnout.",
-    "banner": "/crops/pulses.jpg",
+    "banner": "/products/banner-redgram.jpg",
     "varieties": [
       {
         "code": "SRV-36",
@@ -701,7 +701,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "High-pungency, virus-tolerant F1 hybrid chillies with shiny deep red colour.",
     "title": "Chilli Seed Varieties",
     "subtitle": "Prolific bearing F1 hybrid chillies with high SHU pungency and excellent market price.",
-    "banner": "/crops/vegetables.jpg",
+    "banner": "/products/banner-chilli.jpg",
     "varieties": [
       {
         "code": "SCPH-111",
@@ -1047,7 +1047,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "Dark green, tender 5-ridged bhendi with high YVMV yellow vein mosaic tolerance.",
     "title": "Okra (Bhindi) Seed Varieties",
     "subtitle": "High-picking F1 hybrid okra with dark green tender pods and virus resilience.",
-    "banner": "/crops/vegetables.jpg",
+    "banner": "/products/banner-okra.jpg",
     "varieties": [
       {
         "code": "SOKH-101",
@@ -1106,7 +1106,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "Glossy purple and variegated eggplants with tender flesh and high picking frequency.",
     "title": "Brinjal (Baingan) Seed Varieties",
     "subtitle": "Prolific bearing F1 hybrid eggplants with high market preference and fruit borer tolerance.",
-    "banner": "/crops/vegetables.jpg",
+    "banner": "/products/banner-brinjal.jpg",
     "varieties": [
       {
         "code": "sbjh-16",
@@ -1237,7 +1237,7 @@ export const CROPS_DB: Record<string, CropInfo> = {
     "tagline": "Crisp sweet crimson flesh with 12-13% TSS sugar content and tough shipping rind.",
     "title": "Watermelon Seed Varieties",
     "subtitle": "High sugar F1 hybrid watermelons with excellent transportability and consumer appeal.",
-    "banner": "/crops/vegetables.jpg",
+    "banner": "/products/banner-watermelon.jpg",
     "varieties": [
       {
         "code": "SWMH-024",
