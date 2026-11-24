@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
   return (
     <header className="sticky top-0 z-50 bg-white w-full border-b border-gray-100 shadow-[0_1px_4px_rgba(0,0,0,0.04)] select-none">
       <div className="max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20">
-        <div className="flex items-center justify-between h-[58px] sm:h-[64px] lg:h-[70px]">
+        <div className="flex items-center justify-between h-[64px] sm:h-[72px] lg:h-[80px]">
           
           {/* Logo: Sri Sathya Seeds Official Logo */}
           <a 
@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
             <img
               src="/sathya-logo-transparent.png"
               alt="Sri Sathya Seeds - A Symbol of Trust"
-              className="h-9 sm:h-11 lg:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              className="h-11 sm:h-13 lg:h-15 xl:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </a>
 

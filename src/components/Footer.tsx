@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
               <img
                 src="/sathya-logo-transparent.png"
                 alt="Sri Sathya Seeds - A Symbol of Trust"
-                className="h-12 sm:h-14 w-auto object-contain"
+                className="h-14 sm:h-16 lg:h-20 w-auto object-contain"
               />
             </div>
 

@@ -228,7 +228,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           transition: 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 650ms, opacity 1000ms ease-out 650ms',
         }}
       >
-        <div className="flex items-center justify-between h-12 sm:h-14 lg:h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
 
           {/* Official Sathya Seeds Logo in Crisp Frosted Pill */}
           <a
@@ -238,12 +238,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               onNavigate?.('Home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center group cursor-pointer bg-white/95 hover:bg-white backdrop-blur-md px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-200 hover:scale-105"
+            className="flex items-center group cursor-pointer bg-white/95 hover:bg-white backdrop-blur-md px-3.5 sm:px-4.5 py-2 sm:py-2.5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.18)] transition-all duration-200 hover:scale-105"
           >
             <img
               src="/sathya-logo-transparent.png"
               alt="Sri Sathya Seeds - A Symbol of Trust"
-              className="h-8 sm:h-9 lg:h-10 w-auto object-contain"
+              className="h-10 sm:h-12 md:h-13 lg:h-14 xl:h-[62px] w-auto object-contain"
             />
           </a>
 
