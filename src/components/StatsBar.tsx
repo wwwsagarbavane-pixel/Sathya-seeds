@@ -27,7 +27,7 @@ export const StatsBar: React.FC = () => {
   return (
     <div className="z-30 select-none">
       <div className="backdrop-blur-2xl bg-white/90 hover:bg-white/95 border border-white/95 shadow-[0_12px_32px_rgba(0,0,0,0.12)] rounded-full px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 lg:py-4 inline-flex items-center gap-3.5 sm:gap-6 lg:gap-8 transition-all duration-300 ring-1 ring-white/60">
-        
+
         {STATS_DATA.map((item, index) => (
           <React.Fragment key={item.id}>
             {/* Stat Item */}

@@ -42,19 +42,20 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[680px] xs:min-h-[720px] sm:min-h-[760px] md:h-[780px] lg:h-[820px] xl:h-[850px] flex flex-col justify-between"
+      className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[640px] xs:min-h-[680px] sm:min-h-[720px] md:min-h-[740px] md:aspect-[1672/941] flex flex-col justify-between"
       aria-label="Sri Sathya Seeds Hero Section"
     >
       {/* =========================================================================
           LAYER 1: BACKGROUND (z-index: 1)
           Full-width 'Golden Sunrise Sunflower Fields' preserving original blue sky,
           golden sunlight, rolling hills, tractor and sunflower field.
+          Zero crop, zero zoom.
           ========================================================================= */}
       <div className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none">
         <img
           src="/golden-sunrise-sunflower-fields.png"
           alt="Golden Sunrise Sunflower Fields"
-          className="w-full h-full object-cover object-center pointer-events-none select-none"
+          className="w-full h-full object-cover md:object-fill object-center pointer-events-none select-none"
           loading="eager"
         />
       </div>
@@ -62,10 +63,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* =========================================================================
           LAYER 2: FARMER (z-index: 2)
           Transparent 'Proud Farmer in Traditional White Attire' on the right side.
-          Compact size, naturally grounded inside the sunflower field.
+          Elevated higher up into the open sky, smiling with folded arms.
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[2%] lg:right-[3%] xl:right-[5%] 2xl:right-[7%] h-[50%] xs:h-[55%] sm:h-[60%] md:h-[66%] lg:h-[70%] xl:h-[74%] max-h-[620px]"
+        className="absolute z-[2] bottom-[5%] xs:bottom-[7%] sm:bottom-[9%] md:bottom-[10%] lg:bottom-[12%] xl:bottom-[13%] pointer-events-none flex items-end justify-center right-[-2%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[58%] xs:h-[63%] sm:h-[68%] md:h-[75%] lg:h-[80%] xl:h-[84%] max-h-[740px]"
         aria-hidden="true"
       >
         <img
@@ -83,13 +84,29 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           ========================================================================= */}
       <div
         className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
-        style={{ height: 'clamp(140px, 24vw, 280px)' }}
+        style={{ height: 'clamp(140px, 22vw, 270px)' }}
         aria-hidden="true"
       >
         <img
           src="/sunflower-border-foreground.png"
           alt="Foreground Sunflower Border"
           className="w-full h-full object-cover object-bottom pointer-events-none select-none"
+          loading="eager"
+        />
+      </div>
+
+      {/* =========================================================================
+          LAYER 4: RED & WHITE LAYERED WAVE BANNER (z-index: 10)
+          Natural curved brand wave transition along the bottom edge into next section
+          ========================================================================= */}
+      <div
+        className="absolute bottom-0 left-0 w-full z-[10] pointer-events-none select-none overflow-hidden leading-none"
+        aria-hidden="true"
+      >
+        <img
+          src="/red-white-layered-wave-banner.png"
+          alt="Red and White Layered Wave Banner"
+          className="w-full h-auto block select-none pointer-events-none"
           loading="eager"
         />
       </div>
@@ -320,17 +337,17 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           UI LAYER: HERO CONTENT (z-index: 20)
-          Positioned on the left side: heading, subtitle, and CTA buttons
+          Positioned higher up on the left side: heading, subtitle, and CTA buttons
           No floating cards or unnecessary decorative elements
           ========================================================================= */}
-      <div className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start md:items-center pt-3 xs:pt-6 sm:pt-8 md:pt-0 pb-56 xs:pb-64 sm:pb-72 md:pb-0">
+      <div className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-3 xs:pt-5 sm:pt-7 md:pt-8 lg:pt-11 xl:pt-14 pb-48 xs:pb-56 sm:pb-64 md:pb-0">
         <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
       </div>
 
       {/* Natural Bottom Anchor Spacer */}
-      <div className="relative z-[4] h-4 sm:h-6 pointer-events-none" aria-hidden="true" />
+      <div className="relative z-[4] h-2 sm:h-4 pointer-events-none" aria-hidden="true" />
     </section>
   );
 };
