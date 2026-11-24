@@ -36,31 +36,31 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const currentMouse = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // 1. Trigger graceful cinematic entry on mount
+    // 1. Subtle, gentle entry on mount
     const enterTimer = setTimeout(() => {
       setIsEntered(true);
-    }, 50);
+    }, 40);
 
-    // 2. Settle into real-time silky smooth tracking after entry
+    // 2. Settle into interactive micro-parallax
     const settledTimer = setTimeout(() => {
       setCameraSettled(true);
-    }, 1800);
+    }, 1200);
 
-    // 3. Ultra-smooth LERP rAF loop for mouse tilt
+    // 3. Smooth gentle LERP for mouse tracking
     let rafId: number;
     let lastX = 0;
     let lastY = 0;
     const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
 
     const tick = () => {
-      // Soft physics damping (0.08) creates luxurious gimbal camera feel
-      currentMouse.current.x = lerp(currentMouse.current.x, targetMouse.current.x, 0.08);
-      currentMouse.current.y = lerp(currentMouse.current.y, targetMouse.current.y, 0.08);
+      // Very smooth, calm damping
+      currentMouse.current.x = lerp(currentMouse.current.x, targetMouse.current.x, 0.06);
+      currentMouse.current.y = lerp(currentMouse.current.y, targetMouse.current.y, 0.06);
 
       const dx = Math.abs(currentMouse.current.x - lastX);
       const dy = Math.abs(currentMouse.current.y - lastY);
 
-      if (dx > 0.003 || dy > 0.003) {
+      if (dx > 0.002 || dy > 0.002) {
         lastX = currentMouse.current.x;
         lastY = currentMouse.current.y;
         setMouseOffset({
@@ -137,96 +137,87 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       aria-label="Sri Sathya Seeds Hero Section"
     >
       {/* =========================================================================
-          LAYER 0: AMBIENT DRONE BREATHING WRAPPER (independent transform space)
+          SUBTLE & NATURAL 3D CAMERA RIG (Gentle, refined, non-intrusive)
           ========================================================================= */}
-      <div 
-        className="absolute inset-0 w-full h-full pointer-events-none animate-camera-drift"
-        style={{ transformStyle: 'preserve-3d' }}
+      <div
+        className="absolute inset-0 w-full h-full pointer-events-none will-change-transform"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: isEntered
+            ? `rotateX(${(mouseOffset.y * -0.9) + (scrollY * 0.005)}deg) rotateY(${mouseOffset.x * 1.2}deg) scale(1)`
+            : 'rotateX(1deg) rotateY(-0.8deg) scale(1.03)',
+          transition: cameraSettled
+            ? 'transform 180ms ease-out'
+            : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
+        }}
       >
-        {/* =========================================================================
-            LAYER 0.5: AFTER EFFECTS 3D CAMERA NULL CONTROLLER
-            Tilts, pitches, and orbits all layers with silky smooth inertia
-            ========================================================================= */}
-        <div
-          className="absolute inset-0 w-full h-full pointer-events-none will-change-transform"
+        {/* Layer 1: Deep Background at Z = -160px */}
+        <div 
+          className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none will-change-transform"
           style={{
             transformStyle: 'preserve-3d',
             transform: isEntered
-              ? `rotateX(${(mouseOffset.y * -3.8) + (scrollY * 0.016)}deg) rotateY(${mouseOffset.x * 5.2}deg) rotateZ(${mouseOffset.x * -0.7}deg) scale(1)`
-              : 'rotateX(3.5deg) rotateY(-2.5deg) scale(1.10)',
+              ? `translate3d(${mouseOffset.x * -4}px, ${scrollY * 0.08}px, -160px) scale(1.18)`
+              : 'translate3d(0, -6px, -160px) scale(1.21)',
+            opacity: 1,
             transition: cameraSettled
-              ? 'transform 120ms ease-out'
-              : 'transform 1800ms cubic-bezier(0.16, 1, 0.3, 1)',
+              ? 'transform 160ms ease-out'
+              : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          {/* Layer 1: Deep Background at Z = -160px */}
-          <div 
-            className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none will-change-transform"
-            style={{
-              transformStyle: 'preserve-3d',
-              transform: isEntered
-                ? `translate3d(${mouseOffset.x * -14}px, ${scrollY * 0.22 + mouseOffset.y * -9}px, -160px) scale(${1.18 + scrollY * 0.00018})`
-                : 'translate3d(0, -22px, -160px) scale(1.25)',
-              opacity: isEntered ? 1 : 0.85,
-              transition: cameraSettled
-                ? 'transform 100ms ease-out'
-                : 'transform 1800ms cubic-bezier(0.16, 1, 0.3, 1), opacity 1500ms ease-out',
-            }}
-          >
-            <img
-              src="/golden-sunrise-sunflower-fields.png"
-              alt="Golden Sunrise Sunflower Fields"
-              className="w-full h-[112%] sm:h-[114%] -translate-y-2 sm:-translate-y-4 lg:-translate-y-6 object-cover object-center pointer-events-none select-none"
-              loading="eager"
-            />
-          </div>
+          <img
+            src="/golden-sunrise-sunflower-fields.png"
+            alt="Golden Sunrise Sunflower Fields"
+            className="w-full h-[112%] sm:h-[114%] -translate-y-2 sm:-translate-y-4 lg:-translate-y-6 object-cover object-center pointer-events-none select-none"
+            loading="eager"
+          />
+        </div>
 
-          {/* Layer 2: Midground Farmer at Z = 0px (focal focal plane) */}
-          <div
-            className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px] will-change-transform"
-            style={{
-              transformStyle: 'preserve-3d',
-              transform: isEntered
-                ? `translate3d(${mouseOffset.x * 18}px, ${scrollY * 0.12 + mouseOffset.y * 8}px, 0px) scale(1)`
-                : 'translate3d(0, 50px, 0px) scale(1.08)',
-              opacity: isEntered ? 1 : 0,
-              transition: cameraSettled
-                ? 'transform 100ms ease-out'
-                : 'transform 1800ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, opacity 1400ms ease-out 120ms',
-            }}
-            aria-hidden="true"
-          >
-            <img
-              src="/proud-farmer-transparent.png"
-              alt="Proud Indian Farmer in Traditional White Attire"
-              className="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)] pointer-events-none select-none"
-              loading="eager"
-            />
-          </div>
+        {/* Layer 2: Midground Farmer at Z = 0px (focal focal plane) */}
+        <div
+          className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px] will-change-transform"
+          style={{
+            transformStyle: 'preserve-3d',
+            transform: isEntered
+              ? `translate3d(${mouseOffset.x * 5}px, ${scrollY * 0.04}px, 0px) scale(1)`
+              : 'translate3d(0, 16px, 0px) scale(1.02)',
+            opacity: isEntered ? 1 : 0,
+            transition: cameraSettled
+              ? 'transform 160ms ease-out'
+              : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 80ms, opacity 1000ms ease-out 80ms',
+          }}
+          aria-hidden="true"
+        >
+          <img
+            src="/proud-farmer-transparent.png"
+            alt="Proud Indian Farmer in Traditional White Attire"
+            className="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+            loading="eager"
+          />
+        </div>
 
-          {/* Layer 3: Foreground Sunflowers at Z = +80px (close to camera lens) */}
-          <div
-            className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none will-change-transform"
-            style={{ 
-              transformStyle: 'preserve-3d',
-              height: 'clamp(210px, 34vw, 460px)',
-              transform: isEntered
-                ? `translate3d(${mouseOffset.x * 32}px, ${-scrollY * 0.08 + mouseOffset.y * 14}px, 80px) scale(1)`
-                : 'translate3d(0, 65px, 80px) scale(1.12)',
-              opacity: isEntered ? 1 : 0,
-              transition: cameraSettled
-                ? 'transform 100ms ease-out'
-                : 'transform 1800ms cubic-bezier(0.16, 1, 0.3, 1) 220ms, opacity 1400ms ease-out 220ms',
-            }}
-            aria-hidden="true"
-          >
-            <img
-              src="/sunflower-border-foreground.png"
-              alt="Foreground Sunflower Border"
-              className="w-full h-full object-cover object-bottom pointer-events-none select-none"
-              loading="eager"
-            />
-          </div>
+        {/* Layer 3: Foreground Sunflowers at Z = +80px (close to camera lens) */}
+        <div
+          className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none will-change-transform"
+          style={{ 
+            transformStyle: 'preserve-3d',
+            height: 'clamp(210px, 34vw, 460px)',
+            transform: isEntered
+              ? `translate3d(${mouseOffset.x * 9}px, ${scrollY * -0.02}px, 80px) scale(1)`
+              : 'translate3d(0, 20px, 80px) scale(1.03)',
+            opacity: isEntered ? 1 : 0,
+            transition: cameraSettled
+              ? 'transform 160ms ease-out'
+              : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 140ms, opacity 1000ms ease-out 140ms',
+          }}
+          aria-hidden="true"
+        >
+          <img
+            src="/sunflower-border-foreground.png"
+            alt="Foreground Sunflower Border"
+            className="w-full h-full object-cover object-bottom pointer-events-none select-none"
+            loading="eager"
+          />
         </div>
       </div>
 
@@ -470,14 +461,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-2 xs:pt-3 sm:pt-6 md:pt-8 lg:pt-11 xl:pt-14 pb-0 will-change-transform"
         style={{
           transform: isEntered
-            ? `translate3d(0, ${scrollY * 0.18}px, 0)`
-            : 'translate3d(0, 35px, 0)',
-          opacity: isEntered
-            ? Math.max(0, 1 - scrollY / 600)
-            : 0,
+            ? `translate3d(0, ${scrollY * 0.05}px, 0)`
+            : 'translate3d(0, 16px, 0)',
+          opacity: 1,
           transition: cameraSettled
             ? 'none'
-            : 'transform 1400ms cubic-bezier(0.16, 1, 0.3, 1) 250ms, opacity 1200ms ease-out 250ms',
+            : 'transform 1000ms cubic-bezier(0.16, 1, 0.3, 1) 100ms, opacity 900ms ease-out 100ms',
         }}
       >
         <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
