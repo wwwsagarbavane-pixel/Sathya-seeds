@@ -42,10 +42,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[640px] xs:min-h-[680px] sm:min-h-[720px] md:min-h-[740px] md:aspect-[1672/941] flex flex-col justify-between"
+      className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[720px] xs:min-h-[760px] sm:min-h-[800px] md:min-h-0 md:aspect-[1672/941] flex flex-col justify-between"
       style={{
-        WebkitMaskImage: 'linear-gradient(to bottom, black 91%, transparent 100%)',
-        maskImage: 'linear-gradient(to bottom, black 91%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, black 95%, transparent 100%)',
+        maskImage: 'linear-gradient(to bottom, black 95%, transparent 100%)',
       }}
       aria-label="Sri Sathya Seeds Hero Section"
     >
@@ -65,10 +65,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* =========================================================================
           LAYER 2: FARMER (z-index: 2)
           Transparent 'Proud Farmer in Traditional White Attire' grounded at bottom-0
-          High, prominent upper body while bottom is anchored without floating seams
+          Scaled on mobile so head sits comfortably below buttons with clear breathing room
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[64%] xs:h-[69%] sm:h-[74%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px]"
+        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[46%] xs:h-[50%] sm:h-[56%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px]"
         aria-hidden="true"
       >
         <img
@@ -86,7 +86,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           ========================================================================= */}
       <div
         className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
-        style={{ height: 'clamp(240px, 34vw, 440px)' }}
+        style={{ height: 'clamp(170px, 30vw, 440px)' }}
         aria-hidden="true"
       >
         <img
@@ -326,7 +326,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           Positioned comfortably on the left side: heading, subtitle, and CTA buttons
           No floating cards or unnecessary decorative elements
           ========================================================================= */}
-      <div className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-3 xs:pt-5 sm:pt-7 md:pt-8 lg:pt-11 xl:pt-14 pb-48 xs:pb-56 sm:pb-64 md:pb-0">
+      <div className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-2 xs:pt-3 sm:pt-6 md:pt-8 lg:pt-11 xl:pt-14 pb-0">
         <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
