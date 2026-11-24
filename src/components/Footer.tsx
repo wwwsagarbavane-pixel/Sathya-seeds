@@ -229,11 +229,11 @@ export const Footer: React.FC = () => {
             <span>All Rights Reserved.</span>
           </div>
 
-          {/* Right: Designed By Credit */}
+          {/* Right: Design by Credit */}
           <div className="flex items-center gap-1.5 font-medium text-white/85">
-            <span>Designed by</span>
-            <span className="font-bold text-white hover:text-[#FECACA] transition-colors cursor-pointer">
-              Sagar Bavane
+            <span>Design by</span>
+            <span className="font-bold text-white tracking-wide hover:text-[#A7F3D0] transition-colors cursor-pointer">
+              Clearbiz
             </span>
           </div>
 
