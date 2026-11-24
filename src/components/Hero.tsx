@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import HeroContent from './HeroContent';
 import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 
@@ -25,7 +25,39 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const dropdownTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleMouseEnter = () => {
+  // Parallax state
+  const [scrollY, setScrollY] = useState(0);
+  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
+    setMouseOffset({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMouseOffset({ x: 0, y: 0 });
+  };
+
+  const handleNavMouseEnter = () => {
     if (dropdownTimerRef.current) {
       clearTimeout(dropdownTimerRef.current);
       dropdownTimerRef.current = null;
@@ -33,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     setProductsDropdownOpen(true);
   };
 
-  const handleMouseLeave = () => {
+  const handleNavMouseLeave = () => {
     dropdownTimerRef.current = setTimeout(() => {
       setProductsDropdownOpen(false);
     }, 150);
@@ -42,6 +74,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
       id="home"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[720px] xs:min-h-[760px] sm:min-h-[800px] md:min-h-0 md:aspect-[1672/941] flex flex-col justify-between"
       style={{
         WebkitMaskImage: 'linear-gradient(to bottom, black 95%, transparent 100%)',
@@ -51,13 +85,18 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     >
       {/* =========================================================================
           LAYER 1: BACKGROUND (z-index: 1)
-          Full-width 'Golden Sunrise Sunflower Fields' shifted slightly upwards
+          Full-width 'Golden Sunrise Sunflower Fields' with deep parallax drift
           ========================================================================= */}
-      <div className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none">
+      <div 
+        className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none transition-transform duration-200 ease-out will-change-transform"
+        style={{
+          transform: `translate3d(${mouseOffset.x * -10}px, ${scrollY * 0.16 + mouseOffset.y * -8}px, 0) scale(${1.06 + scrollY * 0.00015})`,
+        }}
+      >
         <img
           src="/golden-sunrise-sunflower-fields.png"
           alt="Golden Sunrise Sunflower Fields"
-          className="w-full h-[106%] sm:h-[108%] lg:h-[110%] -translate-y-2 sm:-translate-y-4 lg:-translate-y-6 object-cover object-center pointer-events-none select-none"
+          className="w-full h-[108%] sm:h-[110%] -translate-y-2 sm:-translate-y-4 lg:-translate-y-6 object-cover object-center pointer-events-none select-none"
           loading="eager"
         />
       </div>
@@ -65,10 +104,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* =========================================================================
           LAYER 2: FARMER (z-index: 2)
           Transparent 'Proud Farmer in Traditional White Attire' grounded at bottom-0
-          Bold, large, prominent scale on both mobile and desktop
+          Middle-ground parallax displacement creating vivid 3D stereoscopic depth
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px]"
+        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px] transition-transform duration-200 ease-out will-change-transform"
+        style={{
+          transform: `translate3d(${mouseOffset.x * 12}px, ${scrollY * 0.09 + mouseOffset.y * 6}px, 0)`,
+        }}
         aria-hidden="true"
       >
         <img
@@ -81,12 +123,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 3: SUNFLOWER FOREGROUND (z-index: 3)
-          Lush, prominent foreground sunflowers anchored at bottom-0
+          Foreground sunflowers anchored at bottom-0 with fastest parallax movement
           Reaches up to naturally overlap farmer's lower body with vibrant blooms
           ========================================================================= */}
       <div
-        className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
-        style={{ height: 'clamp(210px, 34vw, 460px)' }}
+        className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none transition-transform duration-200 ease-out will-change-transform"
+        style={{ 
+          height: 'clamp(210px, 34vw, 460px)',
+          transform: `translate3d(${mouseOffset.x * 24}px, ${-scrollY * 0.05 + mouseOffset.y * 12}px, 0)`,
+        }}
         aria-hidden="true"
       >
         <img
@@ -147,8 +192,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             {/* Products Dropdown Menu on Hover */}
             <div
               className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleNavMouseEnter}
+              onMouseLeave={handleNavMouseLeave}
             >
               <button
                 type="button"
@@ -166,8 +211,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               {productsDropdownOpen && (
                 <div
                   className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.25)] border border-white/60 p-2 z-50 text-left animate-in fade-in zoom-in-95 duration-150"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                  onMouseEnter={handleNavMouseEnter}
+                  onMouseLeave={handleNavMouseLeave}
                 >
                   <div className="px-3 pt-1 pb-1.5 text-[10.5px] font-black uppercase tracking-wider text-[#E50201]">
                     Seed Categories
@@ -324,9 +369,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* =========================================================================
           UI LAYER: HERO CONTENT (z-index: 20)
           Positioned comfortably on the left side: heading, subtitle, and CTA buttons
-          No floating cards or unnecessary decorative elements
+          Glides with subtle parallax and soft fade on scroll
           ========================================================================= */}
-      <div className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-2 xs:pt-3 sm:pt-6 md:pt-8 lg:pt-11 xl:pt-14 pb-0">
+      <div 
+        className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-2 xs:pt-3 sm:pt-6 md:pt-8 lg:pt-11 xl:pt-14 pb-0 will-change-transform"
+        style={{
+          transform: `translate3d(0, ${scrollY * 0.14}px, 0)`,
+          opacity: Math.max(0, 1 - scrollY / 650),
+        }}
+      >
         <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
