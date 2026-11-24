@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import HeroContent from './HeroContent';
-import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown, RotateCcw } from 'lucide-react';
 
 interface HeroProps {
   onNavigate?: (page: string, crop?: string) => void;
@@ -25,28 +25,44 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const dropdownTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Parallax & Camera Entry State
+  // 3-Stage 3D Camera Reveal State: Tractor -> Farmer -> Flowers -> Settled
+  type RevealStage = 'tractor' | 'farmer' | 'flowers' | 'settled';
+  const [stage, setStage] = useState<RevealStage>('tractor');
+  const [replayCount, setReplayCount] = useState(0);
+
+  // Parallax tracking
   const [scrollY, setScrollY] = useState(0);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-  const [isEntered, setIsEntered] = useState(false);
-  const [cameraSettled, setCameraSettled] = useState(false);
+
+  const replaySequence = () => {
+    setReplayCount((c) => c + 1);
+  };
 
   useEffect(() => {
-    // Trigger cinematic camera dolly zoom-out entry on mount
-    const enterTimer = setTimeout(() => {
-      setIsEntered(true);
-    }, 60);
+    // Stage 1 (0ms - 850ms): Tight camera focus directly on background tractor
+    setStage('tractor');
 
-    // Settle into interactive real-time mouse parallax after initial camera motion
+    // Stage 2 (850ms - 2100ms): Dolly zoom-out begins, proud farmer emerges
+    const farmerTimer = setTimeout(() => {
+      setStage('farmer');
+    }, 850);
+
+    // Stage 3 (2100ms - 3300ms): Wide shot completes, foreground sunflowers bloom across bottom
+    const flowersTimer = setTimeout(() => {
+      setStage('flowers');
+    }, 2100);
+
+    // Stage 4 (3300ms+): Settled state, real-time mouse 3D orbit and scroll parallax take over
     const settledTimer = setTimeout(() => {
-      setCameraSettled(true);
-    }, 2400);
+      setStage('settled');
+    }, 3300);
 
     return () => {
-      clearTimeout(enterTimer);
+      clearTimeout(farmerTimer);
+      clearTimeout(flowersTimer);
       clearTimeout(settledTimer);
     };
-  }, []);
+  }, [replayCount]);
 
   useEffect(() => {
     let ticking = false;
@@ -112,16 +128,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         className="absolute inset-0 w-full h-full pointer-events-none animate-camera-drift will-change-transform"
         style={{
           transformStyle: 'preserve-3d',
-          transform: `rotateX(${
-            isEntered ? (mouseOffset.y * -3.2) + (scrollY * 0.012) : 4.5
-          }deg) rotateY(${
-            isEntered ? mouseOffset.x * 4.2 : -3.5
-          }deg) rotateZ(${
-            isEntered ? mouseOffset.x * -0.5 : 0.8
-          }deg) ${!isEntered ? 'scale(1.12)' : 'scale(1)'}`,
-          transition: cameraSettled
+          transform: stage === 'tractor'
+            ? 'rotateX(2.8deg) rotateY(-2.2deg) scale(1.06)'
+            : stage === 'farmer'
+            ? 'rotateX(1.4deg) rotateY(-1deg) scale(1.02)'
+            : `rotateX(${(mouseOffset.y * -3.2) + (scrollY * 0.012)}deg) rotateY(${mouseOffset.x * 4.2}deg) rotateZ(${mouseOffset.x * -0.5}deg) scale(1)`,
+          transition: stage === 'settled'
             ? 'transform 260ms cubic-bezier(0.2, 0.8, 0.4, 1)'
-            : 'transform 2400ms cubic-bezier(0.16, 1, 0.3, 1)',
+            : 'transform 1300ms cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
         {/* Layer 1: Deep Background at Z = -160px */}
@@ -129,14 +143,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none will-change-transform"
           style={{
             transformStyle: 'preserve-3d',
-            transform: isEntered
-              ? `translate3d(${mouseOffset.x * -8}px, ${scrollY * 0.14 + mouseOffset.y * -6}px, -160px) scale(${1.18 + scrollY * 0.00015})`
-              : 'translate3d(0, -25px, -160px) scale(1.28)',
-            opacity: isEntered ? 1 : 0.4,
-            filter: isEntered ? 'blur(0px)' : 'blur(8px)',
-            transition: cameraSettled
+            transform: stage === 'tractor'
+              ? 'translate3d(8%, -15%, -160px) scale(1.68)'
+              : stage === 'farmer'
+              ? 'translate3d(2%, -4%, -160px) scale(1.26)'
+              : `translate3d(${mouseOffset.x * -8}px, ${scrollY * 0.14 + mouseOffset.y * -6}px, -160px) scale(${1.18 + scrollY * 0.00015})`,
+            opacity: 1,
+            transition: stage === 'settled'
               ? 'transform 200ms ease-out'
-              : 'transform 2400ms cubic-bezier(0.16, 1, 0.3, 1), filter 2000ms ease-out, opacity 1400ms ease-out',
+              : 'transform 1250ms cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
           <img
@@ -152,13 +167,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px] will-change-transform"
           style={{
             transformStyle: 'preserve-3d',
-            transform: isEntered
-              ? `translate3d(${mouseOffset.x * 12}px, ${scrollY * 0.09 + mouseOffset.y * 6}px, 0px) scale(1)`
-              : 'translate3d(0, 65px, 0px) scale(1.12)',
-            opacity: isEntered ? 1 : 0,
-            transition: cameraSettled
+            transform: stage === 'tractor'
+              ? 'translate3d(0, 110px, 0px) scale(0.92)'
+              : stage === 'farmer'
+              ? 'translate3d(0, 0px, 0px) scale(1)'
+              : `translate3d(${mouseOffset.x * 12}px, ${scrollY * 0.09 + mouseOffset.y * 6}px, 0px) scale(1)`,
+            opacity: stage === 'tractor' ? 0 : 1,
+            transition: stage === 'settled'
               ? 'transform 200ms ease-out'
-              : 'transform 2200ms cubic-bezier(0.16, 1, 0.3, 1) 250ms, opacity 1800ms ease-out 250ms',
+              : 'transform 1250ms cubic-bezier(0.16, 1, 0.3, 1), opacity 950ms ease-out',
           }}
           aria-hidden="true"
         >
@@ -176,13 +193,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           style={{ 
             transformStyle: 'preserve-3d',
             height: 'clamp(210px, 34vw, 460px)',
-            transform: isEntered
-              ? `translate3d(${mouseOffset.x * 22}px, ${-scrollY * 0.05 + mouseOffset.y * 10}px, 80px) scale(1)`
-              : 'translate3d(0, 85px, 80px) scale(1.15)',
-            opacity: isEntered ? 1 : 0,
-            transition: cameraSettled
+            transform: (stage === 'tractor' || stage === 'farmer')
+              ? 'translate3d(0, 130px, 80px) scale(0.94)'
+              : stage === 'flowers'
+              ? 'translate3d(0, 0px, 80px) scale(1)'
+              : `translate3d(${mouseOffset.x * 22}px, ${-scrollY * 0.05 + mouseOffset.y * 10}px, 80px) scale(1)`,
+            opacity: (stage === 'tractor' || stage === 'farmer') ? 0 : 1,
+            transition: stage === 'settled'
               ? 'transform 200ms ease-out'
-              : 'transform 2200ms cubic-bezier(0.16, 1, 0.3, 1) 380ms, opacity 1800ms ease-out 380ms',
+              : 'transform 1150ms cubic-bezier(0.16, 1, 0.3, 1), opacity 850ms ease-out',
           }}
           aria-hidden="true"
         >
@@ -202,9 +221,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <header 
         className="relative z-[30] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 pt-4 sm:pt-5 lg:pt-6 will-change-transform"
         style={{
-          transform: isEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, -30px, 0)',
-          opacity: isEntered ? 1 : 0,
-          transition: 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 650ms, opacity 1000ms ease-out 650ms',
+          transform: stage === 'tractor'
+            ? 'translate3d(0, -35px, 0)'
+            : stage === 'farmer'
+            ? 'translate3d(0, -12px, 0)'
+            : 'translate3d(0, 0, 0)',
+          opacity: stage === 'tractor' ? 0 : stage === 'farmer' ? 0.6 : 1,
+          transition: 'transform 1000ms cubic-bezier(0.16, 1, 0.3, 1), opacity 800ms ease-out',
         }}
       >
         <div className="flex items-center justify-between h-12 sm:h-14 lg:h-16">
@@ -339,10 +362,31 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             >
               Contact Us
             </a>
+
+            {/* 3D Camera Replay Trigger */}
+            <button
+              type="button"
+              onClick={replaySequence}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/50 text-white text-[12px] font-bold shadow-[0_2px_10px_rgba(0,0,0,0.2)] transition-all hover:scale-105 active:scale-95 cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
+              title="Replay 3D Camera Zoom-out Sequence"
+            >
+              <RotateCcw className="w-3 h-3 text-[#FF4D4D]" />
+              <span>3D Motion</span>
+            </button>
           </nav>
 
-          {/* Mobile Hamburger Button */}
-          <div className="flex md:hidden items-center">
+          {/* Mobile 3D Motion + Hamburger */}
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              type="button"
+              onClick={replaySequence}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-2xl bg-white/95 text-[#102235] text-[11px] font-extrabold shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all active:scale-95 cursor-pointer"
+              title="Replay 3D Camera Motion"
+            >
+              <RotateCcw className="w-3 h-3 text-[#E50201]" />
+              <span>3D</span>
+            </button>
+
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -434,15 +478,19 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div 
         className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-2 xs:pt-3 sm:pt-6 md:pt-8 lg:pt-11 xl:pt-14 pb-0 will-change-transform"
         style={{
-          transform: isEntered
-            ? `translate3d(0, ${scrollY * 0.14}px, 0)`
-            : 'translate3d(0, 45px, 0)',
-          opacity: isEntered
-            ? Math.max(0, 1 - scrollY / 650)
-            : 0,
-          transition: cameraSettled
+          transform: stage === 'tractor'
+            ? 'translate3d(0, 45px, 0)'
+            : stage === 'farmer'
+            ? 'translate3d(0, 18px, 0)'
+            : `translate3d(0, ${scrollY * 0.14}px, 0)`,
+          opacity: stage === 'tractor'
+            ? 0
+            : stage === 'farmer'
+            ? 0.5
+            : Math.max(0, 1 - scrollY / 650),
+          transition: stage === 'settled'
             ? 'none'
-            : 'transform 1600ms cubic-bezier(0.16, 1, 0.3, 1) 450ms, opacity 1400ms ease-out 450ms',
+            : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms ease-out',
         }}
       >
         <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
