@@ -60,10 +60,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 2: FARMER (z-index: 2)
-          Transparent 'Proud Farmer in Traditional White Attire' shifted slightly upwards
+          Transparent 'Proud Farmer in Traditional White Attire' grounded at bottom
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-3 sm:bottom-5 lg:bottom-6 xl:bottom-8 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[58%] xs:h-[63%] sm:h-[68%] md:h-[72%] lg:h-[76%] xl:h-[80%] max-h-[660px]"
+        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[58%] xs:h-[63%] sm:h-[68%] md:h-[72%] lg:h-[76%] xl:h-[80%] max-h-[660px]"
         aria-hidden="true"
       >
         <img
@@ -76,10 +76,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 3: SUNFLOWER FOREGROUND (z-index: 3)
-          Transparent 'Sunflower Border with Open Center' shifted slightly upwards together
+          Transparent 'Sunflower Border with Open Center' naturally anchored at bottom
           ========================================================================= */}
       <div
-        className="absolute bottom-3 sm:bottom-5 lg:bottom-6 xl:bottom-8 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
+        className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
         style={{ height: 'clamp(180px, 28vw, 340px)' }}
         aria-hidden="true"
       >
@@ -88,18 +88,6 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           alt="Foreground Sunflower Border"
           className="w-full h-full object-cover object-bottom pointer-events-none select-none"
           loading="eager"
-        />
-      </div>
-
-      {/* =========================================================================
-          LAYER 4: GREEN LAYERED WAVE BORDER (z-index: 10)
-          Restored to exact full original wave proportions without any cropping
-          ========================================================================= */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none select-none z-[10]">
-        <img
-          src="/wave-border.png"
-          alt="Layered Green Wave Border"
-          className="w-full h-auto block select-none pointer-events-none"
         />
       </div>
 
