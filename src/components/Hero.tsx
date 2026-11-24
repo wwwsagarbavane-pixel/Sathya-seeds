@@ -60,11 +60,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 2: FARMER (z-index: 2)
-          Transparent 'Proud Farmer in Traditional White Attire' grounded at bottom.
-          Natural height below navbar, lower body seamlessly nestled in sunflowers.
+          Transparent 'Proud Farmer in Traditional White Attire' shifted slightly upwards
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[58%] xs:h-[63%] sm:h-[68%] md:h-[72%] lg:h-[76%] xl:h-[80%] max-h-[660px]"
+        className="absolute z-[2] bottom-3 sm:bottom-5 lg:bottom-6 xl:bottom-8 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[58%] xs:h-[63%] sm:h-[68%] md:h-[72%] lg:h-[76%] xl:h-[80%] max-h-[660px]"
         aria-hidden="true"
       >
         <img
@@ -77,11 +76,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 3: SUNFLOWER FOREGROUND (z-index: 3)
-          Transparent 'Sunflower Border with Open Center' across full width.
-          Vibrant sunflowers & leaves overlap farmer's lower torso for 100% natural blend.
+          Transparent 'Sunflower Border with Open Center' shifted slightly upwards together
           ========================================================================= */}
       <div
-        className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
+        className="absolute bottom-3 sm:bottom-5 lg:bottom-6 xl:bottom-8 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
         style={{ height: 'clamp(180px, 28vw, 340px)' }}
         aria-hidden="true"
       >
