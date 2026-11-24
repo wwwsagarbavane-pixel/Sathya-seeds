@@ -66,33 +66,33 @@ export const Products: React.FC = () => {
       <div className="relative max-w-[1920px] mx-auto px-5 sm:px-10 lg:px-14 xl:px-16">
         
         {/* Section Header */}
-        <div className="text-center max-w-4xl lg:max-w-5xl mx-auto">
+        <div className="text-center max-w-4xl lg:max-w-5xl mx-auto px-2">
           {/* Eyebrow with green lines on left and right */}
-          <div className="inline-flex items-center justify-center gap-3">
-            <span className="w-8 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
-            <span className="text-xs sm:text-[13px] font-extrabold tracking-[0.18em] text-[#087C19] uppercase">
+          <div className="inline-flex items-center justify-center gap-2.5 sm:gap-3">
+            <span className="w-6 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
+            <span className="text-[11px] sm:text-[13px] font-extrabold tracking-[0.16em] sm:tracking-[0.18em] text-[#087C19] uppercase">
               OUR PRODUCTS
             </span>
-            <span className="w-8 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
+            <span className="w-6 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
           </div>
 
-          {/* Main Section Headline: Stays on one unified line */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-[#102235] mt-3 sm:mt-4 leading-tight">
-            High-Quality Seeds for <span className="text-[#087C19] whitespace-nowrap">Better Yields</span>
+          {/* Main Section Headline: Stays responsive on all mobile screens */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-[#102235] mt-2.5 sm:mt-4 leading-tight">
+            High-Quality Seeds for <span className="text-[#087C19] inline-block">Better Yields</span>
           </h2>
 
           {/* Subtitle Description */}
-          <p className="text-xs sm:text-sm lg:text-[15px] text-slate-600 max-w-2xl mx-auto mt-3 sm:mt-3.5 leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm lg:text-[15px] text-slate-600 max-w-2xl mx-auto mt-2.5 sm:mt-3.5 leading-relaxed font-normal">
             A trusted range of high-performing seeds for key crops, designed for higher productivity, resilience, and greater farm profitability.
           </p>
         </div>
 
         {/* 5 Product Cards Grid - Balanced Ratio & Responsive Breakpoints */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 max-w-[1720px] xl:max-w-[1800px] mx-auto">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 max-w-[1720px] xl:max-w-[1800px] mx-auto">
           {PRODUCTS_DATA.map((product) => (
             <div
               key={product.id}
-              className="relative bg-white rounded-[26px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(8,124,25,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group"
+              className="relative bg-white rounded-[24px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(8,124,25,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group max-w-[320px] xs:max-w-[340px] sm:max-w-none w-full mx-auto"
             >
               {/* Product Card Image Container (overflow-hidden ONLY for the image corners) */}
               <div className="relative w-full h-[165px] sm:h-[180px] lg:h-[190px] overflow-hidden rounded-t-[26px] sm:rounded-t-[28px] bg-slate-100">

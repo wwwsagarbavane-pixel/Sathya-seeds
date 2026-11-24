@@ -124,19 +124,29 @@ export const ResearchDevelopment: React.FC = () => {
             </p>
           </div>
 
-          {/* Row 4: Policy's (Left) + Greenhouse Photo (Right) */}
+          {/* Row 4: Greenhouse Photo (Right on desktop, top on mobile) + Policy's */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* Left: Policy List */}
-            <div className="lg:col-span-6 text-left">
-              <div className="flex items-center gap-2 mb-6">
+            {/* Greenhouse Facility Photo (High-Res Generated 16:9) */}
+            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#D8F3C5] shadow-[0_12px_36px_rgba(8,124,25,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(8,124,25,0.15)] transition-all duration-300 order-1 lg:order-2">
+              <img
+                src="/rd/greenhouse.jpg"
+                alt="Modern Greenhouse Polyhouse Facility"
+                className="w-full h-full aspect-[16/9] object-cover group-hover:scale-103 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Policy List */}
+            <div className="lg:col-span-6 text-left order-2 lg:order-1">
+              <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <h3 className="text-2xl sm:text-3xl font-black text-[#087C19] tracking-tight">
                   Policy&apos;s
                 </h3>
                 <Leaf className="w-5 h-5 text-[#087C19] fill-current stroke-none" />
               </div>
 
-              <div className="space-y-4 sm:space-y-5">
+              <div className="space-y-3.5 sm:space-y-5">
                 {[
                   {
                     num: 1,
@@ -155,8 +165,8 @@ export const ResearchDevelopment: React.FC = () => {
                     text: "Deployment of cutting-edge biotechnology, rigorous testing methodologies, and high breeding standards across all research activities."
                   }
                 ].map((item) => (
-                  <div key={item.num} className="flex items-start gap-3.5 sm:gap-4">
-                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#087C19] text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                  <div key={item.num} className="flex items-start gap-3 sm:gap-4">
+                    <span className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full bg-[#087C19] text-white font-extrabold text-[11px] xs:text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
                       {item.num}
                     </span>
                     <p className="text-xs sm:text-sm lg:text-[14px] text-slate-700 font-medium leading-relaxed">
@@ -165,16 +175,6 @@ export const ResearchDevelopment: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Right: Greenhouse Facility Photo (High-Res Generated 16:9) */}
-            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#D8F3C5] shadow-[0_12px_36px_rgba(8,124,25,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(8,124,25,0.15)] transition-all duration-300">
-              <img
-                src="/rd/greenhouse.jpg"
-                alt="Modern Greenhouse Polyhouse Facility"
-                className="w-full h-full aspect-[16/9] object-cover group-hover:scale-103 transition-transform duration-500"
-                loading="lazy"
-              />
             </div>
 
           </div>

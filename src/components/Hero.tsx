@@ -15,11 +15,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       className="relative w-full min-h-[580px] xs:min-h-[620px] sm:min-h-[640px] md:aspect-[1671/941] lg:min-h-[680px] overflow-hidden select-none bg-slate-900 flex flex-col justify-between"
       aria-label="Sathya Seeds Hero Section"
     >
-      {/* 1. Main Background Image: 100% Full Panoramic Photo */}
+      {/* 1. Main Background Image: 100% Full Panoramic Photo (Farmer anchored nicely on right on mobile) */}
       <img
         src="/hero-farmer-halo.png"
         alt="Farmer Beneath a Sunset Halo"
-        className="absolute inset-0 w-full h-full object-cover object-[center_top] sm:object-top z-0 pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-cover object-[75%_top] sm:object-top z-0 pointer-events-none select-none"
       />
 
       {/* 2. Floating Header in the Open Sky */}
@@ -197,9 +197,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         )}
       </header>
 
-      {/* 3. Hero Content: Positioned higher up in the open sky */}
+      {/* 3. Hero Content: Positioned higher up in the open sky, constrained on mobile to avoid farmer overlap */}
       <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-3 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20">
-        <div className="max-w-lg sm:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
+        <div className="w-full max-w-[80%] xs:max-w-[74%] sm:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
       </div>

@@ -34,13 +34,13 @@ export const VisionMission: React.FC = () => {
         </div>
 
         {/* 4. Two Vision & Mission Cards Grid */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10 max-w-[1360px] xl:max-w-[1480px] mx-auto">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 xl:gap-10 max-w-[1360px] xl:max-w-[1480px] mx-auto">
           
           {/* Card 1: Our Vision */}
-          <div className="relative bg-white rounded-[28px] sm:rounded-[32px] border border-gray-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_48px_rgba(8,124,25,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col sm:flex-row overflow-hidden group">
+          <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_48px_rgba(8,124,25,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col sm:flex-row overflow-hidden group max-w-[360px] xs:max-w-md sm:max-w-none mx-auto w-full">
             
             {/* Left Image: Seedling in cupped hands */}
-            <div className="relative w-full sm:w-[46%] lg:w-[44%] flex-shrink-0 h-[220px] sm:h-auto overflow-hidden bg-slate-50">
+            <div className="relative w-full sm:w-[46%] lg:w-[44%] flex-shrink-0 h-[190px] xs:h-[210px] sm:h-auto overflow-hidden bg-slate-50">
               <img
                 src="./crops/vision-seedling.jpg"
                 alt="Our Vision Seedling in Hands"
@@ -67,18 +67,18 @@ export const VisionMission: React.FC = () => {
             </div>
 
             {/* Right Content */}
-            <div className="flex-1 p-6 sm:p-8 lg:p-9 flex flex-col justify-center text-left bg-white z-10">
-              <div className="flex items-center gap-3.5 mb-3.5">
+            <div className="flex-1 p-5 xs:p-6 sm:p-8 lg:p-9 flex flex-col justify-center text-left bg-white z-10">
+              <div className="flex items-center gap-3 mb-2.5 sm:mb-3.5">
                 {/* Mint Icon Badge */}
-                <div className="w-12 h-12 rounded-2xl bg-[#E8F8DE] flex items-center justify-center flex-shrink-0 shadow-sm border border-[#DDF4C9]">
-                  <VisionEyeIcon className="w-6 h-6" />
+                <div className="w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#E8F8DE] flex items-center justify-center flex-shrink-0 shadow-sm border border-[#DDF4C9]">
+                  <VisionEyeIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 
                 <div>
-                  <h3 className="text-2xl sm:text-[25px] font-black text-[#087C19] tracking-tight leading-none">
+                  <h3 className="text-xl xs:text-2xl sm:text-[25px] font-black text-[#087C19] tracking-tight leading-none">
                     Our Vision
                   </h3>
-                  <span className="w-9 h-[2.5px] bg-[#087C19] rounded-full block mt-1.5" />
+                  <span className="w-8 sm:w-9 h-[2.5px] bg-[#087C19] rounded-full block mt-1.5" />
                 </div>
               </div>
 
@@ -90,10 +90,10 @@ export const VisionMission: React.FC = () => {
           </div>
 
           {/* Card 2: Our Mission */}
-          <div className="relative bg-white rounded-[28px] sm:rounded-[32px] border border-gray-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_48px_rgba(8,124,25,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col sm:flex-row overflow-hidden group">
+          <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_48px_rgba(8,124,25,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col sm:flex-row overflow-hidden group max-w-[360px] xs:max-w-md sm:max-w-none mx-auto w-full">
             
             {/* Left Image: Tractor in green crop field */}
-            <div className="relative w-full sm:w-[46%] lg:w-[44%] flex-shrink-0 h-[220px] sm:h-auto overflow-hidden bg-slate-50">
+            <div className="relative w-full sm:w-[46%] lg:w-[44%] flex-shrink-0 h-[190px] xs:h-[210px] sm:h-auto overflow-hidden bg-slate-50">
               <img
                 src="./crops/mission-tractor.jpg"
                 alt="Our Mission Tractor in Field"
@@ -120,18 +120,18 @@ export const VisionMission: React.FC = () => {
             </div>
 
             {/* Right Content */}
-            <div className="flex-1 p-6 sm:p-8 lg:p-9 flex flex-col justify-center text-left bg-white z-10">
-              <div className="flex items-center gap-3.5 mb-3.5">
+            <div className="flex-1 p-5 xs:p-6 sm:p-8 lg:p-9 flex flex-col justify-center text-left bg-white z-10">
+              <div className="flex items-center gap-3 mb-2.5 sm:mb-3.5">
                 {/* Mint Icon Badge */}
-                <div className="w-12 h-12 rounded-2xl bg-[#E8F8DE] flex items-center justify-center flex-shrink-0 shadow-sm border border-[#DDF4C9]">
-                  <MissionFlagIcon className="w-6 h-6" />
+                <div className="w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#E8F8DE] flex items-center justify-center flex-shrink-0 shadow-sm border border-[#DDF4C9]">
+                  <MissionFlagIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 
                 <div>
-                  <h3 className="text-2xl sm:text-[25px] font-black text-[#087C19] tracking-tight leading-none">
+                  <h3 className="text-xl xs:text-2xl sm:text-[25px] font-black text-[#087C19] tracking-tight leading-none">
                     Our Mission
                   </h3>
-                  <span className="w-9 h-[2.5px] bg-[#087C19] rounded-full block mt-1.5" />
+                  <span className="w-8 sm:w-9 h-[2.5px] bg-[#087C19] rounded-full block mt-1.5" />
                 </div>
               </div>
 

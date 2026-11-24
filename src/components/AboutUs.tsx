@@ -96,11 +96,11 @@ export const AboutUs: React.FC = () => {
           {/* -----------------------------------------------------------------------
               Card 1: Chairman & Managing Director Message
               ----------------------------------------------------------------------- */}
-          <div className="relative bg-gradient-to-r from-white via-[#FCFDFB] to-[#F5FAF1] rounded-[26px] sm:rounded-[30px] border border-[#E2F5D5] shadow-[0_8px_30px_rgba(8,124,25,0.06)] p-5 sm:p-7 lg:p-8 flex flex-col md:flex-row items-center gap-6 lg:gap-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(8,124,25,0.12)]">
+          <div className="relative bg-gradient-to-r from-white via-[#FCFDFB] to-[#F5FAF1] rounded-[22px] sm:rounded-[30px] border border-[#E2F5D5] shadow-[0_8px_30px_rgba(8,124,25,0.06)] p-4 xs:p-6 sm:p-7 lg:p-8 flex flex-col md:flex-row items-center gap-5 sm:gap-6 lg:gap-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(8,124,25,0.12)]">
             
             {/* Left Photo Container: Chairman */}
             <div className="relative flex-shrink-0">
-              <div className="w-36 h-40 sm:w-40 sm:h-44 rounded-2xl overflow-hidden border-2 border-[#A8E68C] bg-white shadow-sm">
+              <div className="w-32 h-36 xs:w-36 xs:h-40 sm:w-40 sm:h-44 rounded-2xl overflow-hidden border-2 border-[#A8E68C] bg-white shadow-sm">
                 <img
                   src="./about/chairman.png"
                   alt="Mr. Kosana Ramakoteswara Rao - Chairman & Managing Director"
@@ -118,20 +118,20 @@ export const AboutUs: React.FC = () => {
             {/* Right Message Content */}
             <div className="flex-1 text-left">
               
-              <div className="flex items-center justify-between gap-3 mb-3">
+              <div className="flex items-center justify-between gap-2 mb-3">
                 {/* Green Pill Badge */}
-                <div className="inline-flex items-center gap-2 bg-[#087C19] text-white text-xs sm:text-[13px] font-bold px-4 py-1.5 rounded-full shadow-sm">
+                <div className="inline-flex items-center gap-1.5 xs:gap-2 bg-[#087C19] text-white text-[11px] xs:text-xs sm:text-[13px] font-bold px-3 xs:px-4 py-1.5 rounded-full shadow-sm">
                   <Leaf className="w-3.5 h-3.5 fill-white stroke-none" />
-                  <span>Chairman & Managing Director Message</span>
+                  <span>Chairman & Managing Director</span>
                 </div>
 
                 {/* Quotation Mark Accent */}
-                <span className="text-4xl sm:text-5xl font-serif text-[#A8E68C] leading-none select-none font-black">
+                <span className="text-3xl sm:text-5xl font-serif text-[#A8E68C] leading-none select-none font-black">
                   &ldquo;
                 </span>
               </div>
 
-              <blockquote className="space-y-2.5 text-xs sm:text-[13.5px] text-slate-700 italic font-medium leading-relaxed">
+              <blockquote className="space-y-2 text-xs sm:text-[13.5px] text-slate-700 italic font-medium leading-relaxed">
                 <p>
                   To be perceived as a technology driven seed company that offers superior products and exceed customer expectations and ensure that the developed procedures meet all the statutory & regulatory requirements and achieve the supply of quality seeds in right time at an affordable price.
                 </p>
@@ -147,11 +147,11 @@ export const AboutUs: React.FC = () => {
           {/* -----------------------------------------------------------------------
               Card 2: Executive Director's Message
               ----------------------------------------------------------------------- */}
-          <div className="relative bg-gradient-to-l from-white via-[#FCFDFB] to-[#F5FAF1] rounded-[26px] sm:rounded-[30px] border border-[#E2F5D5] shadow-[0_8px_30px_rgba(8,124,25,0.06)] p-5 sm:p-7 lg:p-8 flex flex-col md:flex-row-reverse items-center gap-6 lg:gap-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(8,124,25,0.12)]">
+          <div className="relative bg-gradient-to-l from-white via-[#FCFDFB] to-[#F5FAF1] rounded-[22px] sm:rounded-[30px] border border-[#E2F5D5] shadow-[0_8px_30px_rgba(8,124,25,0.06)] p-4 xs:p-6 sm:p-7 lg:p-8 flex flex-col md:flex-row-reverse items-center gap-5 sm:gap-6 lg:gap-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(8,124,25,0.12)]">
             
             {/* Right Photo Container: Executive Director */}
             <div className="relative flex-shrink-0">
-              <div className="w-36 h-40 sm:w-40 sm:h-44 rounded-2xl overflow-hidden border-2 border-[#A8E68C] bg-white shadow-sm">
+              <div className="w-32 h-36 xs:w-36 xs:h-40 sm:w-40 sm:h-44 rounded-2xl overflow-hidden border-2 border-[#A8E68C] bg-white shadow-sm">
                 <img
                   src="./about/director.png"
                   alt="Mr. RAM KOSANA - Executive Director"
@@ -169,17 +169,17 @@ export const AboutUs: React.FC = () => {
             {/* Left Message Content */}
             <div className="flex-1 text-left">
               
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center justify-between gap-2 mb-3">
+                {/* Green Pill Badge */}
+                <div className="inline-flex items-center gap-1.5 xs:gap-2 bg-[#087C19] text-white text-[11px] xs:text-xs sm:text-[13px] font-bold px-3 xs:px-4 py-1.5 rounded-full shadow-sm">
+                  <Leaf className="w-3.5 h-3.5 fill-white stroke-none" />
+                  <span>Executive Director Message</span>
+                </div>
+
                 {/* Quotation Mark Accent */}
-                <span className="text-4xl sm:text-5xl font-serif text-[#A8E68C] leading-none select-none font-black">
+                <span className="text-3xl sm:text-5xl font-serif text-[#A8E68C] leading-none select-none font-black">
                   &ldquo;
                 </span>
-
-                {/* Green Pill Badge */}
-                <div className="inline-flex items-center gap-2 bg-[#087C19] text-white text-xs sm:text-[13px] font-bold px-4 py-1.5 rounded-full shadow-sm">
-                  <Leaf className="w-3.5 h-3.5 fill-white stroke-none" />
-                  <span>Executive Director&apos;s Message</span>
-                </div>
               </div>
 
               <blockquote className="text-xs sm:text-sm lg:text-[14.5px] text-slate-700 italic font-medium leading-relaxed">

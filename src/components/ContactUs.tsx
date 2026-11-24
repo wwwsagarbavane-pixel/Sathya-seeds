@@ -45,8 +45,8 @@ export const ContactUs: React.FC = () => {
             aria-hidden="true" 
           />
 
-          {/* ZONE 2: Heading & Description (Sits 100% in clear blue sky between farmer and card) */}
-          <div className="w-full md:w-[32%] lg:w-[30%] xl:w-[28%] text-left flex-shrink-0 z-20">
+          {/* ZONE 2: Heading & Description (Balanced on mobile, left on desktop) */}
+          <div className="w-full md:w-[32%] lg:w-[30%] xl:w-[28%] text-center md:text-left flex-shrink-0 z-20 max-w-sm md:max-w-none mx-auto md:mx-0">
             
             {/* Eyebrow: — CONTACT — */}
             <div className="inline-flex items-center gap-2.5">
@@ -67,16 +67,16 @@ export const ContactUs: React.FC = () => {
             </h2>
 
             {/* Description Paragraph */}
-            <p className="text-xs sm:text-sm lg:text-[14px] xl:text-[14.5px] text-[#334155] font-medium leading-relaxed max-w-[340px] mt-2.5 sm:mt-3 drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)]">
+            <p className="text-xs sm:text-sm lg:text-[14px] xl:text-[14.5px] text-[#334155] font-medium leading-relaxed max-w-[340px] mx-auto md:mx-0 mt-2.5 sm:mt-3 drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)]">
               We&apos;d love to hear from you. Reach out to us for product information, support or partnership enquiries.
             </p>
 
           </div>
 
-          {/* ZONE 3: Contact Information Card (Sits cleanly on right side) */}
+          {/* ZONE 3: Contact Information Card (Centered on mobile, right on desktop) */}
           <div className="w-full md:flex-1 flex justify-center md:justify-end z-20">
             
-            <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_16px_45px_rgba(0,0,0,0.08)] p-4 xs:p-5 sm:p-6 lg:p-7 w-full max-w-[460px] lg:max-w-[500px] xl:max-w-[520px] transition-all duration-300 hover:shadow-[0_20px_55px_rgba(8,124,25,0.12)]">
+            <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_16px_45px_rgba(0,0,0,0.08)] p-4 xs:p-5 sm:p-6 lg:p-7 w-full max-w-[420px] xs:max-w-[460px] lg:max-w-[500px] xl:max-w-[520px] mx-auto md:mx-0 transition-all duration-300 hover:shadow-[0_20px_55px_rgba(8,124,25,0.12)]">
               
               {/* Item 1: Our Address */}
               <div className="flex items-start justify-between gap-3.5 sm:gap-4">

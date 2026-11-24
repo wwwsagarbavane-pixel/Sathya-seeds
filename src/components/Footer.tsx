@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* 3. Main Footer Content Container (1920px max-width) */}
-      <div className="relative max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20 pt-12 sm:pt-14 lg:pt-16 pb-24 sm:pb-28 lg:pb-36 z-10">
+      <div className="relative max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-14 xl:px-20 pt-10 sm:pt-14 lg:pt-16 pb-28 sm:pb-32 lg:pb-36 z-10">
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10">
           
