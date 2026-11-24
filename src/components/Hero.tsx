@@ -43,6 +43,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     <section
       id="home"
       className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[640px] xs:min-h-[680px] sm:min-h-[720px] md:min-h-[740px] md:aspect-[1672/941] flex flex-col justify-between"
+      style={{
+        WebkitMaskImage: 'linear-gradient(to bottom, black 91%, transparent 100%)',
+        maskImage: 'linear-gradient(to bottom, black 91%, transparent 100%)',
+      }}
       aria-label="Sri Sathya Seeds Hero Section"
     >
       {/* =========================================================================
@@ -60,10 +64,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 2: FARMER (z-index: 2)
-          Transparent 'Proud Farmer in Traditional White Attire' lifted slightly upwards
+          Transparent 'Proud Farmer in Traditional White Attire' grounded at bottom-0
+          High, prominent upper body while bottom is anchored without floating seams
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-4 sm:bottom-6 lg:bottom-8 xl:bottom-10 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[58%] xs:h-[63%] sm:h-[68%] md:h-[72%] lg:h-[76%] xl:h-[80%] max-h-[660px]"
+        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[64%] xs:h-[69%] sm:h-[74%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px]"
         aria-hidden="true"
       >
         <img
@@ -76,11 +81,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 3: SUNFLOWER FOREGROUND (z-index: 3)
-          Transparent 'Sunflower Border with Open Center' lifted together with farmer
+          Tall foreground sunflowers anchored at bottom-0 (ZERO gaps, ZERO seams)
+          Reaches up to naturally overlap farmer's lower body with vibrant blooms
           ========================================================================= */}
       <div
-        className="absolute bottom-3 sm:bottom-5 lg:bottom-7 xl:bottom-9 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
-        style={{ height: 'clamp(190px, 29vw, 350px)' }}
+        className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
+        style={{ height: 'clamp(240px, 34vw, 440px)' }}
         aria-hidden="true"
       >
         <img
@@ -90,15 +96,6 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           loading="eager"
         />
       </div>
-
-      {/* =========================================================================
-          SEAMLESS BOTTOM BLEND INTO NEXT SECTION (z-index: 12)
-          Soft atmospheric fade from white into the golden sunflower field
-          ========================================================================= */}
-      <div
-        className="absolute bottom-0 left-0 w-full h-16 sm:h-20 lg:h-28 bg-gradient-to-t from-white via-white/50 to-transparent z-[12] pointer-events-none select-none"
-        aria-hidden="true"
-      />
 
       {/* =========================================================================
           UI LAYER: FLOATING SKY HEADER (z-index: 30)
