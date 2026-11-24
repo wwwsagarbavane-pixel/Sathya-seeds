@@ -13,9 +13,9 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(options?
     const el = ref.current;
     if (!el) return;
 
-    // Check if element is already within viewport immediately on load
+    // Only mark revealed immediately if the element is already scrolled past on initial load (e.g. reload halfway down page)
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+    if (rect.bottom < 0 || (rect.top < 100 && rect.bottom > 100)) {
       setIsRevealed(true);
       return;
     }
@@ -29,7 +29,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(options?
       },
       {
         threshold: options?.threshold ?? 0.12,
-        rootMargin: options?.rootMargin ?? '0px 0px -40px 0px',
+        rootMargin: options?.rootMargin ?? '0px 0px -60px 0px',
       }
     );
 

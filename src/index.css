@@ -99,8 +99,8 @@
    ========================================================================= */
 .scroll-reveal {
   opacity: 0;
-  transform: translate3d(0, 36px, 0);
-  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1), transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 48px, 0);
+  transition: opacity 1050ms cubic-bezier(0.16, 1, 0.3, 1), transform 1050ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -111,8 +111,8 @@
 
 .scroll-reveal-left {
   opacity: 0;
-  transform: translate3d(-42px, 0, 0);
-  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(-52px, 0, 0);
+  transition: opacity 1150ms cubic-bezier(0.16, 1, 0.3, 1), transform 1150ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -123,8 +123,8 @@
 
 .scroll-reveal-right {
   opacity: 0;
-  transform: translate3d(42px, 0, 0);
-  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(52px, 0, 0);
+  transition: opacity 1150ms cubic-bezier(0.16, 1, 0.3, 1), transform 1150ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -135,8 +135,8 @@
 
 .scroll-reveal-scale {
   opacity: 0;
-  transform: scale(0.92) translate3d(0, 30px, 0);
-  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1), transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.92) translate3d(0, 38px, 0);
+  transition: opacity 1100ms cubic-bezier(0.16, 1, 0.3, 1), transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 

@@ -68,11 +68,11 @@ interface ProductsProps {
 }
 
 export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
-  const { ref: sectionRef, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
+  const { ref: headerRef, isRevealed: headerRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
+  const { ref: gridRef, isRevealed: gridRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <section 
-      ref={sectionRef}
       id="solutions" 
       className="relative w-full bg-white pt-10 sm:pt-12 lg:pt-14 pb-20 sm:pb-28 lg:pb-32 overflow-hidden select-none scroll-mt-6"
       aria-label="Our Products"
@@ -83,7 +83,7 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
       <div className="relative max-w-[1920px] mx-auto px-5 sm:px-10 lg:px-14 xl:px-16">
         
         {/* Section Header with Scroll Reveal */}
-        <div className={`text-center max-w-4xl lg:max-w-5xl mx-auto px-2 scroll-reveal ${isRevealed ? 'revealed' : ''}`}>
+        <div ref={headerRef} className={`text-center max-w-4xl lg:max-w-5xl mx-auto px-2 scroll-reveal ${headerRevealed ? 'revealed' : ''}`}>
           {/* Eyebrow with red lines on left and right */}
           <div className="inline-flex items-center justify-center gap-2.5 sm:gap-3">
             <span className="w-6 sm:w-12 h-[2px] bg-[#E50201] rounded-full inline-block" />
@@ -105,7 +105,7 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
         </div>
 
         {/* 5 Product Cards Grid - Cascading Staggered Scroll Reveal */}
-        <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 max-w-[1720px] xl:max-w-[1800px] mx-auto">
+        <div ref={gridRef} className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 max-w-[1720px] xl:max-w-[1800px] mx-auto">
           {PRODUCTS_DATA.map((product, index) => (
             <div
               key={product.id}
@@ -114,10 +114,10 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               style={{
-                transitionDelay: isRevealed ? `${index * 95}ms` : '0ms',
+                transitionDelay: gridRevealed ? `${index * 135}ms` : '0ms',
               }}
               className={`relative bg-white rounded-[24px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(229,2,1,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group max-w-[320px] xs:max-w-[340px] sm:max-w-none w-full mx-auto cursor-pointer scroll-reveal ${
-                isRevealed ? 'revealed' : ''
+                gridRevealed ? 'revealed' : ''
               }`}
             >
               {/* Product Card Image Container */}
