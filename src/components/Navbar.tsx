@@ -1,15 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { Search, User, ArrowRight, Menu, X } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronDown, ArrowRight, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   activePage?: string;
   onNavigate?: (page: string, crop?: string) => void;
 }
 
+interface DropdownItem {
+  name: string;
+  crop: string;
+  icon: string;
+  tag: string;
+}
+
+const PRODUCT_CATEGORIES: DropdownItem[] = [
+  { name: 'Field Crops', crop: 'Paddy', icon: '🌾', tag: '16+ Types' },
+  { name: 'Vegetables', crop: 'Chilli', icon: '🌶️', tag: 'F1 Hybrids' },
+  { name: 'Bt Cotton (BG-II)', crop: 'Cotton', icon: '🌱', tag: 'High Yield' },
+  { name: 'Oilseeds & Pulses', crop: 'Mustard', icon: '🌻', tag: 'Resilient' },
+];
+
 const MAIN_NAV = [
   { label: 'Home', href: '#home' },
   { label: 'About Us', href: '#about-us' },
-  { label: 'Products', href: '#products' },
+  { label: 'Products', href: '#products', hasDropdown: true },
   { label: 'R&D', href: '#rd' },
   { label: 'CSR', href: '#csr' },
   { label: 'Contact Us', href: '#contact-us' },
@@ -18,16 +32,33 @@ const MAIN_NAV = [
 export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(activePage);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const dropdownTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Sync activeItem when activePage prop changes
   useEffect(() => {
     setActiveItem(activePage);
   }, [activePage]);
 
+  const handleMouseEnter = () => {
+    if (dropdownTimerRef.current) {
+      clearTimeout(dropdownTimerRef.current);
+      dropdownTimerRef.current = null;
+    }
+    setProductsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimerRef.current = setTimeout(() => {
+      setProductsDropdownOpen(false);
+    }, 150);
+  };
+
   const handleNavClick = (e: React.MouseEvent, itemLabel: string, href: string) => {
     e.preventDefault();
     setActiveItem(itemLabel);
     setMobileMenuOpen(false);
+    setProductsDropdownOpen(false);
 
     if (itemLabel === 'Home') {
       onNavigate?.('Home');
@@ -72,36 +103,99 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
           {/* Logo: Sri Sathya Seeds Official Logo */}
           <a 
             href="#home" 
-            className="flex items-center group select-none"
+            className="flex items-center group select-none cursor-pointer"
             onClick={(e) => handleNavClick(e, 'Home', '#home')}
           >
             <img
               src="/sathya-logo-transparent.png"
               alt="Sri Sathya Seeds - A Symbol of Trust"
-              className="h-10 sm:h-11 lg:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              className="h-9 sm:h-11 lg:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-4 lg:gap-8 h-full" aria-label="Main Navigation">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 h-full" aria-label="Main Navigation">
             {MAIN_NAV.map((item) => {
               const isCurrent = activeItem === item.label;
               const isProducts = item.label === 'Products';
 
               if (isProducts) {
                 return (
-                  <button
+                  <div
                     key={item.label}
-                    type="button"
-                    onClick={(e) => handleNavClick(e, item.label, item.href)}
-                    className={`transition-all duration-200 cursor-pointer ${
-                      isCurrent
-                        ? 'bg-[#087C19] text-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-[0_2px_8px_rgba(8,124,25,0.3)]'
-                        : 'py-2 text-[14px] sm:text-[15px] font-semibold text-[#102235] hover:text-[#087C19]'
-                    }`}
+                    className="relative h-full flex items-center"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    {item.label}
-                  </button>
+                    <button
+                      type="button"
+                      onClick={(e) => handleNavClick(e, item.label, item.href)}
+                      className={`relative py-2 text-[14px] sm:text-[15px] font-semibold transition-all duration-200 flex items-center gap-1 cursor-pointer ${
+                        isCurrent
+                          ? 'text-[#087C19] font-bold'
+                          : 'text-[#102235] hover:text-[#087C19]'
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          productsDropdownOpen ? 'rotate-180 text-[#087C19]' : 'text-slate-400'
+                        }`}
+                      />
+
+                      {/* Active Underline Bar */}
+                      {isCurrent && (
+                        <span className="absolute -bottom-4 lg:-bottom-[18px] left-0 right-0 h-[2.5px] bg-[#087C19] rounded-full" />
+                      )}
+                    </button>
+
+                    {/* Products Dropdown Menu on Hover */}
+                    {productsDropdownOpen && (
+                      <div
+                        className="absolute top-[calc(100%-6px)] left-0 w-64 bg-white rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.14)] border border-gray-100 p-2 z-50 text-left animate-in fade-in zoom-in-95 duration-150"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <div className="px-3 pt-1 pb-1.5 text-[10.5px] font-black uppercase tracking-wider text-[#087C19]">
+                          Seed Categories
+                        </div>
+
+                        {PRODUCT_CATEGORIES.map((cat) => (
+                          <button
+                            key={cat.name}
+                            type="button"
+                            onClick={() => {
+                              onNavigate?.('Products', cat.crop);
+                              setProductsDropdownOpen(false);
+                            }}
+                            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-[13px] font-bold text-slate-800 hover:text-[#087C19] hover:bg-[#EBF8E3] transition-colors cursor-pointer group/cat text-left"
+                          >
+                            <span className="flex items-center gap-2">
+                              <span>{cat.icon}</span>
+                              <span>{cat.name}</span>
+                            </span>
+                            <span className="text-[10.5px] font-medium text-slate-400 group-hover/cat:text-[#087C19]">
+                              {cat.tag}
+                            </span>
+                          </button>
+                        ))}
+
+                        <div className="pt-1.5 mt-1 border-t border-gray-100">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              onNavigate?.('Products');
+                              setProductsDropdownOpen(false);
+                            }}
+                            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-black text-[#087C19] hover:bg-[#EBF8E3] transition-colors cursor-pointer"
+                          >
+                            <span>View All 90+ Varieties</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 );
               }
 
@@ -128,37 +222,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
             })}
           </nav>
 
-          {/* Right Action Buttons: Search & Farmer Login */}
-          <div className="hidden sm:flex items-center gap-3 lg:gap-4">
-            {/* Search Button */}
-            <button
-              type="button"
-              aria-label="Search site"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-gray-700 hover:text-[#087C19] hover:bg-gray-100/80 transition-colors cursor-pointer"
-            >
-              <Search className="w-4 h-4 sm:w-[18px] sm:h-[18px] stroke-[2.2]" />
-            </button>
-
-            {/* Green Farmer Login Button */}
-            <a
-              href="#login"
-              className="group flex items-center gap-2 bg-[#087C19] hover:bg-[#075B19] active:scale-95 text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm shadow-[0_3px_12px_rgba(8,124,25,0.3)] hover:shadow-[0_4px_16px_rgba(8,124,25,0.45)] transition-all duration-200 cursor-pointer"
-            >
-              <User className="w-4 h-4 stroke-[2.2]" />
-              <span>Farmer Login</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.2] transition-transform duration-200 group-hover:translate-x-1" />
-            </a>
-          </div>
-
           {/* Mobile Menu Toggle Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile navigation menu"
               className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-[#087C19]" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
@@ -185,18 +257,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
               </button>
             );
           })}
-
-          <div className="pt-3 border-t border-gray-100">
-            <a
-              href="#login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 bg-[#087C19] hover:bg-[#075B19] text-white py-2.5 rounded-full font-semibold text-xs shadow-md transition-colors"
-            >
-              <User className="w-4 h-4" />
-              <span>Farmer Login</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
         </div>
       )}
     </header>
