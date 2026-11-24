@@ -91,10 +91,8 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans selection:bg-[#A8F044] selection:text-[#075B19]">
-      {/* 1. Header Navigation Bar (Shown on standalone pages like About Us, R&D, and Products) */}
-      {currentPage !== 'Home' && (
-        <Navbar activePage={currentPage} onNavigate={handleNavigate} />
-      )}
+      {/* 1. Global Sticky Header Navigation Bar across all pages & sections */}
+      <Navbar activePage={currentPage} onNavigate={handleNavigate} />
 
       {/* 2. Page Routing: About Us | R&D | Products | Landing Page */}
       {currentPage === 'About Us' ? (

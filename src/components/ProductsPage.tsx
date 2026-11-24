@@ -14,6 +14,7 @@ import { CROPS_DB, CropInfo, VarietyItem } from '../data/cropsData';
 
 interface ProductsPageProps {
   initialCrop?: string;
+  selectedCrop?: string;
   onNavigate?: (page: string, crop?: string) => void;
 }
 
@@ -33,7 +34,7 @@ const CROP_PILLS = [
   { key: 'redgram', label: '🌾 Redgram' },
 ];
 
-export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, onNavigate }) => {
+export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selectedCrop, onNavigate }) => {
   // Normalize initialCrop to a key in CROPS_DB
   const resolveCropKey = (cropName?: string): string => {
     if (!cropName) return 'paddy';
@@ -55,8 +56,16 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, onNavig
     return 'paddy';
   };
 
-  const [currentCropKey, setCurrentCropKey] = useState<string>(() => resolveCropKey(initialCrop));
+  const effectiveCrop = selectedCrop || initialCrop;
+  const [currentCropKey, setCurrentCropKey] = useState<string>(() => resolveCropKey(effectiveCrop));
   const [selectedVariety, setSelectedVariety] = useState<VarietyItem | null>(null);
+
+  // Sync currentCropKey whenever selectedCrop or initialCrop prop changes
+  useEffect(() => {
+    if (selectedCrop || initialCrop) {
+      setCurrentCropKey(resolveCropKey(selectedCrop || initialCrop));
+    }
+  }, [selectedCrop, initialCrop]);
 
   useEffect(() => {
     if (initialCrop) {
