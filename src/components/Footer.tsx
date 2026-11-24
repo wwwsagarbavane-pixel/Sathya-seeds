@@ -1,9 +1,13 @@
 import React from 'react';
 import { ChevronRight, MapPin, Mail, Phone, Sprout, Handshake, Leaf, TrendingUp } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export const Footer: React.FC = () => {
+  const { ref: footerRef, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
+
   return (
     <footer 
+      ref={footerRef}
       className="relative w-full bg-white overflow-hidden select-none text-[#102235]"
       aria-label="AgriGrow Site Footer"
     >
@@ -20,7 +24,9 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* 3. Main Footer Content Container (1920px max-width) */}
-      <div className="relative max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-14 xl:px-20 pt-10 sm:pt-14 lg:pt-16 pb-28 sm:pb-32 lg:pb-36 z-10">
+      <div className={`relative max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-14 xl:px-20 pt-10 sm:pt-14 lg:pt-16 pb-28 sm:pb-32 lg:pb-36 z-10 scroll-reveal ${
+        isRevealed ? 'revealed' : ''
+      }`}>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10">
           

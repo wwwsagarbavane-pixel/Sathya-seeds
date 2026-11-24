@@ -93,3 +93,55 @@
   transform-style: preserve-3d;
 }
 
+/* =========================================================================
+   BUTTERY SMOOTH SCROLL REVEAL & PARALLAX UTILITIES
+   GPU-accelerated transforms for 60-120fps viewport entrance animations
+   ========================================================================= */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1), transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translate3d(-42px, 0, 0);
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translate3d(42px, 0, 0);
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.92) translate3d(0, 30px, 0);
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1), transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1) translate3d(0, 0, 0);
+}
+

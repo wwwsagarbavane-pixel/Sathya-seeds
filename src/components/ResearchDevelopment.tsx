@@ -1,7 +1,9 @@
 import React from 'react';
 import { Microscope, Target, FlaskConical, Leaf } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export const ResearchDevelopment: React.FC = () => {
+  const { ref: sectionRef, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.08 });
   return (
     <div className="w-full bg-white select-none">
       
@@ -28,10 +30,10 @@ export const ResearchDevelopment: React.FC = () => {
       </section>
 
       {/* 2. Main Content Container */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
+      <section ref={sectionRef} className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div className={`text-center max-w-3xl mx-auto mb-8 sm:mb-10 scroll-reveal ${isRevealed ? 'revealed' : ''}`}>
           <div className="inline-flex items-center justify-center gap-3">
             <span className="w-8 sm:w-12 h-[2.5px] bg-[#E50201] rounded-full inline-block" />
             <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#E50201] tracking-tight">
@@ -45,7 +47,7 @@ export const ResearchDevelopment: React.FC = () => {
         </div>
 
         {/* Intro Paragraph */}
-        <div className="max-w-5xl mx-auto text-center mb-12 sm:mb-16">
+        <div className={`max-w-5xl mx-auto text-center mb-12 sm:mb-16 scroll-reveal ${isRevealed ? 'revealed' : ''}`}>
           <p className="text-sm sm:text-[15px] lg:text-[15.5px] text-slate-700 leading-relaxed font-normal">
             The company maintains a comprehensive 50-acre Research and Development facility located at Jonam Chunduru village, Chowdavaram panchayat, Guntur rural mandal, Guntur District. Equipped with advanced irrigation networks and modern imported laboratory instrumentation, the center supports biotechnology, seed testing, and controlled greenhouse screening. Led by a team of experienced breeders, pathologists, and technical specialists, our in-house R&amp;D is recognized by the Department of Scientific and Industrial Research (DSIR), Ministry of Science &amp; Technology, Government of India.
           </p>
@@ -55,7 +57,7 @@ export const ResearchDevelopment: React.FC = () => {
         <div className="space-y-12 sm:space-y-16 lg:space-y-20">
           
           {/* Row 1: Building Photo (Left) + Focus on Research (Right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center scroll-reveal ${isRevealed ? 'revealed' : ''}`}>
             
             {/* Left: Building Image Card (High-Res Generated 16:9) */}
             <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#FECACA] shadow-[0_12px_36px_rgba(229,2,1,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(229,2,1,0.15)] transition-all duration-300">

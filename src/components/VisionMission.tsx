@@ -1,9 +1,13 @@
 import React from 'react';
 import { VisionEyeIcon, MissionFlagIcon, SmileUnderline } from './Icons';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export const VisionMission: React.FC = () => {
+  const { ref: sectionRef, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
+
   return (
     <section 
+      ref={sectionRef}
       id="purpose" 
       className="relative w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-18 overflow-hidden select-none"
       aria-label="Our Purpose - Vision & Mission"
@@ -12,7 +16,7 @@ export const VisionMission: React.FC = () => {
       <div className="relative max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 xl:px-20 z-20">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto">
+        <div className={`text-center max-w-3xl mx-auto scroll-reveal ${isRevealed ? 'revealed' : ''}`}>
           {/* Eyebrow: — Our Purpose — */}
           <div className="inline-flex items-center justify-center gap-3">
             <span className="w-8 sm:w-11 h-[2px] bg-[#E50201] rounded-full inline-block" />
@@ -36,8 +40,10 @@ export const VisionMission: React.FC = () => {
         {/* 4. Two Vision & Mission Cards Grid */}
         <div className="mt-10 sm:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 xl:gap-10 max-w-[1360px] xl:max-w-[1480px] mx-auto">
           
-          {/* Card 1: Our Vision */}
-          <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_48px_rgba(229,2,1,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col sm:flex-row overflow-hidden group max-w-[360px] xs:max-w-md sm:max-w-none mx-auto w-full">
+          {/* Card 1: Our Vision (Slide in from Left) */}
+          <div className={`relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_48px_rgba(229,2,1,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col sm:flex-row overflow-hidden group max-w-[360px] xs:max-w-md sm:max-w-none mx-auto w-full scroll-reveal-left ${
+            isRevealed ? 'revealed' : ''
+          }`}>
             
             {/* Left Image: Seedling in cupped hands */}
             <div className="relative w-full sm:w-[46%] lg:w-[44%] flex-shrink-0 h-[190px] xs:h-[210px] sm:h-auto overflow-hidden bg-slate-50">
@@ -89,8 +95,10 @@ export const VisionMission: React.FC = () => {
 
           </div>
 
-          {/* Card 2: Our Mission */}
-          <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_48px_rgba(229,2,1,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col sm:flex-row overflow-hidden group max-w-[360px] xs:max-w-md sm:max-w-none mx-auto w-full">
+          {/* Card 2: Our Mission (Slide in from Right) */}
+          <div className={`relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_48px_rgba(229,2,1,0.12)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col sm:flex-row overflow-hidden group max-w-[360px] xs:max-w-md sm:max-w-none mx-auto w-full scroll-reveal-right ${
+            isRevealed ? 'revealed' : ''
+          }`}>
             
             {/* Left Image: Tractor in green crop field */}
             <div className="relative w-full sm:w-[46%] lg:w-[44%] flex-shrink-0 h-[190px] xs:h-[210px] sm:h-auto overflow-hidden bg-slate-50">

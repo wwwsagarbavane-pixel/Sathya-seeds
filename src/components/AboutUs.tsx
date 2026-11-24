@@ -1,7 +1,11 @@
 import React from 'react';
 import { Leaf } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export const AboutUs: React.FC = () => {
+  const { ref: storyRef, isRevealed: storyRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
+  const { ref: leadershipRef, isRevealed: leadershipRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
+
   return (
     <section 
       id="about-us" 
@@ -59,7 +63,9 @@ export const AboutUs: React.FC = () => {
       {/* =========================================================================
           2. COMPANY STORY: About Sri Sathya Seeds
           ========================================================================= */}
-      <div className="relative max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 xl:px-20 pt-12 sm:pt-16 pb-12 sm:pb-16 z-20">
+      <div ref={storyRef} className={`relative max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 xl:px-20 pt-12 sm:pt-16 pb-12 sm:pb-16 z-20 scroll-reveal ${
+        storyRevealed ? 'revealed' : ''
+      }`}>
         
         {/* Section Heading */}
         <div className="text-center max-w-4xl mx-auto">
@@ -91,12 +97,14 @@ export const AboutUs: React.FC = () => {
         {/* =========================================================================
             3. LEADERSHIP MESSAGES: Chairman & Executive Director Cards
             ========================================================================= */}
-        <div className="mt-12 sm:mt-16 space-y-8 sm:space-y-10 max-w-5xl mx-auto">
+        <div ref={leadershipRef} className="mt-12 sm:mt-16 space-y-8 sm:space-y-10 max-w-5xl mx-auto">
           
           {/* -----------------------------------------------------------------------
-              Card 1: Chairman & Managing Director Message
+              Card 1: Chairman & Managing Director Message (Slide in Left)
               ----------------------------------------------------------------------- */}
-          <div className="relative bg-gradient-to-r from-white via-[#FCFDFB] to-[#FFF5F5] rounded-[22px] sm:rounded-[30px] border border-[#FECACA] shadow-[0_8px_30px_rgba(229,2,1,0.06)] p-4 xs:p-6 sm:p-7 lg:p-8 flex flex-col md:flex-row items-center gap-5 sm:gap-6 lg:gap-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(229,2,1,0.12)]">
+          <div className={`relative bg-gradient-to-r from-white via-[#FCFDFB] to-[#FFF5F5] rounded-[22px] sm:rounded-[30px] border border-[#FECACA] shadow-[0_8px_30px_rgba(229,2,1,0.06)] p-4 xs:p-6 sm:p-7 lg:p-8 flex flex-col md:flex-row items-center gap-5 sm:gap-6 lg:gap-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(229,2,1,0.12)] scroll-reveal-left ${
+            leadershipRevealed ? 'revealed' : ''
+          }`}>
             
             {/* Left Photo Container: Chairman */}
             <div className="relative flex-shrink-0">
@@ -145,9 +153,11 @@ export const AboutUs: React.FC = () => {
           </div>
 
           {/* -----------------------------------------------------------------------
-              Card 2: Executive Director's Message
+              Card 2: Executive Director's Message (Slide in Right)
               ----------------------------------------------------------------------- */}
-          <div className="relative bg-gradient-to-l from-white via-[#FCFDFB] to-[#FFF5F5] rounded-[22px] sm:rounded-[30px] border border-[#FECACA] shadow-[0_8px_30px_rgba(229,2,1,0.06)] p-4 xs:p-6 sm:p-7 lg:p-8 flex flex-col md:flex-row-reverse items-center gap-5 sm:gap-6 lg:gap-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(229,2,1,0.12)]">
+          <div className={`relative bg-gradient-to-l from-white via-[#FCFDFB] to-[#FFF5F5] rounded-[22px] sm:rounded-[30px] border border-[#FECACA] shadow-[0_8px_30px_rgba(229,2,1,0.06)] p-4 xs:p-6 sm:p-7 lg:p-8 flex flex-col md:flex-row-reverse items-center gap-5 sm:gap-6 lg:gap-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(229,2,1,0.12)] scroll-reveal-right ${
+            leadershipRevealed ? 'revealed' : ''
+          }`}>
             
             {/* Right Photo Container: Executive Director */}
             <div className="relative flex-shrink-0">

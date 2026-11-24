@@ -1,18 +1,24 @@
 import React from 'react';
 import { SmileUnderline } from './Icons';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export const ContactUs: React.FC = () => {
+  const { ref: sectionRef, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
+
   return (
     <section 
+      ref={sectionRef}
       id="contact-us" 
       className="relative w-full h-auto py-12 sm:py-16 md:py-0 md:aspect-[1671/941] md:min-h-[580px] lg:min-h-[640px] bg-white overflow-hidden select-none flex items-center"
       aria-label="Contact Us"
     >
-      {/* 1. Main Background Image */}
+      {/* 1. Main Background Image with Subtle Parallax Depth */}
       <img
         src="/contact-farmer-bg.png"
         alt="Smiling Farmer at Sunrise"
-        className="absolute inset-0 w-full h-full object-cover object-[left_top] z-0 pointer-events-none select-none opacity-40 md:opacity-100 transition-opacity"
+        className={`absolute inset-0 w-full h-full object-cover object-[left_top] z-0 pointer-events-none select-none opacity-40 md:opacity-100 transition-all duration-1000 ${
+          isRevealed ? 'scale-100 translate-y-0' : 'scale-105 -translate-y-2'
+        }`}
       />
 
       {/* Mobile-Only Soft White Frost Backdrop (Guarantees zero text overlap on small screens) */}
@@ -21,17 +27,21 @@ export const ContactUs: React.FC = () => {
       {/* 2. Soft White Gradient at Top: Seamlessly melts the section above into the open blue sky */}
       <div className="absolute top-0 left-0 w-full h-24 sm:h-32 lg:h-40 bg-gradient-to-b from-white via-white/50 to-transparent pointer-events-none z-10" />
 
-      {/* 3. Corner Leaves Framing */}
+      {/* 3. Corner Leaves Framing with Floating Parallax Depth */}
       <img
         src="/leaf-cluster-left.png"
         alt=""
-        className="absolute top-0 left-0 w-20 sm:w-32 lg:w-40 xl:w-48 h-auto pointer-events-none select-none z-10 opacity-90"
+        className={`absolute top-0 left-0 w-20 sm:w-32 lg:w-40 xl:w-48 h-auto pointer-events-none select-none z-10 opacity-90 transition-transform duration-1000 ${
+          isRevealed ? 'translate-x-0 translate-y-0 rotate-0' : '-translate-x-4 -translate-y-4 -rotate-6'
+        }`}
       />
 
       <img
         src="/leaf-cluster-right.png"
         alt=""
-        className="absolute top-0 right-0 w-24 sm:w-44 lg:w-52 xl:w-60 h-auto pointer-events-none select-none z-10 opacity-90"
+        className={`absolute top-0 right-0 w-24 sm:w-44 lg:w-52 xl:w-60 h-auto pointer-events-none select-none z-10 opacity-90 transition-transform duration-1000 ${
+          isRevealed ? 'translate-x-0 translate-y-0 rotate-0' : 'translate-x-4 -translate-y-4 rotate-6'
+        }`}
       />
 
       {/* 4. Section Content Container: 3-Zone Flex Layout */}
@@ -45,8 +55,10 @@ export const ContactUs: React.FC = () => {
             aria-hidden="true" 
           />
 
-          {/* ZONE 2: Heading & Description (Balanced on mobile, left on desktop) */}
-          <div className="w-full md:w-[32%] lg:w-[30%] xl:w-[28%] text-center md:text-left flex-shrink-0 z-20 max-w-sm md:max-w-none mx-auto md:mx-0">
+          {/* ZONE 2: Heading & Description (Glides in from Left) */}
+          <div className={`w-full md:w-[32%] lg:w-[30%] xl:w-[28%] text-center md:text-left flex-shrink-0 z-20 max-w-sm md:max-w-none mx-auto md:mx-0 scroll-reveal-left ${
+            isRevealed ? 'revealed' : ''
+          }`}>
             
             {/* Eyebrow: — CONTACT — */}
             <div className="inline-flex items-center gap-2.5">
@@ -73,8 +85,10 @@ export const ContactUs: React.FC = () => {
 
           </div>
 
-          {/* ZONE 3: Contact Information Card (Centered on mobile, right on desktop) */}
-          <div className="w-full md:flex-1 flex justify-center md:justify-end z-20">
+          {/* ZONE 3: Contact Information Card (Scales & Elevates from Bottom) */}
+          <div className={`w-full md:flex-1 flex justify-center md:justify-end z-20 scroll-reveal-scale ${
+            isRevealed ? 'revealed' : ''
+          }`}>
             
             <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_16px_45px_rgba(0,0,0,0.08)] p-4 xs:p-5 sm:p-6 lg:p-7 w-full max-w-[420px] xs:max-w-[460px] lg:max-w-[500px] xl:max-w-[520px] mx-auto md:mx-0 transition-all duration-300 hover:shadow-[0_20px_55px_rgba(229,2,1,0.12)]">
               
