@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
               
               {/* Badge 1: Quality Seeds */}
               <div className="flex flex-col items-center text-center group">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#EBF8E3] border border-[#DCF4D0] flex items-center justify-center text-[#087C19] shadow-sm transition-transform duration-200 group-hover:scale-110">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FEF2F2] border border-[#FECACA] flex items-center justify-center text-[#E50201] shadow-sm transition-transform duration-200 group-hover:scale-110">
                   <Sprout className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.2]" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-semibold text-slate-700 leading-tight mt-1.5">
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
 
               {/* Badge 2: Farmer Support */}
               <div className="flex flex-col items-center text-center group">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#EBF8E3] border border-[#DCF4D0] flex items-center justify-center text-[#087C19] shadow-sm transition-transform duration-200 group-hover:scale-110">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FEF2F2] border border-[#FECACA] flex items-center justify-center text-[#E50201] shadow-sm transition-transform duration-200 group-hover:scale-110">
                   <Handshake className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.2]" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-semibold text-slate-700 leading-tight mt-1.5">
@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
 
               {/* Badge 3: Sustainable Farming */}
               <div className="flex flex-col items-center text-center group">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#EBF8E3] border border-[#DCF4D0] flex items-center justify-center text-[#087C19] shadow-sm transition-transform duration-200 group-hover:scale-110">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FEF2F2] border border-[#FECACA] flex items-center justify-center text-[#E50201] shadow-sm transition-transform duration-200 group-hover:scale-110">
                   <Leaf className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.2]" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-semibold text-slate-700 leading-tight mt-1.5">
@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
 
               {/* Badge 4: Higher Productivity */}
               <div className="flex flex-col items-center text-center group">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#EBF8E3] border border-[#DCF4D0] flex items-center justify-center text-[#087C19] shadow-sm transition-transform duration-200 group-hover:scale-110">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FEF2F2] border border-[#FECACA] flex items-center justify-center text-[#E50201] shadow-sm transition-transform duration-200 group-hover:scale-110">
                   <TrendingUp className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.2]" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-semibold text-slate-700 leading-tight mt-1.5">
@@ -94,7 +94,7 @@ export const Footer: React.FC = () => {
               <h3 className="text-base sm:text-[17px] font-black text-[#102235] tracking-tight">
                 Quick Links
               </h3>
-              <span className="w-8 h-[2.5px] bg-[#087C19] rounded-full block mt-1.5 mb-4" />
+              <span className="w-8 h-[2.5px] bg-[#E50201] rounded-full block mt-1.5 mb-4" />
             </div>
 
             <ul className="space-y-2.5">
@@ -109,9 +109,9 @@ export const Footer: React.FC = () => {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="group inline-flex items-center gap-1.5 text-xs sm:text-[13.5px] font-semibold text-slate-700 hover:text-[#087C19] transition-all duration-200"
+                    className="group inline-flex items-center gap-1.5 text-xs sm:text-[13.5px] font-semibold text-slate-700 hover:text-[#E50201] transition-all duration-200"
                   >
-                    <ChevronRight className="w-3.5 h-3.5 text-[#087C19] stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5" />
+                    <ChevronRight className="w-3.5 h-3.5 text-[#E50201] stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5" />
                     <span>{link.name}</span>
                   </a>
                 </li>
@@ -125,7 +125,7 @@ export const Footer: React.FC = () => {
               <h3 className="text-base sm:text-[17px] font-black text-[#102235] tracking-tight">
                 Our Products
               </h3>
-              <span className="w-8 h-[2.5px] bg-[#087C19] rounded-full block mt-1.5 mb-4" />
+              <span className="w-8 h-[2.5px] bg-[#E50201] rounded-full block mt-1.5 mb-4" />
             </div>
 
             <ul className="space-y-2.5">
@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
                 <li key={prod.name}>
                   <a
                     href={prod.href}
-                    className="group flex items-center gap-2.5 text-xs sm:text-[13.5px] font-semibold text-slate-700 hover:text-[#087C19] transition-all duration-200"
+                    className="group flex items-center gap-2.5 text-xs sm:text-[13.5px] font-semibold text-slate-700 hover:text-[#E50201] transition-all duration-200"
                   >
                     <div className="w-10 h-7 rounded-md overflow-hidden bg-slate-100 flex-shrink-0 shadow-sm border border-slate-200/80 transition-transform duration-200 group-hover:scale-105">
                       <img
@@ -162,13 +162,13 @@ export const Footer: React.FC = () => {
               <h3 className="text-base sm:text-[17px] font-black text-[#102235] tracking-tight">
                 Contact Us
               </h3>
-              <span className="w-8 h-[2.5px] bg-[#087C19] rounded-full block mt-1.5 mb-4" />
+              <span className="w-8 h-[2.5px] bg-[#E50201] rounded-full block mt-1.5 mb-4" />
             </div>
 
             <div className="space-y-3.5">
               {/* Address */}
               <div className="flex items-start gap-2.5 text-left">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#EBF8E3] text-[#087C19] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#DCF4D0]">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#FEF2F2] text-[#E50201] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#FECACA]">
                   <MapPin className="w-4 h-4 stroke-[2.2]" />
                 </div>
                 <p className="text-xs sm:text-[12.5px] text-slate-600 font-medium leading-relaxed">
@@ -181,12 +181,12 @@ export const Footer: React.FC = () => {
 
               {/* Email */}
               <div className="flex items-center gap-2.5 text-left">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#EBF8E3] text-[#087C19] flex items-center justify-center flex-shrink-0 border border-[#DCF4D0]">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#FEF2F2] text-[#E50201] flex items-center justify-center flex-shrink-0 border border-[#FECACA]">
                   <Mail className="w-4 h-4 stroke-[2.2]" />
                 </div>
                 <a
                   href="mailto:info@sathyaseeds.com"
-                  className="text-xs sm:text-[13px] font-semibold text-slate-700 hover:text-[#087C19] transition-colors"
+                  className="text-xs sm:text-[13px] font-semibold text-slate-700 hover:text-[#E50201] transition-colors"
                 >
                   info@sathyaseeds.com
                 </a>
@@ -194,12 +194,12 @@ export const Footer: React.FC = () => {
 
               {/* Phone */}
               <div className="flex items-center gap-2.5 text-left">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#EBF8E3] text-[#087C19] flex items-center justify-center flex-shrink-0 border border-[#DCF4D0]">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#FEF2F2] text-[#E50201] flex items-center justify-center flex-shrink-0 border border-[#FECACA]">
                   <Phone className="w-4 h-4 stroke-[2.2]" />
                 </div>
                 <a
                   href="tel:+919948203799"
-                  className="text-xs sm:text-[13px] font-bold text-slate-700 hover:text-[#087C19] transition-colors"
+                  className="text-xs sm:text-[13px] font-bold text-slate-700 hover:text-[#E50201] transition-colors"
                 >
                   +91-9948203799
                 </a>

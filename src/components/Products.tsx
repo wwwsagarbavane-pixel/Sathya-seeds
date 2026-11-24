@@ -80,18 +80,18 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
         
         {/* Section Header */}
         <div className="text-center max-w-4xl lg:max-w-5xl mx-auto px-2">
-          {/* Eyebrow with green lines on left and right */}
+          {/* Eyebrow with red lines on left and right */}
           <div className="inline-flex items-center justify-center gap-2.5 sm:gap-3">
-            <span className="w-6 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
-            <span className="text-[11px] sm:text-[13px] font-extrabold tracking-[0.16em] sm:tracking-[0.18em] text-[#087C19] uppercase">
+            <span className="w-6 sm:w-12 h-[2px] bg-[#E50201] rounded-full inline-block" />
+            <span className="text-[11px] sm:text-[13px] font-extrabold tracking-[0.16em] sm:tracking-[0.18em] text-[#E50201] uppercase">
               OUR PRODUCTS
             </span>
-            <span className="w-6 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
+            <span className="w-6 sm:w-12 h-[2px] bg-[#E50201] rounded-full inline-block" />
           </div>
 
           {/* Main Section Headline */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-[#102235] mt-2.5 sm:mt-4 leading-tight">
-            High-Quality Seeds for <span className="text-[#087C19] inline-block">Better Yields</span>
+            High-Quality Seeds for <span className="text-[#E50201] inline-block">Better Yields</span>
           </h2>
 
           {/* Subtitle Description */}
@@ -109,7 +109,7 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
                 onNavigate?.('Products', product.cropName);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="relative bg-white rounded-[24px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(8,124,25,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group max-w-[320px] xs:max-w-[340px] sm:max-w-none w-full mx-auto cursor-pointer"
+              className="relative bg-white rounded-[24px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(229,2,1,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group max-w-[320px] xs:max-w-[340px] sm:max-w-none w-full mx-auto cursor-pointer"
             >
               {/* Product Card Image Container */}
               <div className="relative w-full h-[165px] sm:h-[180px] lg:h-[190px] overflow-hidden rounded-t-[26px] sm:rounded-t-[28px] bg-slate-100">
@@ -122,14 +122,14 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
               </div>
 
               {/* Overlapping circular category icon badge */}
-              <div className="absolute top-[165px] sm:top-[180px] lg:top-[190px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#E0F7D4] border-[3.5px] border-white shadow-[0_4px_14px_rgba(0,0,0,0.12)] flex items-center justify-center z-20 transition-transform duration-300 group-hover:scale-110">
+              <div className="absolute top-[165px] sm:top-[180px] lg:top-[190px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#FEE2E2] border-[3.5px] border-white shadow-[0_4px_14px_rgba(0,0,0,0.12)] flex items-center justify-center z-20 transition-transform duration-300 group-hover:scale-110">
                 {product.icon}
               </div>
 
               {/* Product Card Content Body */}
               <div className="pt-8 sm:pt-9 pb-6 sm:pb-7 px-4 sm:px-5 flex flex-col items-center text-center flex-1 justify-between">
                 <div>
-                  <h3 className="text-lg sm:text-[20px] font-black text-[#102235] tracking-tight group-hover:text-[#087C19] transition-colors leading-tight">
+                  <h3 className="text-lg sm:text-[20px] font-black text-[#102235] tracking-tight group-hover:text-[#E50201] transition-colors leading-tight">
                     {product.category}
                   </h3>
 
@@ -142,8 +142,8 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
                 <span
                   className={`mt-5 px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-all duration-200 ${
                     product.isFeatured
-                      ? 'bg-[#075B19] group-hover:bg-[#064e15] text-white shadow-[0_4px_14px_rgba(7,91,25,0.35)] group-hover:shadow-[0_6px_20px_rgba(7,91,25,0.45)]'
-                      : 'border-2 border-[#087C19] text-[#087C19] bg-white group-hover:bg-[#087C19] group-hover:text-white shadow-sm'
+                      ? 'bg-[#C00201] group-hover:bg-[#A00201] text-white shadow-[0_4px_14px_rgba(229,2,1,0.35)] group-hover:shadow-[0_6px_20px_rgba(229,2,1,0.45)]'
+                      : 'border-2 border-[#E50201] text-[#E50201] bg-white group-hover:bg-[#E50201] group-hover:text-white shadow-sm'
                   }`}
                 >
                   <span>Explore Varieties</span>
@@ -153,7 +153,7 @@ export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
 
               {/* Decorative subtle bottom-right corner leaf flourish */}
               <div className="absolute bottom-0 right-0 w-10 h-10 pointer-events-none overflow-hidden rounded-br-[26px] sm:rounded-br-[28px]">
-                <svg viewBox="0 0 40 40" fill="none" className="w-full h-full text-[#DDF4C9]/85" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 40 40" fill="none" className="w-full h-full text-[#FEE2E2]/85" xmlns="http://www.w3.org/2000/svg">
                   <path d="M40 0C40 22 22 40 0 40H40V0Z" fill="currentColor" />
                 </svg>
               </div>

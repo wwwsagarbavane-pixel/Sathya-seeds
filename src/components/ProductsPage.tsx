@@ -84,13 +84,13 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
           className="relative w-full h-[260px] sm:h-[320px] lg:h-[370px] bg-cover bg-center overflow-hidden flex items-center shadow-inner"
           style={{ backgroundImage: `url('${activeCrop.banner}')` }}
         >
-          {/* Nature Green Gradient Backdrop Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#03340D]/85 via-[#087C19]/50 to-transparent z-0" />
+          {/* Nature Crimson Gradient Backdrop Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#3B0707]/85 via-[#E50201]/40 to-transparent z-0" />
 
           {/* Banner Typography on Left */}
           <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-16 text-left">
             <div className="inline-flex items-center gap-1.5 text-white/95 text-xs sm:text-sm font-semibold tracking-wide">
-              <Sprout className="w-4 h-4 text-[#B5F640]" />
+              <Sprout className="w-4 h-4 text-[#FF6B6B]" />
               <span>Our Products</span>
             </div>
 
@@ -121,7 +121,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
             <button 
               type="button"
               onClick={() => onNavigate?.('Home')}
-              className="flex items-center text-slate-400 hover:text-[#087C19] transition-colors cursor-pointer"
+              className="flex items-center text-slate-400 hover:text-[#E50201] transition-colors cursor-pointer"
               title="Go to Home"
             >
               <Home className="w-4 h-4" />
@@ -130,18 +130,18 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
             <button
               type="button"
               onClick={() => onNavigate?.('Home')}
-              className="text-slate-600 hover:text-[#087C19] cursor-pointer"
+              className="text-slate-600 hover:text-[#E50201] cursor-pointer"
             >
               Home
             </button>
             <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-            <span className="font-bold text-[#087C19]">{activeCrop.name}</span>
+            <span className="font-bold text-[#E50201]">{activeCrop.name}</span>
           </div>
 
           <button
             type="button"
             onClick={() => onNavigate?.('Home')}
-            className="text-xs text-[#087C19] hover:underline font-bold flex items-center gap-1 cursor-pointer"
+            className="text-xs text-[#E50201] hover:underline font-bold flex items-center gap-1 cursor-pointer"
           >
             <span>← Back to Home</span>
           </button>
@@ -158,8 +158,8 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
                 onClick={() => setCurrentCropKey(pill.key)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer shadow-xs ${
                   isActive
-                    ? 'bg-[#087C19] text-white shadow-sm scale-105'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 hover:text-[#087C19] border border-gray-200/80'
+                    ? 'bg-[#E50201] text-white shadow-sm scale-105'
+                    : 'bg-white text-slate-700 hover:bg-slate-100 hover:text-[#E50201] border border-gray-200/80'
                 }`}
               >
                 {pill.label}
@@ -168,10 +168,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
           })}
         </div>
 
-        {/* 3. Section Title & Subtitle with Green Underline */}
+        {/* 3. Section Title & Subtitle with Red Underline */}
         <div className="text-center max-w-2xl mx-auto px-4 mt-2 sm:mt-4">
-          {/* Two Green Leaves Emblem */}
-          <div className="w-8 h-8 mx-auto flex items-center justify-center text-[#087C19] mb-1">
+          {/* Two Leaves Emblem */}
+          <div className="w-8 h-8 mx-auto flex items-center justify-center text-[#E50201] mb-1">
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
               <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
             </svg>
@@ -185,8 +185,8 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
             {activeCrop.subtitle}
           </p>
 
-          {/* Green Horizontal Pill Underline */}
-          <div className="w-12 h-1 bg-[#087C19] rounded-full mx-auto mt-3" />
+          {/* Red Horizontal Pill Underline */}
+          <div className="w-12 h-1 bg-[#E50201] rounded-full mx-auto mt-3" />
         </div>
 
         {/* 4. Crop Varieties Grid (Exact 4 Columns Matching Reference) */}
@@ -196,10 +196,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
               <div
                 key={variety.code}
                 onClick={() => setSelectedVariety(variety)}
-                className="bg-white rounded-[22px] border border-gray-100 shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(8,124,25,0.14)] hover:-translate-y-1.5 transition-all duration-300 p-4 sm:p-5 flex flex-col items-center justify-between cursor-pointer group"
+                className="bg-white rounded-[22px] border border-gray-100 shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(229,2,1,0.14)] hover:-translate-y-1.5 transition-all duration-300 p-4 sm:p-5 flex flex-col items-center justify-between cursor-pointer group"
               >
                 {/* Variety Image Box with Subtle Soft Frame */}
-                <div className="w-full h-48 sm:h-56 rounded-2xl overflow-hidden bg-slate-50/50 flex items-center justify-center p-2 mb-4 group-hover:bg-emerald-50/20 transition-colors">
+                <div className="w-full h-48 sm:h-56 rounded-2xl overflow-hidden bg-slate-50/50 flex items-center justify-center p-2 mb-4 group-hover:bg-red-50/30 transition-colors">
                   <img
                     src={variety.image}
                     alt={variety.code}
@@ -208,8 +208,8 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
                   />
                 </div>
 
-                {/* Mint Green Variety Code Pill */}
-                <div className="w-full max-w-[170px] py-1.5 px-3 rounded-full bg-[#EBF8E3] group-hover:bg-[#087C19] border border-[#CDEFC0] group-hover:border-[#087C19] text-[#087C19] group-hover:text-white font-black text-xs sm:text-sm text-center shadow-xs transition-colors duration-200">
+                {/* Brand Red Variety Code Pill */}
+                <div className="w-full max-w-[170px] py-1.5 px-3 rounded-full bg-[#FEF2F2] group-hover:bg-[#E50201] border border-[#FECACA] group-hover:border-[#E50201] text-[#E50201] group-hover:text-white font-black text-xs sm:text-sm text-center shadow-xs transition-colors duration-200">
                   <span>{variety.code}</span>
                 </div>
               </div>
@@ -225,7 +225,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
           viewBox="0 0 1440 80" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-12 sm:h-16 text-[#087C19]/15"
+          className="w-full h-12 sm:h-16 text-[#E50201]/15"
           preserveAspectRatio="none"
         >
           <path d="M0,40 C320,80 640,10 960,50 C1280,90 1440,30 1440,30 L1440,80 L0,80 Z" fill="currentColor" />
@@ -262,7 +262,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
               </div>
 
               <div className="flex-1 text-center sm:text-left">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#EBF8E3] text-[#087C19] text-xs font-black uppercase">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FEF2F2] text-[#E50201] text-xs font-black uppercase">
                   <span>{activeCrop.name}</span>
                   {selectedVariety.subname && (
                     <>
@@ -285,7 +285,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
             {/* Specifications Key-Value List */}
             <div className="mt-5">
               <h4 className="text-xs font-black text-[#102235] uppercase tracking-wider flex items-center gap-1.5 mb-3">
-                <ShieldCheck className="w-4 h-4 text-[#087C19]" />
+                <ShieldCheck className="w-4 h-4 text-[#E50201]" />
                 <span>Product Information &amp; Specs</span>
               </h4>
 
@@ -322,7 +322,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
                     }
                   }, 200);
                 }}
-                className="px-5 py-2.5 rounded-full bg-[#087C19] hover:bg-[#075B19] text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                className="px-5 py-2.5 rounded-full bg-[#E50201] hover:bg-[#C00201] text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
               >
                 <PhoneCall className="w-3.5 h-3.5" />
                 <span>Inquire About {selectedVariety.code}</span>

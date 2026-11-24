@@ -90,7 +90,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans selection:bg-[#A8F044] selection:text-[#075B19]">
+    <div className="min-h-screen bg-white flex flex-col font-sans selection:bg-[#FEE2E2] selection:text-[#E50201]">
       {/* 1. Header Navigation Bar (Shown on standalone pages like About Us, R&D, and Products; Hidden on Home page) */}
       {currentPage !== 'Home' && (
         <Navbar activePage={currentPage} onNavigate={handleNavigate} />

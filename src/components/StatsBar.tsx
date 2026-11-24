@@ -32,7 +32,7 @@ export const StatsBar: React.FC = () => {
           <React.Fragment key={item.id}>
             {/* Stat Item */}
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-xl sm:rounded-2xl bg-[#E8F8E2] flex items-center justify-center flex-shrink-0 shadow-inner">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-xl sm:rounded-2xl bg-[#FEF2F2] flex items-center justify-center flex-shrink-0 shadow-inner">
                 {item.icon}
               </div>
               <div className="flex flex-col">

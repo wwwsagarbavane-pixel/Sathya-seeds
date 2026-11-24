@@ -7,8 +7,8 @@ export const HeroContent: React.FC = () => {
       
       {/* 1. Eyebrow: — SMART AGRICULTURE PLATFORM */}
       <div className="inline-flex items-center gap-2 sm:gap-2.5">
-        <span className="w-5 sm:w-8 h-[2.5px] bg-[#A3E635] rounded-full inline-block" />
-        <span className="text-[11px] xs:text-xs sm:text-[13px] lg:text-[14px] font-black tracking-[0.18em] text-[#A3E635] uppercase drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+        <span className="w-5 sm:w-8 h-[2.5px] bg-[#FF4D4D] rounded-full inline-block" />
+        <span className="text-[11px] xs:text-xs sm:text-[13px] lg:text-[14px] font-black tracking-[0.18em] text-[#FF4D4D] uppercase drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
           SMART AGRICULTURE PLATFORM
         </span>
       </div>
@@ -18,14 +18,14 @@ export const HeroContent: React.FC = () => {
         <span className="block drop-shadow-[0_2px_14px_rgba(0,0,0,0.7)]">
           Empowering Farmers,
         </span>
-        <span className="relative inline-block mt-1 sm:mt-1.5 text-transparent bg-clip-text bg-gradient-to-r from-[#B5F640] via-[#9DE729] to-[#4ADE80] drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">
+        <span className="relative inline-block mt-1 sm:mt-1.5 text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B6B] via-[#EE2727] to-[#DC2626] drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">
           Growing Futures
-          {/* Curved Green Painted Brush Stroke Underline */}
+          {/* Curved Red Painted Brush Stroke Underline */}
           <svg
             viewBox="0 0 320 22"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute -bottom-2 sm:-bottom-2.5 left-0 w-full h-3 sm:h-4 text-[#9DE729] overflow-visible"
+            className="absolute -bottom-2 sm:-bottom-2.5 left-0 w-full h-3 sm:h-4 text-[#EE2727] overflow-visible"
           >
             <path
               d="M2 14C70 4 220 3 318 16C230 6 100 6 2 14Z"
@@ -46,7 +46,7 @@ export const HeroContent: React.FC = () => {
         {/* Button 1: Explore Solutions */}
         <a
           href="#solutions"
-          className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#B5F640] via-[#9DE729] to-[#7ED91C] text-[#0A3A17] font-black text-xs sm:text-sm lg:text-[15px] shadow-[0_8px_25px_rgba(163,230,53,0.45)] hover:shadow-[0_10px_32px_rgba(163,230,53,0.6)] hover:scale-105 active:scale-95 transition-all duration-200"
+          className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#FF4D4D] via-[#E50201] to-[#C00201] text-white font-black text-xs sm:text-sm lg:text-[15px] shadow-[0_8px_25px_rgba(229,2,1,0.45)] hover:shadow-[0_10px_32px_rgba(229,2,1,0.6)] hover:scale-105 active:scale-95 transition-all duration-200"
         >
           <span>Explore Solutions</span>
           <ArrowRight className="w-3.5 sm:w-4 h-3.5 sm:h-4 stroke-[2.8]" />

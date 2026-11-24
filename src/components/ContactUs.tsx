@@ -50,19 +50,19 @@ export const ContactUs: React.FC = () => {
             
             {/* Eyebrow: — CONTACT — */}
             <div className="inline-flex items-center gap-2.5">
-              <span className="w-6 sm:w-7 h-[2px] bg-[#087C19] rounded-full inline-block" />
+              <span className="w-6 sm:w-7 h-[2px] bg-[#E50201] rounded-full inline-block" />
               <span className="text-xs sm:text-[13px] font-extrabold tracking-[0.18em] text-[#102235] uppercase">
                 CONTACT
               </span>
-              <span className="w-6 sm:w-7 h-[2px] bg-[#087C19] rounded-full inline-block" />
+              <span className="w-6 sm:w-7 h-[2px] bg-[#E50201] rounded-full inline-block" />
             </div>
 
             {/* Main Headline: Contact Us */}
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-black tracking-tight text-[#102235] mt-1.5 sm:mt-2 leading-tight">
               Contact{' '}
-              <span className="relative inline-block text-[#087C19]">
+              <span className="relative inline-block text-[#E50201]">
                 Us
-                <SmileUnderline className="absolute -bottom-1.5 sm:-bottom-2 left-0 w-full h-2.5 sm:h-3 text-[#087C19] overflow-visible" />
+                <SmileUnderline className="absolute -bottom-1.5 sm:-bottom-2 left-0 w-full h-2.5 sm:h-3 text-[#E50201] overflow-visible" />
               </span>
             </h2>
 
@@ -76,13 +76,13 @@ export const ContactUs: React.FC = () => {
           {/* ZONE 3: Contact Information Card (Centered on mobile, right on desktop) */}
           <div className="w-full md:flex-1 flex justify-center md:justify-end z-20">
             
-            <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_16px_45px_rgba(0,0,0,0.08)] p-4 xs:p-5 sm:p-6 lg:p-7 w-full max-w-[420px] xs:max-w-[460px] lg:max-w-[500px] xl:max-w-[520px] mx-auto md:mx-0 transition-all duration-300 hover:shadow-[0_20px_55px_rgba(8,124,25,0.12)]">
+            <div className="relative bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_16px_45px_rgba(0,0,0,0.08)] p-4 xs:p-5 sm:p-6 lg:p-7 w-full max-w-[420px] xs:max-w-[460px] lg:max-w-[500px] xl:max-w-[520px] mx-auto md:mx-0 transition-all duration-300 hover:shadow-[0_20px_55px_rgba(229,2,1,0.12)]">
               
               {/* Item 1: Our Address */}
               <div className="flex items-start justify-between gap-3.5 sm:gap-4">
                 
-                {/* Green Squircle Icon Badge */}
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#087C19] flex items-center justify-center flex-shrink-0 shadow-[0_4px_14px_rgba(8,124,25,0.25)]">
+                {/* Red Squircle Icon Badge */}
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#E50201] flex items-center justify-center flex-shrink-0 shadow-[0_4px_14px_rgba(229,2,1,0.25)]">
                   <svg 
                     viewBox="0 0 24 24" 
                     fill="currentColor" 
@@ -97,7 +97,7 @@ export const ContactUs: React.FC = () => {
                   <h3 className="text-base sm:text-[17px] font-bold text-[#102235] tracking-tight leading-snug">
                     Our Address
                   </h3>
-                  <p className="text-sm sm:text-[14px] font-bold text-[#087C19] mt-0.5 leading-snug">
+                  <p className="text-sm sm:text-[14px] font-bold text-[#E50201] mt-0.5 leading-snug">
                     Sri Sathya Agri Biotech Pvt. Ltd
                   </p>
                   <p className="text-xs sm:text-[12px] text-slate-600 font-medium leading-relaxed mt-1">
@@ -126,8 +126,8 @@ export const ContactUs: React.FC = () => {
               {/* Item 2: Email Us */}
               <div className="flex items-center gap-3.5 sm:gap-4 text-left">
                 
-                {/* Green Squircle Icon Badge */}
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#087C19] flex items-center justify-center flex-shrink-0 shadow-[0_4px_14px_rgba(8,124,25,0.25)]">
+                {/* Red Squircle Icon Badge */}
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#E50201] flex items-center justify-center flex-shrink-0 shadow-[0_4px_14px_rgba(229,2,1,0.25)]">
                   <svg 
                     viewBox="0 0 24 24" 
                     fill="none" 
@@ -148,7 +148,7 @@ export const ContactUs: React.FC = () => {
                   </h3>
                   <a
                     href="mailto:info@sathyaseeds.com"
-                    className="text-xs sm:text-sm lg:text-[14.5px] font-semibold text-slate-700 hover:text-[#087C19] transition-colors mt-0.5 inline-block"
+                    className="text-xs sm:text-sm lg:text-[14.5px] font-semibold text-slate-700 hover:text-[#E50201] transition-colors mt-0.5 inline-block"
                   >
                     info@sathyaseeds.com
                   </a>
@@ -162,8 +162,8 @@ export const ContactUs: React.FC = () => {
               {/* Item 3: Call Us */}
               <div className="flex items-center gap-3.5 sm:gap-4 text-left">
                 
-                {/* Green Squircle Icon Badge */}
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#087C19] flex items-center justify-center flex-shrink-0 shadow-[0_4px_14px_rgba(8,124,25,0.25)]">
+                {/* Red Squircle Icon Badge */}
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#E50201] flex items-center justify-center flex-shrink-0 shadow-[0_4px_14px_rgba(229,2,1,0.25)]">
                   <svg 
                     viewBox="0 0 24 24" 
                     fill="currentColor" 
@@ -179,7 +179,7 @@ export const ContactUs: React.FC = () => {
                   </h3>
                   <a
                     href="tel:+919948203799"
-                    className="text-xs sm:text-sm lg:text-[14.5px] font-bold text-slate-700 hover:text-[#087C19] transition-colors mt-0.5 inline-block tracking-tight"
+                    className="text-xs sm:text-sm lg:text-[14.5px] font-bold text-slate-700 hover:text-[#E50201] transition-colors mt-0.5 inline-block tracking-tight"
                   >
                     +91-9948203799
                   </a>

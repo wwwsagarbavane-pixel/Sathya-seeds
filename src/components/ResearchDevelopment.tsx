@@ -16,9 +16,9 @@ export const ResearchDevelopment: React.FC = () => {
         {/* Floating Text Overlay */}
         <div className="relative max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-12 lg:px-20 w-full z-10">
           <div className="max-w-2xl text-left">
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0A3A17] tracking-tight leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.7)]">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#102235] tracking-tight leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.7)]">
               Research &amp;<br />
-              <span className="text-[#087C19]">Development</span>
+              <span className="text-[#E50201]">Development</span>
             </h1>
             <p className="text-xs xs:text-sm sm:text-base lg:text-lg text-slate-700 font-bold mt-1.5 sm:mt-3 drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)] max-w-lg">
               Driving Seed Innovation for Higher Yields and Farmer Prosperity
@@ -33,13 +33,13 @@ export const ResearchDevelopment: React.FC = () => {
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center justify-center gap-3">
-            <span className="w-8 sm:w-12 h-[2.5px] bg-[#087C19] rounded-full inline-block" />
-            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#087C19] tracking-tight">
+            <span className="w-8 sm:w-12 h-[2.5px] bg-[#E50201] rounded-full inline-block" />
+            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#E50201] tracking-tight">
               Research &amp; Development
             </h2>
-            <span className="w-8 sm:w-12 h-[2.5px] bg-[#087C19] rounded-full inline-block" />
+            <span className="w-8 sm:w-12 h-[2.5px] bg-[#E50201] rounded-full inline-block" />
           </div>
-          <div className="flex justify-center mt-2 text-[#087C19]">
+          <div className="flex justify-center mt-2 text-[#E50201]">
             <Leaf className="w-6 h-6 fill-current stroke-none" />
           </div>
         </div>
@@ -58,7 +58,7 @@ export const ResearchDevelopment: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
             {/* Left: Building Image Card (High-Res Generated 16:9) */}
-            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#D8F3C5] shadow-[0_12px_36px_rgba(8,124,25,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(8,124,25,0.15)] transition-all duration-300">
+            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#FECACA] shadow-[0_12px_36px_rgba(229,2,1,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(229,2,1,0.15)] transition-all duration-300">
               <img
                 src="/rd/building.jpg"
                 alt="Research and Development Infrastructure"
@@ -68,12 +68,12 @@ export const ResearchDevelopment: React.FC = () => {
             </div>
 
             {/* Right: Focus on Research Card */}
-            <div className="lg:col-span-6 bg-[#F6FCF2] rounded-[24px] sm:rounded-[28px] border border-[#DCF4CE] p-6 sm:p-8 lg:p-9 text-left shadow-sm">
+            <div className="lg:col-span-6 bg-[#FFF9F9] rounded-[24px] sm:rounded-[28px] border border-[#FED7D7] p-6 sm:p-8 lg:p-9 text-left shadow-sm">
               <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#087C19] flex items-center justify-center text-white shadow-md shadow-[#087C19]/20 flex-shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#E50201] flex items-center justify-center text-white shadow-md shadow-[#E50201]/20 flex-shrink-0">
                   <Microscope className="w-6 h-6 stroke-[2.2]" />
                 </div>
-                <h3 className="text-2xl sm:text-[26px] font-black text-[#0A3A17] tracking-tight">
+                <h3 className="text-2xl sm:text-[26px] font-black text-[#102235] tracking-tight">
                   Focus on Research
                 </h3>
               </div>
@@ -88,14 +88,14 @@ export const ResearchDevelopment: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
             {/* Left: Technology Text Card */}
-            <div className="lg:col-span-6 bg-[#F6FCF2] rounded-[24px] sm:rounded-[28px] border border-[#DCF4CE] p-6 sm:p-8 lg:p-9 text-left shadow-sm order-2 lg:order-1">
+            <div className="lg:col-span-6 bg-[#FFF9F9] rounded-[24px] sm:rounded-[28px] border border-[#FED7D7] p-6 sm:p-8 lg:p-9 text-left shadow-sm order-2 lg:order-1">
               <p className="text-xs sm:text-sm lg:text-[14.5px] text-slate-700 leading-relaxed font-normal">
                 With rapid technological advancements across agriculture, active research and genetic development are essential. Our breeding initiatives focus on high-value and performance-critical crops including hybrid cotton and sunflower. Concurrently, rigorous parent material purification and broad-spectrum germplasm collection reinforce our scientific base, driving the continuous release of superior commercial hybrids with high market acceptability.
               </p>
             </div>
 
             {/* Right: Cotton Field Trials Image (High-Res Generated 16:9) */}
-            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#D8F3C5] shadow-[0_12px_36px_rgba(8,124,25,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(8,124,25,0.15)] transition-all duration-300 order-1 lg:order-2">
+            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#FECACA] shadow-[0_12px_36px_rgba(229,2,1,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(229,2,1,0.15)] transition-all duration-300 order-1 lg:order-2">
               <img
                 src="/rd/cotton-trials.jpg"
                 alt="Cotton Hybrid Trials Field"
@@ -107,17 +107,17 @@ export const ResearchDevelopment: React.FC = () => {
           </div>
 
           {/* Row 3: Objective Callout Bar */}
-          <div className="bg-[#EBF8E3] border border-[#CDEFC0] rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-6 lg:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-6 text-left shadow-sm">
+          <div className="bg-[#FEF2F2] border border-[#FECACA] rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-6 lg:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-6 text-left shadow-sm">
             <div className="flex items-center gap-3.5 flex-shrink-0">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#087C19] text-white flex items-center justify-center shadow-md shadow-[#087C19]/25 flex-shrink-0">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#E50201] text-white flex items-center justify-center shadow-md shadow-[#E50201]/25 flex-shrink-0">
                 <Target className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-black text-[#0A3A17] tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-black text-[#102235] tracking-tight">
                 Objective
               </h3>
             </div>
             
-            <div className="hidden sm:block w-[1.5px] h-10 bg-[#087C19]/20 flex-shrink-0" />
+            <div className="hidden sm:block w-[1.5px] h-10 bg-[#E50201]/20 flex-shrink-0" />
 
             <p className="text-xs sm:text-sm lg:text-[14px] text-slate-800 font-medium leading-relaxed">
               Continuous enhancement of our commercial product portfolio, hybrid performance characteristics, and adaptability to meet evolving agro-climatic demands and market competition.
@@ -128,7 +128,7 @@ export const ResearchDevelopment: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
             {/* Greenhouse Facility Photo (High-Res Generated 16:9) */}
-            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#D8F3C5] shadow-[0_12px_36px_rgba(8,124,25,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(8,124,25,0.15)] transition-all duration-300 order-1 lg:order-2">
+            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#FECACA] shadow-[0_12px_36px_rgba(229,2,1,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(229,2,1,0.15)] transition-all duration-300 order-1 lg:order-2">
               <img
                 src="/rd/greenhouse.jpg"
                 alt="Modern Greenhouse Polyhouse Facility"
@@ -140,10 +140,10 @@ export const ResearchDevelopment: React.FC = () => {
             {/* Policy List */}
             <div className="lg:col-span-6 text-left order-2 lg:order-1">
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
-                <h3 className="text-2xl sm:text-3xl font-black text-[#087C19] tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-black text-[#E50201] tracking-tight">
                   Policy&apos;s
                 </h3>
-                <Leaf className="w-5 h-5 text-[#087C19] fill-current stroke-none" />
+                <Leaf className="w-5 h-5 text-[#E50201] fill-current stroke-none" />
               </div>
 
               <div className="space-y-3.5 sm:space-y-5">
@@ -166,7 +166,7 @@ export const ResearchDevelopment: React.FC = () => {
                   }
                 ].map((item) => (
                   <div key={item.num} className="flex items-start gap-3 sm:gap-4">
-                    <span className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full bg-[#087C19] text-white font-extrabold text-[11px] xs:text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                    <span className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full bg-[#E50201] text-white font-extrabold text-[11px] xs:text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
                       {item.num}
                     </span>
                     <p className="text-xs sm:text-sm lg:text-[14px] text-slate-700 font-medium leading-relaxed">
@@ -183,7 +183,7 @@ export const ResearchDevelopment: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
             {/* Left: Biotech Lab Photo (High-Res Generated 16:9) */}
-            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#D8F3C5] shadow-[0_12px_36px_rgba(8,124,25,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(8,124,25,0.15)] transition-all duration-300">
+            <div className="lg:col-span-6 overflow-hidden rounded-[24px] sm:rounded-[28px] border-2 border-[#FECACA] shadow-[0_12px_36px_rgba(229,2,1,0.08)] bg-white group hover:shadow-[0_16px_45px_rgba(229,2,1,0.15)] transition-all duration-300">
               <img
                 src="/rd/biotech-lab.jpg"
                 alt="Biotechnology Laboratory"
@@ -193,12 +193,12 @@ export const ResearchDevelopment: React.FC = () => {
             </div>
 
             {/* Right: Biotechnology Lab Description Card */}
-            <div className="lg:col-span-6 bg-[#F6FCF2] rounded-[24px] sm:rounded-[28px] border border-[#DCF4CE] p-6 sm:p-8 lg:p-9 text-left shadow-sm">
+            <div className="lg:col-span-6 bg-[#FFF9F9] rounded-[24px] sm:rounded-[28px] border border-[#FED7D7] p-6 sm:p-8 lg:p-9 text-left shadow-sm">
               <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#087C19] flex items-center justify-center text-white shadow-md shadow-[#087C19]/20 flex-shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#E50201] flex items-center justify-center text-white shadow-md shadow-[#E50201]/20 flex-shrink-0">
                   <FlaskConical className="w-6 h-6 stroke-[2.2]" />
                 </div>
-                <h3 className="text-2xl sm:text-[26px] font-black text-[#0A3A17] tracking-tight">
+                <h3 className="text-2xl sm:text-[26px] font-black text-[#102235] tracking-tight">
                   Biotechnology Lab
                 </h3>
               </div>

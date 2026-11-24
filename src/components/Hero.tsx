@@ -42,25 +42,63 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[660px] xs:min-h-[720px] sm:min-h-[760px] md:min-h-0 md:aspect-[1671/941] flex flex-col justify-between"
-      aria-label="Sathya Seeds Hero Section"
+      className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[680px] xs:min-h-[720px] sm:min-h-[760px] md:h-[780px] lg:h-[820px] xl:h-[850px] flex flex-col justify-between"
+      aria-label="Sri Sathya Seeds Hero Section"
     >
-      {/* 1. Mobile Background Image: Farmer Beneath a Radiant Sunrise Sky (941x1672 Portrait) */}
-      <img
-        src="/hero-farmer-mobile.png"
-        alt="Farmer Beneath a Radiant Sunrise Sky"
-        className="md:hidden absolute inset-0 w-full h-full object-cover object-bottom z-0 pointer-events-none select-none"
-      />
+      {/* =========================================================================
+          LAYER 1: BACKGROUND (z-index: 1)
+          Full-width 'Golden Sunrise Sunflower Fields' preserving original blue sky,
+          golden sunlight, rolling hills, tractor and sunflower field.
+          ========================================================================= */}
+      <div className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none">
+        <img
+          src="/golden-sunrise-sunflower-fields.png"
+          alt="Golden Sunrise Sunflower Fields"
+          className="w-full h-full object-cover object-center pointer-events-none select-none"
+          loading="eager"
+        />
+      </div>
 
-      {/* 2. Desktop Background Image: 100% Full Panoramic Photo without any zoom/crop on desktop */}
-      <img
-        src="/hero-farmer-halo.png"
-        alt="Farmer Beneath a Sunset Halo"
-        className="hidden md:block absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none select-none"
-      />
+      {/* =========================================================================
+          LAYER 2: FARMER (z-index: 2)
+          Transparent 'Proud Farmer in Traditional White Attire' on the right side.
+          Compact size, naturally grounded inside the sunflower field.
+          ========================================================================= */}
+      <div
+        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[2%] lg:right-[3%] xl:right-[5%] 2xl:right-[7%] h-[50%] xs:h-[55%] sm:h-[60%] md:h-[66%] lg:h-[70%] xl:h-[74%] max-h-[620px]"
+        aria-hidden="true"
+      >
+        <img
+          src="/proud-farmer-transparent.png"
+          alt="Proud Indian Farmer in Traditional White Attire"
+          className="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+          loading="eager"
+        />
+      </div>
 
-      {/* 2. Floating Header in the Open Sky */}
-      <header className="relative z-30 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 pt-4 sm:pt-5 lg:pt-6">
+      {/* =========================================================================
+          LAYER 3: SUNFLOWER FOREGROUND (z-index: 3)
+          Transparent 'Sunflower Border with Open Center' across full width.
+          Leaves and sunflowers naturally overlap the farmer's lower body in front.
+          ========================================================================= */}
+      <div
+        className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
+        style={{ height: 'clamp(140px, 24vw, 280px)' }}
+        aria-hidden="true"
+      >
+        <img
+          src="/sunflower-border-foreground.png"
+          alt="Foreground Sunflower Border"
+          className="w-full h-full object-cover object-bottom pointer-events-none select-none"
+          loading="eager"
+        />
+      </div>
+
+      {/* =========================================================================
+          UI LAYER: FLOATING SKY HEADER (z-index: 30)
+          Transparent sky header with official Sri Sathya Seeds logo & navigation
+          ========================================================================= */}
+      <header className="relative z-[30] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 pt-4 sm:pt-5 lg:pt-6">
         <div className="flex items-center justify-between h-12 sm:h-14 lg:h-16">
 
           {/* Official Sathya Seeds Logo in Crisp Frosted Pill */}
@@ -87,7 +125,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 onNavigate?.('Home');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="text-[#A3E635] font-black text-xs sm:text-[13.5px] lg:text-[14px] pb-0.5 border-b-2 border-[#A3E635] cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
+              className="text-[#FF4D4D] font-black text-xs sm:text-[13.5px] lg:text-[14px] pb-0.5 border-b-2 border-[#FF4D4D] cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
             >
               Home
             </button>
@@ -98,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 window.location.hash = '#about-us';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="text-white hover:text-[#A3E635] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+              className="text-white hover:text-[#FF4D4D] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
             >
               About Us
             </button>
@@ -115,10 +153,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   onNavigate?.('Products');
                   setProductsDropdownOpen(false);
                 }}
-                className="text-white hover:text-[#A3E635] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer flex items-center gap-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+                className="text-white hover:text-[#FF4D4D] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer flex items-center gap-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
               >
                 <span>Products</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180 text-[#A3E635]' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180 text-[#FF4D4D]' : ''}`} />
               </button>
 
               {/* Clean Single Dropdown on Hover */}
@@ -128,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <div className="px-3 pt-1 pb-1.5 text-[10.5px] font-black uppercase tracking-wider text-[#087C19]">
+                  <div className="px-3 pt-1 pb-1.5 text-[10.5px] font-black uppercase tracking-wider text-[#E50201]">
                     Seed Categories
                   </div>
 
@@ -140,13 +178,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                         onNavigate?.('Products', cat.crop);
                         setProductsDropdownOpen(false);
                       }}
-                      className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-[13px] font-bold text-slate-800 hover:text-[#087C19] hover:bg-[#EBF8E3] transition-colors cursor-pointer group/cat text-left"
+                      className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-[13px] font-bold text-slate-800 hover:text-[#E50201] hover:bg-[#FEF2F2] transition-colors cursor-pointer group/cat text-left"
                     >
                       <span className="flex items-center gap-2">
                         <span>{cat.icon}</span>
                         <span>{cat.name}</span>
                       </span>
-                      <span className="text-[10.5px] font-medium text-slate-400 group-hover/cat:text-[#087C19]">
+                      <span className="text-[10.5px] font-medium text-slate-400 group-hover/cat:text-[#E50201]">
                         {cat.tag}
                       </span>
                     </button>
@@ -159,7 +197,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                         onNavigate?.('Products');
                         setProductsDropdownOpen(false);
                       }}
-                      className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-black text-[#087C19] hover:bg-[#EBF8E3] transition-colors cursor-pointer"
+                      className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-black text-[#E50201] hover:bg-[#FEF2F2] transition-colors cursor-pointer"
                     >
                       <span>View All 90+ Varieties</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -175,21 +213,21 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 window.location.hash = '#rd';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="text-white hover:text-[#A3E635] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+              className="text-white hover:text-[#FF4D4D] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
             >
               R&amp;D
             </button>
 
             <a
               href="#purpose"
-              className="text-white hover:text-[#A3E635] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+              className="text-white hover:text-[#FF4D4D] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
             >
               CSR
             </a>
 
             <a
               href="#contact-us"
-              className="text-white hover:text-[#A3E635] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+              className="text-white hover:text-[#FF4D4D] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
             >
               Contact Us
             </a>
@@ -204,9 +242,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-[#087C19]" />
+                <X className="w-6 h-6 text-[#E50201]" />
               ) : (
-                <Menu className="w-6 h-6 text-[#087C19]" />
+                <Menu className="w-6 h-6 text-[#E50201]" />
               )}
             </button>
           </div>
@@ -222,7 +260,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 setMobileMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#087C19] bg-[#EBF8E3] transition-colors cursor-pointer"
+              className="w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#E50201] bg-[#FEF2F2] transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -280,26 +318,19 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         )}
       </header>
 
-      {/* 3. Hero Content: Sits in the upper sky space on mobile, vertically centered on desktop */}
-      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start md:items-center pt-3 xs:pt-5 sm:pt-8 lg:pt-10 pb-64 xs:pb-72 sm:pb-80 md:pb-10">
+      {/* =========================================================================
+          UI LAYER: HERO CONTENT (z-index: 20)
+          Positioned on the left side: heading, subtitle, and CTA buttons
+          No floating cards or unnecessary decorative elements
+          ========================================================================= */}
+      <div className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start md:items-center pt-3 xs:pt-6 sm:pt-8 md:pt-0 pb-56 xs:pb-64 sm:pb-72 md:pb-0">
         <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
       </div>
 
-      {/* 4. Bottom Organic White Wave Transition into Our Products (Mobile) */}
-      <div className="md:hidden absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
-        <svg
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          className="relative block w-full h-8 xs:h-11 sm:h-14 text-white fill-current"
-        >
-          <path d="M0,0 C300,80 800,10 1200,60 L1200,120 L0,120 Z" />
-        </svg>
-      </div>
-
-      {/* 5. Natural Bottom Spacer for Desktop */}
-      <div className="hidden md:block h-6 sm:h-10 lg:h-12 pointer-events-none" aria-hidden="true" />
+      {/* Natural Bottom Anchor Spacer */}
+      <div className="relative z-[4] h-4 sm:h-6 pointer-events-none" aria-hidden="true" />
     </section>
   );
 };

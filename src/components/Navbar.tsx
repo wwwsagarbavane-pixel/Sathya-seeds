@@ -132,20 +132,20 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                       onClick={(e) => handleNavClick(e, item.label, item.href)}
                       className={`relative py-2 text-[14px] sm:text-[15px] font-semibold transition-all duration-200 flex items-center gap-1 cursor-pointer ${
                         isCurrent
-                          ? 'text-[#087C19] font-bold'
-                          : 'text-[#102235] hover:text-[#087C19]'
+                          ? 'text-[#E50201] font-bold'
+                          : 'text-[#102235] hover:text-[#E50201]'
                       }`}
                     >
                       <span>{item.label}</span>
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          productsDropdownOpen ? 'rotate-180 text-[#087C19]' : 'text-slate-400'
+                          productsDropdownOpen ? 'rotate-180 text-[#E50201]' : 'text-slate-400'
                         }`}
                       />
 
                       {/* Active Underline Bar */}
                       {isCurrent && (
-                        <span className="absolute -bottom-4 lg:-bottom-[18px] left-0 right-0 h-[2.5px] bg-[#087C19] rounded-full" />
+                        <span className="absolute -bottom-4 lg:-bottom-[18px] left-0 right-0 h-[2.5px] bg-[#E50201] rounded-full" />
                       )}
                     </button>
 
@@ -156,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                       >
-                        <div className="px-3 pt-1 pb-1.5 text-[10.5px] font-black uppercase tracking-wider text-[#087C19]">
+                        <div className="px-3 pt-1 pb-1.5 text-[10.5px] font-black uppercase tracking-wider text-[#E50201]">
                           Seed Categories
                         </div>
 
@@ -168,13 +168,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                               onNavigate?.('Products', cat.crop);
                               setProductsDropdownOpen(false);
                             }}
-                            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-[13px] font-bold text-slate-800 hover:text-[#087C19] hover:bg-[#EBF8E3] transition-colors cursor-pointer group/cat text-left"
+                            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-[13px] font-bold text-slate-800 hover:text-[#E50201] hover:bg-[#FEF2F2] transition-colors cursor-pointer group/cat text-left"
                           >
                             <span className="flex items-center gap-2">
                               <span>{cat.icon}</span>
                               <span>{cat.name}</span>
                             </span>
-                            <span className="text-[10.5px] font-medium text-slate-400 group-hover/cat:text-[#087C19]">
+                            <span className="text-[10.5px] font-medium text-slate-400 group-hover/cat:text-[#E50201]">
                               {cat.tag}
                             </span>
                           </button>
@@ -187,7 +187,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                               onNavigate?.('Products');
                               setProductsDropdownOpen(false);
                             }}
-                            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-black text-[#087C19] hover:bg-[#EBF8E3] transition-colors cursor-pointer"
+                            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-black text-[#E50201] hover:bg-[#FEF2F2] transition-colors cursor-pointer"
                           >
                             <span>View All 90+ Varieties</span>
                             <ArrowRight className="w-3.5 h-3.5" />
@@ -206,15 +206,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                     onClick={(e) => handleNavClick(e, item.label, item.href)}
                     className={`relative py-2 text-[14px] sm:text-[15px] font-semibold transition-all duration-200 cursor-pointer ${
                       isCurrent
-                        ? 'text-[#087C19] font-bold'
-                        : 'text-[#102235] hover:text-[#087C19]'
+                        ? 'text-[#E50201] font-bold'
+                        : 'text-[#102235] hover:text-[#E50201]'
                     }`}
                   >
                     <span>{item.label}</span>
 
                     {/* Active Underline Bar */}
                     {isCurrent && (
-                      <span className="absolute -bottom-4 lg:-bottom-[18px] left-0 right-0 h-[2.5px] bg-[#087C19] rounded-full" />
+                      <span className="absolute -bottom-4 lg:-bottom-[18px] left-0 right-0 h-[2.5px] bg-[#E50201] rounded-full" />
                     )}
                   </button>
                 </div>
@@ -230,7 +230,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
               aria-label="Toggle mobile navigation menu"
               className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-[#087C19]" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-[#E50201]" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
@@ -249,7 +249,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                 onClick={(e) => handleNavClick(e, item.label, item.href)}
                 className={`block w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
                   isCurrent
-                    ? 'text-[#087C19] bg-[#EBF8E3] font-bold'
+                    ? 'text-[#E50201] bg-[#FEF2F2] font-bold'
                     : 'text-[#102235] hover:bg-gray-50'
                 }`}
               >
