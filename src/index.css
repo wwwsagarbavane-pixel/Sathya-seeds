@@ -71,3 +71,25 @@
 .orbital-glow {
   filter: drop-shadow(0 0 10px rgba(103, 232, 249, 0.75)) drop-shadow(0 0 20px rgba(168, 240, 68, 0.45));
 }
+
+/* After Effects 3D Camera Ambient Drift / Handheld Drone breathing */
+@keyframes cameraDrift3D {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0px);
+  }
+  25% {
+    transform: rotateX(0.6deg) rotateY(-0.7deg) translateZ(4px);
+  }
+  50% {
+    transform: rotateX(-0.5deg) rotateY(0.6deg) translateZ(-3px);
+  }
+  75% {
+    transform: rotateX(0.5deg) rotateY(0.5deg) translateZ(2px);
+  }
+}
+
+.animate-camera-drift {
+  animation: cameraDrift3D 11s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+

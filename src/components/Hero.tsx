@@ -99,84 +99,100 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       style={{
         WebkitMaskImage: 'linear-gradient(to bottom, black 95%, transparent 100%)',
         maskImage: 'linear-gradient(to bottom, black 95%, transparent 100%)',
+        perspective: '1200px',
+        perspectiveOrigin: '50% 50%',
       }}
       aria-label="Sri Sathya Seeds Hero Section"
     >
       {/* =========================================================================
-          LAYER 1: BACKGROUND (z-index: 1)
-          Full-width 'Golden Sunrise Sunflower Fields' with cinematic camera zoom-out
-          ========================================================================= */}
-      <div 
-        className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none will-change-transform"
-        style={{
-          transform: isEntered
-            ? `translate3d(${mouseOffset.x * -10}px, ${scrollY * 0.16 + mouseOffset.y * -8}px, 0) scale(${1.06 + scrollY * 0.00015})`
-            : 'translate3d(0, -25px, 0) scale(1.18)',
-          opacity: isEntered ? 1 : 0.4,
-          filter: isEntered ? 'blur(0px)' : 'blur(8px)',
-          transition: cameraSettled
-            ? 'transform 200ms ease-out'
-            : 'transform 2400ms cubic-bezier(0.16, 1, 0.3, 1), filter 2000ms ease-out, opacity 1400ms ease-out',
-        }}
-      >
-        <img
-          src="/golden-sunrise-sunflower-fields.png"
-          alt="Golden Sunrise Sunflower Fields"
-          className="w-full h-[108%] sm:h-[110%] -translate-y-2 sm:-translate-y-4 lg:-translate-y-6 object-cover object-center pointer-events-none select-none"
-          loading="eager"
-        />
-      </div>
-
-      {/* =========================================================================
-          LAYER 2: FARMER (z-index: 2)
-          Transparent 'Proud Farmer in Traditional White Attire' grounded at bottom-0
-          Smooth cinematic dolly-zoom entrance settling proudly into the field
+          AFTER EFFECTS 3D CAMERA NULL CONTROLLER
+          Tilts, pitches, and orbits all layers in true 3D spatial coordinate space
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px] will-change-transform"
+        className="absolute inset-0 w-full h-full pointer-events-none animate-camera-drift will-change-transform"
         style={{
-          transform: isEntered
-            ? `translate3d(${mouseOffset.x * 12}px, ${scrollY * 0.09 + mouseOffset.y * 6}px, 0) scale(1)`
-            : 'translate3d(0, 65px, 0) scale(1.12)',
-          opacity: isEntered ? 1 : 0,
+          transformStyle: 'preserve-3d',
+          transform: `rotateX(${
+            isEntered ? (mouseOffset.y * -3.2) + (scrollY * 0.012) : 4.5
+          }deg) rotateY(${
+            isEntered ? mouseOffset.x * 4.2 : -3.5
+          }deg) rotateZ(${
+            isEntered ? mouseOffset.x * -0.5 : 0.8
+          }deg) ${!isEntered ? 'scale(1.12)' : 'scale(1)'}`,
           transition: cameraSettled
-            ? 'transform 200ms ease-out'
-            : 'transform 2200ms cubic-bezier(0.16, 1, 0.3, 1) 250ms, opacity 1800ms ease-out 250ms',
+            ? 'transform 260ms cubic-bezier(0.2, 0.8, 0.4, 1)'
+            : 'transform 2400ms cubic-bezier(0.16, 1, 0.3, 1)',
         }}
-        aria-hidden="true"
       >
-        <img
-          src="/proud-farmer-transparent.png"
-          alt="Proud Indian Farmer in Traditional White Attire"
-          className="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)] pointer-events-none select-none"
-          loading="eager"
-        />
-      </div>
+        {/* Layer 1: Deep Background at Z = -160px */}
+        <div 
+          className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none will-change-transform"
+          style={{
+            transformStyle: 'preserve-3d',
+            transform: isEntered
+              ? `translate3d(${mouseOffset.x * -8}px, ${scrollY * 0.14 + mouseOffset.y * -6}px, -160px) scale(${1.18 + scrollY * 0.00015})`
+              : 'translate3d(0, -25px, -160px) scale(1.28)',
+            opacity: isEntered ? 1 : 0.4,
+            filter: isEntered ? 'blur(0px)' : 'blur(8px)',
+            transition: cameraSettled
+              ? 'transform 200ms ease-out'
+              : 'transform 2400ms cubic-bezier(0.16, 1, 0.3, 1), filter 2000ms ease-out, opacity 1400ms ease-out',
+          }}
+        >
+          <img
+            src="/golden-sunrise-sunflower-fields.png"
+            alt="Golden Sunrise Sunflower Fields"
+            className="w-full h-[112%] sm:h-[114%] -translate-y-2 sm:-translate-y-4 lg:-translate-y-6 object-cover object-center pointer-events-none select-none"
+            loading="eager"
+          />
+        </div>
 
-      {/* =========================================================================
-          LAYER 3: SUNFLOWER FOREGROUND (z-index: 3)
-          Lush foreground sunflowers rising and zooming into place
-          ========================================================================= */}
-      <div
-        className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none will-change-transform"
-        style={{ 
-          height: 'clamp(210px, 34vw, 460px)',
-          transform: isEntered
-            ? `translate3d(${mouseOffset.x * 24}px, ${-scrollY * 0.05 + mouseOffset.y * 12}px, 0) scale(1)`
-            : 'translate3d(0, 85px, 0) scale(1.15)',
-          opacity: isEntered ? 1 : 0,
-          transition: cameraSettled
-            ? 'transform 200ms ease-out'
-            : 'transform 2200ms cubic-bezier(0.16, 1, 0.3, 1) 380ms, opacity 1800ms ease-out 380ms',
-        }}
-        aria-hidden="true"
-      >
-        <img
-          src="/sunflower-border-foreground.png"
-          alt="Foreground Sunflower Border"
-          className="w-full h-full object-cover object-bottom pointer-events-none select-none"
-          loading="eager"
-        />
+        {/* Layer 2: Midground Farmer at Z = 0px (focal focal plane) */}
+        <div
+          className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px] will-change-transform"
+          style={{
+            transformStyle: 'preserve-3d',
+            transform: isEntered
+              ? `translate3d(${mouseOffset.x * 12}px, ${scrollY * 0.09 + mouseOffset.y * 6}px, 0px) scale(1)`
+              : 'translate3d(0, 65px, 0px) scale(1.12)',
+            opacity: isEntered ? 1 : 0,
+            transition: cameraSettled
+              ? 'transform 200ms ease-out'
+              : 'transform 2200ms cubic-bezier(0.16, 1, 0.3, 1) 250ms, opacity 1800ms ease-out 250ms',
+          }}
+          aria-hidden="true"
+        >
+          <img
+            src="/proud-farmer-transparent.png"
+            alt="Proud Indian Farmer in Traditional White Attire"
+            className="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)] pointer-events-none select-none"
+            loading="eager"
+          />
+        </div>
+
+        {/* Layer 3: Foreground Sunflowers at Z = +80px (close to camera lens) */}
+        <div
+          className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none will-change-transform"
+          style={{ 
+            transformStyle: 'preserve-3d',
+            height: 'clamp(210px, 34vw, 460px)',
+            transform: isEntered
+              ? `translate3d(${mouseOffset.x * 22}px, ${-scrollY * 0.05 + mouseOffset.y * 10}px, 80px) scale(1)`
+              : 'translate3d(0, 85px, 80px) scale(1.15)',
+            opacity: isEntered ? 1 : 0,
+            transition: cameraSettled
+              ? 'transform 200ms ease-out'
+              : 'transform 2200ms cubic-bezier(0.16, 1, 0.3, 1) 380ms, opacity 1800ms ease-out 380ms',
+          }}
+          aria-hidden="true"
+        >
+          <img
+            src="/sunflower-border-foreground.png"
+            alt="Foreground Sunflower Border"
+            className="w-full h-full object-cover object-bottom pointer-events-none select-none"
+            loading="eager"
+          />
+        </div>
       </div>
 
       {/* =========================================================================
