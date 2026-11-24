@@ -138,45 +138,47 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     >
       {/* =========================================================================
           MULTI-PLANE OPTICAL PARALLAX ENGINE
-          Independent opposing-direction layers for authentic optical depth 
-          - Background shifts OPPOSITE to cursor and sinks slowly with scroll
-          - Farmer shifts WITH cursor in direct opposition to background
-          - Foreground Flowers shift with foreground speed and surge UPWARDS on scroll
+          Authentic focal-depth optical physics:
+          - Layer 3 (Foreground Sunflowers): Sweeps horizontally against cursor (-20px)
+          - Layer 2 (Farmer): Anchored focal subject (+4px) firmly grounded on floor
+          - Layer 1 (Background): Drifts in opposing direction (+12px) & sinks on scroll
+          - Submerged bottom (-bottom-1) with 0 translateY ensures 100% seam-free floor
           ========================================================================= */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
         
-        {/* Layer 1: Deep Background (Sunflower Fields & Tractor) - Moves OPPOSITE to cursor & down on scroll */}
+        {/* Layer 1: Deep Background (Sunflower Fields & Tractor) - Moves in OPPOSITE direction to foreground & sinks on scroll */}
         <div 
           className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none will-change-transform"
           style={{
             transform: isEntered
-              ? `translate3d(${mouseOffset.x * -18}px, ${scrollY * 0.24 + mouseOffset.y * -12}px, 0px) scale(${1.15 + scrollY * 0.00015})`
-              : 'translate3d(0px, -15px, 0px) scale(1.18)',
+              ? `translate3d(${mouseOffset.x * 12}px, ${scrollY * 0.14 + mouseOffset.y * -6}px, 0px) scale(${1.14 + scrollY * 0.00015})`
+              : 'translate3d(0px, -10px, 0px) scale(1.18)',
             opacity: 1,
             transition: cameraSettled
               ? 'transform 120ms ease-out'
-              : 'transform 1400ms cubic-bezier(0.16, 1, 0.3, 1)',
+              : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
           <img
             src="/golden-sunrise-sunflower-fields.png"
             alt="Golden Sunrise Sunflower Fields"
-            className="w-full h-[114%] -translate-y-3 sm:-translate-y-5 lg:-translate-y-7 object-cover object-center pointer-events-none select-none"
+            className="w-full h-[116%] -translate-y-3 sm:-translate-y-5 lg:-translate-y-7 object-cover object-center pointer-events-none select-none"
             loading="eager"
           />
         </div>
 
-        {/* Layer 2: Midground Subject (Proud Indian Farmer) - Moves in OPPOSITE direction to background */}
+        {/* Layer 2: Midground Subject (Proud Indian Farmer) - Anchored focal plane, rooted to bottom floor */}
         <div
           className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px] will-change-transform"
           style={{
+            transformOrigin: 'bottom center',
             transform: isEntered
-              ? `translate3d(${mouseOffset.x * 14}px, ${scrollY * 0.08 + mouseOffset.y * 8}px, 0px)`
-              : 'translate3d(0px, 30px, 0px)',
+              ? `translate3d(${mouseOffset.x * 4}px, 0px, 0px)`
+              : 'translate3d(0px, 0px, 0px)',
             opacity: isEntered ? 1 : 0,
             transition: cameraSettled
               ? 'transform 120ms ease-out'
-              : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 100ms, opacity 1000ms ease-out 100ms',
+              : 'opacity 800ms ease-out 100ms',
           }}
           aria-hidden="true"
         >
@@ -188,18 +190,19 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           />
         </div>
 
-        {/* Layer 3: Foreground (Sunflowers Border) - Moves OPPOSITE to farmer and surges UPWARDS on scroll */}
+        {/* Layer 3: Foreground (Sunflowers Border) - High-depth foreground sweep, submerged bottom (-bottom-1) with 0 translateY for zero seam */}
         <div
-          className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none will-change-transform"
+          className="absolute -bottom-1 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none will-change-transform"
           style={{ 
             height: 'clamp(210px, 34vw, 460px)',
+            transformOrigin: 'bottom center',
             transform: isEntered
-              ? `translate3d(${mouseOffset.x * -26}px, ${-scrollY * 0.15 + mouseOffset.y * -14}px, 0px)`
-              : 'translate3d(0px, 40px, 0px)',
+              ? `translate3d(${mouseOffset.x * -20}px, 0px, 0px) scale(1.06)`
+              : 'translate3d(0px, 0px, 0px) scale(1.06)',
             opacity: isEntered ? 1 : 0,
             transition: cameraSettled
               ? 'transform 120ms ease-out'
-              : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 180ms, opacity 1000ms ease-out 180ms',
+              : 'opacity 800ms ease-out 180ms',
           }}
           aria-hidden="true"
         >
