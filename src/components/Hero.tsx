@@ -36,15 +36,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const currentMouse = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // 1. Subtle, gentle entry on mount
+    // 1. Cinematic staged zoom-out camera entry on mount
     const enterTimer = setTimeout(() => {
       setIsEntered(true);
-    }, 40);
+    }, 50);
 
-    // 2. Settle into interactive micro-parallax
+    // 2. Settle seamlessly into interactive micro-parallax after entry motion concludes
     const settledTimer = setTimeout(() => {
       setCameraSettled(true);
-    }, 1200);
+    }, 1900);
 
     // 3. Smooth gentle LERP for mouse tracking
     let rafId: number;
@@ -137,26 +137,27 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       aria-label="Sri Sathya Seeds Hero Section"
     >
       {/* =========================================================================
-          MULTI-PLANE OPTICAL PARALLAX ENGINE
-          Authentic focal-depth optical physics:
-          - Layer 3 (Foreground Sunflowers): Sweeps horizontally against cursor (-20px)
-          - Layer 2 (Farmer): Anchored focal subject (+4px) firmly grounded on floor
-          - Layer 1 (Background): Drifts in opposing direction (+12px) & sinks on scroll
-          - Submerged bottom (-bottom-1) with 0 translateY ensures 100% seam-free floor
+          MULTI-PLANE OPTICAL PARALLAX & CINEMATIC 3D CAMERA ENGINE
+          Staged Pull-Back / Zoom-Out:
+          1. 0ms: Background starts zoomed-in deep on tractor (scale 1.30) & pulls back
+          2. +260ms: Farmer reveals & zooms gracefully from scale 1.10 to 1.00
+          3. +480ms: Foreground Sunflowers sweep up from bottom (-bottom-1) & settle
+          4. +680ms: Sky header & hero typography glide in seamlessly
+          5. +1900ms: Smoothly settles into buttery-smooth interactive mouse parallax
           ========================================================================= */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
         
-        {/* Layer 1: Deep Background (Sunflower Fields & Tractor) - Moves in OPPOSITE direction to foreground & sinks on scroll */}
+        {/* Layer 1: Deep Background (Sunflower Fields & Tractor) - Cinematic Zoom-Out */}
         <div 
           className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none will-change-transform"
           style={{
             transform: isEntered
               ? `translate3d(${mouseOffset.x * 12}px, ${scrollY * 0.14 + mouseOffset.y * -6}px, 0px) scale(${1.14 + scrollY * 0.00015})`
-              : 'translate3d(0px, -10px, 0px) scale(1.18)',
+              : 'translate3d(0px, -24px, 0px) scale(1.30)',
             opacity: 1,
             transition: cameraSettled
               ? 'transform 120ms ease-out'
-              : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
+              : 'transform 1700ms cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
           <img
@@ -167,18 +168,18 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           />
         </div>
 
-        {/* Layer 2: Midground Subject (Proud Indian Farmer) - Anchored focal plane, rooted to bottom floor */}
+        {/* Layer 2: Midground Subject (Proud Indian Farmer) - Staged Reveal & Focal Zoom */}
         <div
           className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px] will-change-transform"
           style={{
             transformOrigin: 'bottom center',
             transform: isEntered
-              ? `translate3d(${mouseOffset.x * 4}px, 0px, 0px)`
-              : 'translate3d(0px, 0px, 0px)',
+              ? `translate3d(${mouseOffset.x * 4}px, 0px, 0px) scale(1)`
+              : 'translate3d(0px, 0px, 0px) scale(1.10)',
             opacity: isEntered ? 1 : 0,
             transition: cameraSettled
               ? 'transform 120ms ease-out'
-              : 'opacity 800ms ease-out 100ms',
+              : 'transform 1500ms cubic-bezier(0.16, 1, 0.3, 1) 260ms, opacity 1000ms ease-out 260ms',
           }}
           aria-hidden="true"
         >
@@ -190,7 +191,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           />
         </div>
 
-        {/* Layer 3: Foreground (Sunflowers Border) - High-depth foreground sweep, submerged bottom (-bottom-1) with 0 translateY for zero seam */}
+        {/* Layer 3: Foreground (Sunflowers Border) - Staged Sweep Up & Lens Framing (0 seam guaranteed) */}
         <div
           className="absolute -bottom-1 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none will-change-transform"
           style={{ 
@@ -198,11 +199,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             transformOrigin: 'bottom center',
             transform: isEntered
               ? `translate3d(${mouseOffset.x * -20}px, 0px, 0px) scale(1.06)`
-              : 'translate3d(0px, 0px, 0px) scale(1.06)',
+              : 'translate3d(0px, 24px, 0px) scale(1.16)',
             opacity: isEntered ? 1 : 0,
             transition: cameraSettled
               ? 'transform 120ms ease-out'
-              : 'opacity 800ms ease-out 180ms',
+              : 'transform 1400ms cubic-bezier(0.16, 1, 0.3, 1) 480ms, opacity 900ms ease-out 480ms',
           }}
           aria-hidden="true"
         >
@@ -456,11 +457,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         style={{
           transform: isEntered
             ? `translate3d(0, ${scrollY * 0.05}px, 0)`
-            : 'translate3d(0, 16px, 0)',
-          opacity: 1,
+            : 'translate3d(0, 28px, 0)',
+          opacity: isEntered ? 1 : 0,
           transition: cameraSettled
             ? 'none'
-            : 'transform 1000ms cubic-bezier(0.16, 1, 0.3, 1) 100ms, opacity 900ms ease-out 100ms',
+            : 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 680ms, opacity 1000ms ease-out 680ms',
         }}
       >
         <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
