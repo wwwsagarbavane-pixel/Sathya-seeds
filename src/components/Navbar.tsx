@@ -65,7 +65,7 @@ const MAIN_NAV = [
 
 interface NavbarProps {
   activePage?: string;
-  onNavigate?: (page: string) => void;
+  onNavigate?: (page: string, crop?: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate }) => {
@@ -183,19 +183,23 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                                 onClick={(e) => {
                                   e.preventDefault();
                                   setActiveItem('Products');
-                                  if (!hasFlyout) setProductsOpen(false);
+                                  onNavigate?.('Products', sub.category);
+                                  if (!hasFlyout) {
+                                    setProductsOpen(false);
+                                    setActiveSubCategory(null);
+                                  }
                                 }}
-                                className={`flex items-center justify-between px-5 py-2.5 text-sm font-medium transition-colors ${
+                                className={`flex items-center justify-between px-5 py-2.5 text-sm font-semibold transition-colors cursor-pointer ${
                                   isCatActive
-                                    ? 'text-[#1e80e5] bg-blue-50/60'
-                                    : 'text-[#102235] hover:text-[#1e80e5] hover:bg-slate-50/80'
+                                    ? 'text-[#087C19] bg-[#EBF8E3]'
+                                    : 'text-[#102235] hover:text-[#087C19] hover:bg-slate-50'
                                 }`}
                               >
                                 <span>{sub.category}</span>
                                 {hasFlyout && (
                                   <ChevronRight 
-                                    className={`w-4 h-4 stroke-[1.8] ${
-                                      isCatActive ? 'text-[#1e80e5]' : 'text-slate-400'
+                                    className={`w-4 h-4 stroke-[2] ${
+                                      isCatActive ? 'text-[#087C19]' : 'text-slate-400'
                                     }`} 
                                   />
                                 )}
@@ -213,10 +217,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                                       onClick={(e) => {
                                         e.preventDefault();
                                         setActiveItem('Products');
+                                        onNavigate?.('Products', crop.name);
                                         setProductsOpen(false);
                                         setActiveSubCategory(null);
                                       }}
-                                      className="block px-5 py-2 text-sm text-slate-700 hover:text-[#1e80e5] hover:bg-blue-50/50 transition-colors font-medium text-left"
+                                      className="block px-5 py-2 text-sm text-slate-700 hover:text-[#087C19] hover:bg-[#EBF8E3] transition-colors font-medium text-left cursor-pointer"
                                     >
                                       {crop.name}
                                     </a>
@@ -328,24 +333,30 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage = 'Home', onNavigate 
                     <div className="pl-4 space-y-1 mt-1">
                       {PRODUCTS_MENU.map((sub) => (
                         <div key={sub.category}>
-                          <a
-                            href={sub.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block px-4 py-2 text-xs font-bold text-slate-800 hover:text-[#1e80e5]"
+                          <button
+                            type="button"
+                            onClick={() => {
+                              onNavigate?.('Products', sub.category);
+                              setMobileMenuOpen(false);
+                            }}
+                            className="block w-full text-left px-4 py-2 text-xs font-bold text-slate-800 hover:text-[#087C19] cursor-pointer"
                           >
                             {sub.category}
-                          </a>
+                          </button>
                           {sub.items && (
                             <div className="pl-4 grid grid-cols-2 gap-1 pb-2">
                               {sub.items.map((crop) => (
-                                <a
+                                <button
+                                  type="button"
                                   key={crop.name}
-                                  href={crop.href}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="text-[11px] text-slate-600 hover:text-[#1e80e5] py-1"
+                                  onClick={() => {
+                                    onNavigate?.('Products', crop.name);
+                                    setMobileMenuOpen(false);
+                                  }}
+                                  className="text-left text-[11px] text-slate-600 hover:text-[#087C19] py-1 cursor-pointer"
                                 >
                                   • {crop.name}
-                                </a>
+                                </button>
                               ))}
                             </div>
                           )}

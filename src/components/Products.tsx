@@ -11,6 +11,7 @@ import {
 interface ProductItem {
   id: string;
   category: string;
+  cropName: string;
   description: string;
   image: string;
   icon: React.ReactNode;
@@ -21,21 +22,24 @@ const PRODUCTS_DATA: ProductItem[] = [
   {
     id: 'field-crops',
     category: 'Field Crops',
-    description: 'Maize, Paddy, Bajra, Jowar, Castor and more.',
+    cropName: 'Paddy',
+    description: 'Paddy (16+ Varieties), Maize, Bajra, Jowar, Castor and more.',
     image: './crops/field-crops.jpg',
     icon: <ProductGrainIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
   },
   {
     id: 'vegetables',
     category: 'Vegetables',
-    description: 'F1 Chilli, Tomato, Bitter Gourds, Ridge Gourds.',
+    cropName: 'Vegetables',
+    description: 'F1 Chilli, Tomato, Okra, Brinjal, Watermelon, Gourds.',
     image: './crops/vegetables.jpg',
     icon: <ProductPepperIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
   },
   {
     id: 'cotton',
     category: 'Cotton',
-    description: 'Sathya Diamond BG II, Sathya ROBO BG II, Bt Cotton.',
+    cropName: 'Cotton',
+    description: 'Sathya Diamond BG II, SSCH-333 BG II, SSCH-444, Bt Cotton.',
     image: './crops/cotton.jpg',
     icon: <ProductCottonIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
     isFeatured: true,
@@ -43,20 +47,26 @@ const PRODUCTS_DATA: ProductItem[] = [
   {
     id: 'oilseeds',
     category: 'Oilseeds',
-    description: 'Mustard, Groundnut, Soybean, Sunflower and more.',
+    cropName: 'Mustard',
+    description: 'Mustard, Sunflower, Groundnut, Soybean and more.',
     image: './crops/oilseeds.jpg',
     icon: <OilseedFlowerIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
   },
   {
     id: 'pulses',
     category: 'Pulses',
-    description: 'Red Gram, Chickpea, Black Gram, Green Gram.',
+    cropName: 'Redgram',
+    description: 'Red Gram (Arhar / Toor), Chickpea, Black Gram, Green Gram.',
     image: './crops/pulses.jpg',
     icon: <PulsePodIcon className="w-6 h-6 sm:w-7 sm:h-7" />,
   },
 ];
 
-export const Products: React.FC = () => {
+interface ProductsProps {
+  onNavigate?: (page: string, crop?: string) => void;
+}
+
+export const Products: React.FC<ProductsProps> = ({ onNavigate }) => {
   return (
     <section 
       id="solutions" 
@@ -76,7 +86,7 @@ export const Products: React.FC = () => {
             <span className="w-6 sm:w-12 h-[2px] bg-[#087C19] rounded-full inline-block" />
           </div>
 
-          {/* Main Section Headline: Stays responsive on all mobile screens */}
+          {/* Main Section Headline */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-[#102235] mt-2.5 sm:mt-4 leading-tight">
             High-Quality Seeds for <span className="text-[#087C19] inline-block">Better Yields</span>
           </h2>
@@ -87,14 +97,14 @@ export const Products: React.FC = () => {
           </p>
         </div>
 
-        {/* 5 Product Cards Grid - Balanced Ratio & Responsive Breakpoints */}
+        {/* 5 Product Cards Grid - Clean, Balanced Layout */}
         <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 max-w-[1720px] xl:max-w-[1800px] mx-auto">
           {PRODUCTS_DATA.map((product) => (
             <div
               key={product.id}
               className="relative bg-white rounded-[24px] sm:rounded-[28px] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(8,124,25,0.14)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group max-w-[320px] xs:max-w-[340px] sm:max-w-none w-full mx-auto"
             >
-              {/* Product Card Image Container (overflow-hidden ONLY for the image corners) */}
+              {/* Product Card Image Container */}
               <div className="relative w-full h-[165px] sm:h-[180px] lg:h-[190px] overflow-hidden rounded-t-[26px] sm:rounded-t-[28px] bg-slate-100">
                 <img
                   src={product.image}
@@ -104,7 +114,7 @@ export const Products: React.FC = () => {
                 />
               </div>
 
-              {/* Overlapping circular category icon badge (100% unclipped, centered on boundary) */}
+              {/* Overlapping circular category icon badge */}
               <div className="absolute top-[165px] sm:top-[180px] lg:top-[190px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#E0F7D4] border-[3.5px] border-white shadow-[0_4px_14px_rgba(0,0,0,0.12)] flex items-center justify-center z-20 transition-transform duration-300 group-hover:scale-110">
                 {product.icon}
               </div>
@@ -122,17 +132,21 @@ export const Products: React.FC = () => {
                 </div>
 
                 {/* Action CTA Button */}
-                <a
-                  href={`#${product.id}`}
-                  className={`mt-5 px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-all duration-200 active:scale-95 ${
+                <button
+                  type="button"
+                  onClick={() => {
+                    onNavigate?.('Products', product.cropName);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className={`mt-5 px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-all duration-200 active:scale-95 cursor-pointer ${
                     product.isFeatured
                       ? 'bg-[#075B19] hover:bg-[#064e15] text-white shadow-[0_4px_14px_rgba(7,91,25,0.35)] hover:shadow-[0_6px_20px_rgba(7,91,25,0.45)]'
                       : 'border-2 border-[#087C19] text-[#087C19] bg-white hover:bg-[#087C19] hover:text-white shadow-sm'
                   }`}
                 >
-                  <span>Know More</span>
+                  <span>Explore Varieties</span>
                   <ArrowRight className="w-3.5 h-3.5 stroke-[2.4]" />
-                </a>
+                </button>
               </div>
 
               {/* Decorative subtle bottom-right corner leaf flourish */}

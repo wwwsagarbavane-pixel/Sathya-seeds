@@ -1,13 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import HeroContent from './HeroContent';
-import { Menu, X, ArrowRight, User } from 'lucide-react';
+import { Menu, X, ArrowRight, User, ChevronDown, ChevronRight } from 'lucide-react';
 
 interface HeroProps {
-  onNavigate?: (page: string) => void;
+  onNavigate?: (page: string, crop?: string) => void;
 }
+
+const FIELD_CROPS_ITEMS = [
+  { name: 'Paddy (Dhan)', crop: 'Paddy' },
+  { name: 'Maize (Corn)', crop: 'Maize' },
+  { name: 'Bt Cotton', crop: 'Cotton' },
+  { name: 'Mustard (Sarson)', crop: 'Mustard' },
+  { name: 'Bajra (Millet)', crop: 'Bajra' },
+  { name: 'Jowar (Sorghum)', crop: 'Jowar' },
+  { name: 'Wheat (Gehun)', crop: 'Wheat' },
+  { name: 'Redgram (Toor)', crop: 'Redgram' },
+  { name: 'Sunflower', crop: 'Sunflower' },
+];
+
+const VEGETABLES_ITEMS = [
+  { name: 'Chilli (Mirch)', crop: 'Chilli' },
+  { name: 'Tomato (Tamatar)', crop: 'Tomato' },
+  { name: 'Okra (Bhindi)', crop: 'Okra' },
+  { name: 'Brinjal (Baingan)', crop: 'Brinjal' },
+  { name: 'Watermelon (Tarbooz)', crop: 'Watermelon' },
+  { name: 'Sweet Corn', crop: 'Sweetcorn' },
+];
 
 export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const [activeSubCategory, setActiveSubCategory] = useState<'Field Crops' | 'Vegetables' | null>(null);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setProductsDropdownOpen(false);
+        setActiveSubCategory(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <section
@@ -73,15 +110,143 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               About Us
             </button>
 
-            <a
-              href="#solutions"
-              className="text-white hover:text-[#A3E635] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer flex items-center gap-0.5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+            {/* Products Dropdown Menu */}
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={() => setProductsDropdownOpen(true)}
+              onMouseLeave={() => {
+                setProductsDropdownOpen(false);
+                setActiveSubCategory(null);
+              }}
             >
-              Products
-              <svg viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-              </svg>
-            </a>
+              <button
+                type="button"
+                onClick={() => {
+                  onNavigate?.('Products');
+                  setProductsDropdownOpen(!productsDropdownOpen);
+                }}
+                className="text-white hover:text-[#A3E635] font-bold text-xs sm:text-[13.5px] lg:text-[14px] transition-colors cursor-pointer flex items-center gap-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+              >
+                <span>Products</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180 text-[#A3E635]' : ''}`} />
+              </button>
+
+              {/* Multi-Level Flyout Dropdown */}
+              {productsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 min-w-[220px] bg-white rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.22)] border border-gray-100 py-2.5 z-50 text-left animate-in fade-in zoom-in-95 duration-150">
+                  
+                  {/* Option 1: Field Crops */}
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setActiveSubCategory('Field Crops')}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onNavigate?.('Products', 'Paddy');
+                        setProductsDropdownOpen(false);
+                      }}
+                      className={`w-full flex items-center justify-between px-4 py-2.5 text-xs sm:text-sm font-bold transition-colors cursor-pointer ${
+                        activeSubCategory === 'Field Crops' ? 'text-[#087C19] bg-[#EBF8E3]' : 'text-slate-800 hover:text-[#087C19] hover:bg-slate-50'
+                      }`}
+                    >
+                      <span>🌾 Field Crops</span>
+                      <ChevronRight className="w-4 h-4 text-slate-400" />
+                    </button>
+
+                    {/* Flyout Submenu Level 2: Field Crops */}
+                    {activeSubCategory === 'Field Crops' && (
+                      <div className="absolute top-0 left-full ml-1 min-w-[200px] max-h-[380px] overflow-y-auto bg-white rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.2)] border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                        {FIELD_CROPS_ITEMS.map((item) => (
+                          <button
+                            type="button"
+                            key={item.crop}
+                            onClick={() => {
+                              onNavigate?.('Products', item.crop);
+                              setProductsDropdownOpen(false);
+                              setActiveSubCategory(null);
+                            }}
+                            className="w-full text-left px-4 py-2 text-xs sm:text-[13px] text-slate-700 hover:text-[#087C19] hover:bg-[#EBF8E3] font-semibold transition-colors cursor-pointer"
+                          >
+                            {item.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Option 2: Vegetables */}
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setActiveSubCategory('Vegetables')}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onNavigate?.('Products', 'Vegetables');
+                        setProductsDropdownOpen(false);
+                      }}
+                      className={`w-full flex items-center justify-between px-4 py-2.5 text-xs sm:text-sm font-bold transition-colors cursor-pointer ${
+                        activeSubCategory === 'Vegetables' ? 'text-[#087C19] bg-[#EBF8E3]' : 'text-slate-800 hover:text-[#087C19] hover:bg-slate-50'
+                      }`}
+                    >
+                      <span>🌶️ Vegetables</span>
+                      <ChevronRight className="w-4 h-4 text-slate-400" />
+                    </button>
+
+                    {/* Flyout Submenu Level 2: Vegetables */}
+                    {activeSubCategory === 'Vegetables' && (
+                      <div className="absolute top-0 left-full ml-1 min-w-[200px] max-h-[380px] overflow-y-auto bg-white rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.2)] border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                        {VEGETABLES_ITEMS.map((item) => (
+                          <button
+                            type="button"
+                            key={item.crop}
+                            onClick={() => {
+                              onNavigate?.('Products', item.crop);
+                              setProductsDropdownOpen(false);
+                              setActiveSubCategory(null);
+                            }}
+                            className="w-full text-left px-4 py-2 text-xs sm:text-[13px] text-slate-700 hover:text-[#087C19] hover:bg-[#EBF8E3] font-semibold transition-colors cursor-pointer"
+                          >
+                            {item.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Option 3: BT Cotton */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onNavigate?.('Products', 'Cotton');
+                      setProductsDropdownOpen(false);
+                    }}
+                    onMouseEnter={() => setActiveSubCategory(null)}
+                    className="w-full text-left px-4 py-2.5 text-xs sm:text-sm font-bold text-slate-800 hover:text-[#087C19] hover:bg-slate-50 transition-colors cursor-pointer"
+                  >
+                    <span>🌱 BT Cotton (BG-II)</span>
+                  </button>
+
+                  {/* Option 4: View All Products */}
+                  <div className="pt-1.5 mt-1 border-t border-gray-100">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onNavigate?.('Products');
+                        setProductsDropdownOpen(false);
+                      }}
+                      className="w-full text-left px-4 py-2 text-xs font-black text-[#087C19] hover:bg-[#EBF8E3] rounded-b-xl transition-colors cursor-pointer flex items-center justify-between"
+                    >
+                      <span>View All Varieties</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                </div>
+              )}
+            </div>
 
             <button
               onClick={() => {
@@ -136,7 +301,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 setMobileMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#087C19] bg-[#EBF8E3] transition-colors"
+              className="w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#087C19] bg-[#EBF8E3] transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -148,18 +313,78 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 window.location.hash = '#about-us';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#102235] hover:bg-slate-50 transition-colors"
+              className="w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#102235] hover:bg-slate-50 transition-colors cursor-pointer"
             >
               About Us
             </button>
 
-            <a
-              href="#solutions"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#102235] hover:bg-slate-50 transition-colors"
-            >
-              Products
-            </a>
+            {/* Mobile Products Accordion */}
+            <div>
+              <button
+                type="button"
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl font-bold text-sm text-[#102235] hover:bg-slate-50 transition-colors cursor-pointer"
+              >
+                <span>Products</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileProductsOpen ? 'rotate-180 text-[#087C19]' : ''}`} />
+              </button>
+
+              {mobileProductsOpen && (
+                <div className="pl-4 pr-2 py-2 space-y-2 bg-slate-50 rounded-xl my-1 text-xs">
+                  <div>
+                    <span className="font-bold text-[#087C19] uppercase tracking-wider text-[10px] block px-2 pb-1">
+                      Field Crops
+                    </span>
+                    <div className="grid grid-cols-2 gap-1.5 pl-2">
+                      {FIELD_CROPS_ITEMS.map((item) => (
+                        <button
+                          key={item.crop}
+                          onClick={() => {
+                            onNavigate?.('Products', item.crop);
+                            setMobileMenuOpen(false);
+                          }}
+                          className="text-left text-slate-700 hover:text-[#087C19] py-1 cursor-pointer font-medium"
+                        >
+                          • {item.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-200">
+                    <span className="font-bold text-[#087C19] uppercase tracking-wider text-[10px] block px-2 pb-1">
+                      Vegetables
+                    </span>
+                    <div className="grid grid-cols-2 gap-1.5 pl-2">
+                      {VEGETABLES_ITEMS.map((item) => (
+                        <button
+                          key={item.crop}
+                          onClick={() => {
+                            onNavigate?.('Products', item.crop);
+                            setMobileMenuOpen(false);
+                          }}
+                          className="text-left text-slate-700 hover:text-[#087C19] py-1 cursor-pointer font-medium"
+                        >
+                          • {item.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-200">
+                    <button
+                      onClick={() => {
+                        onNavigate?.('Products', 'Cotton');
+                        setMobileMenuOpen(false);
+                      }}
+                      className="text-left font-bold text-slate-800 hover:text-[#087C19] px-2 py-1 block cursor-pointer"
+                    >
+                      🌱 BT Cotton (BG-II)
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
 
             <button
               onClick={() => {
@@ -168,7 +393,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 window.location.hash = '#rd';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#102235] hover:bg-slate-50 transition-colors"
+              className="w-full text-left px-4 py-2.5 rounded-xl font-bold text-sm text-[#102235] hover:bg-slate-50 transition-colors cursor-pointer"
             >
               R&amp;D
             </button>

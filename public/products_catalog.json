@@ -1,0 +1,780 @@
+{
+  "paddy": [
+    {
+      "name": "SPH-1111",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPH-1111.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/image-095.png",
+      "local_img": "/products/paddy_sph-1111.png",
+      "specs": {}
+    },
+    {
+      "name": "SPH-1199",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPH-1199.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/image-096.png",
+      "local_img": "/products/paddy_sph-1199.png",
+      "specs": {}
+    },
+    {
+      "name": "SPH-2222",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPH-2222.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/image-097.png",
+      "local_img": "/products/paddy_sph-2222.png",
+      "specs": {}
+    },
+    {
+      "name": "SPH-2299",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPH-2299.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/image-090.png",
+      "local_img": "/products/paddy_sph-2299.png",
+      "specs": {}
+    },
+    {
+      "name": "SPH-4444",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPH-4444.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/image-095.png",
+      "local_img": "/products/paddy_sph-4444.png",
+      "specs": {}
+    },
+    {
+      "name": "SPH-4499",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPH-4499.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/image-095.png",
+      "local_img": "/products/paddy_sph-4499.png",
+      "specs": {}
+    },
+    {
+      "name": "SPH-4444",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPH-4444.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-6.jpg",
+      "local_img": "/products/paddy_sph-4444.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPH-4499",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPH-4499.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-7.jpg",
+      "local_img": "/products/paddy_sph-4499.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPV-1155",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-1155.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-3.jpg",
+      "local_img": "/products/paddy_spv-1155.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPV-3333",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-3333.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-4.jpg",
+      "local_img": "/products/paddy_spv-3333.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPV-4224",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-4224.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-5.jpg",
+      "local_img": "/products/paddy_spv-4224.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPV-5115",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-5115.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-11.jpg",
+      "local_img": "/products/paddy_spv-5115.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPV-5445",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-5445.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots copy.jpg",
+      "local_img": "",
+      "specs": {}
+    },
+    {
+      "name": "SPV-6006",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-6006.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-10.jpg",
+      "local_img": "/products/paddy_spv-6006.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPV-6336",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-6336.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-sankranthi.jpg",
+      "local_img": "/products/paddy_spv-6336.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPV-8118",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-8118.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-subhadra.jpg",
+      "local_img": "/products/paddy_spv-8118.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SPV-9009",
+      "crop": "Paddy",
+      "detail_url": "https://sathyaseeds.com/product-paddy-SPV-9009.php",
+      "img_url": "https://sathyaseeds.com/assets/img/paddy/paddy-shots-sriaman.jpg",
+      "local_img": "/products/paddy_spv-9009.jpg",
+      "specs": {}
+    }
+  ],
+  "cotton": [
+    {
+      "name": "SSCH-333 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-ssch-333.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/86.jpg",
+      "local_img": "/products/cotton_ssch-333_bg_ii.jpg",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "SSCH-444 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-ssch-444.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/87.jpg",
+      "local_img": "/products/cotton_ssch-444_bg_ii.jpg",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "SSCH-555 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-ssch-555.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/88.jpg",
+      "local_img": "/products/cotton_ssch-555_bg_ii.jpg",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "45 SS 33 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-45-ss-33.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/90.jpg",
+      "local_img": "/products/cotton_45_ss_33_bg_ii.jpg",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "54 SS 33 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-54-ss-33.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/89.jpg",
+      "local_img": "/products/cotton_54_ss_33_bg_ii.jpg",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "69 SS 66 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-69-ss-66.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/91.jpg",
+      "local_img": "/products/cotton_69_ss_66_bg_ii.jpg",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "60 SS 66 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-60-ss-66.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/97.jpg",
+      "local_img": "/products/cotton_60_ss_66_bg_ii.jpg",
+      "specs": {}
+    },
+    {
+      "name": "66 SS 33 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-66-ss-33.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/98.png",
+      "local_img": "/products/cotton_66_ss_33_bg_ii.png",
+      "specs": {}
+    },
+    {
+      "name": "D-29 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-D-29.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/92.png",
+      "local_img": "/products/cotton_d-29_bg_ii.png",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "SB-546 BG II",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-SB-546.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/95.png",
+      "local_img": "/products/cotton_sb-546_bg_ii.png",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "SDCH-1",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-SDCH-1.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/100.jpg",
+      "local_img": "/products/cotton_sdch-1.jpg",
+      "specs": {
+        "Resistance": ""
+      }
+    },
+    {
+      "name": "SDCH-2",
+      "crop": "Cotton",
+      "detail_url": "https://sathyaseeds.com/product-cotton-SDCH-2.php",
+      "img_url": "https://sathyaseeds.com/assets/img/cotton/101.jpg",
+      "local_img": "/products/cotton_sdch-2.jpg",
+      "specs": {
+        "Resistance": ""
+      }
+    }
+  ],
+  "maize": [
+    {
+      "name": "SMH-34",
+      "crop": "Maize",
+      "detail_url": "https://sathyaseeds.com/product-maize-SMH-34.php",
+      "img_url": "https://sathyaseeds.com/assets/img/maize/smh-34.jpg",
+      "local_img": "/products/maize_smh-34.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SMH-99",
+      "crop": "Maize",
+      "detail_url": "https://sathyaseeds.com/product-maize-SMH-99.php",
+      "img_url": "https://sathyaseeds.com/assets/img/maize/SMH-99.jpg",
+      "local_img": "/products/maize_smh-99.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SMH-1188",
+      "crop": "Maize",
+      "detail_url": "https://sathyaseeds.com/product-maize-SMH-1188.php",
+      "img_url": "https://sathyaseeds.com/assets/img/maize/smh-1188.jpg",
+      "local_img": "/products/maize_smh-1188.jpg",
+      "specs": {}
+    }
+  ],
+  "mustard": [
+    {
+      "name": "SMUH-654",
+      "crop": "Mustard",
+      "detail_url": "https://sathyaseeds.com/product-mustard-SMUH-654.php",
+      "img_url": "https://sathyaseeds.com/assets/img/mustard/SMUH-654.jpg",
+      "local_img": "/products/mustard_smuh-654.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SMUV-546",
+      "crop": "Mustard",
+      "detail_url": "https://sathyaseeds.com/product-mustard-SMUH-546.php",
+      "img_url": "https://sathyaseeds.com/assets/img/mustard/SMUV-546.jpg",
+      "local_img": "/products/mustard_smuv-546.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SMUV-456",
+      "crop": "Mustard",
+      "detail_url": "https://sathyaseeds.com/product-mustard-SMUH-456.php",
+      "img_url": "https://sathyaseeds.com/assets/img/mustard/SMUV-456.jpg",
+      "local_img": "/products/mustard_smuv-456.jpg",
+      "specs": {}
+    }
+  ],
+  "bajra": [
+    {
+      "name": "SBH-1122",
+      "crop": "Bajra",
+      "detail_url": "https://sathyaseeds.com/product-bajra-SBH-1122.php",
+      "img_url": "https://sathyaseeds.com/assets/img/bajra/sbh-1122.jpg",
+      "local_img": "/products/bajra_sbh-1122.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SBH-3344",
+      "crop": "Bajra",
+      "detail_url": "https://sathyaseeds.com/product-bajra-SBH-3344.php",
+      "img_url": "https://sathyaseeds.com/assets/img/bajra/sbh-3344.jpg",
+      "local_img": "/products/bajra_sbh-3344.jpg",
+      "specs": {}
+    }
+  ],
+  "jowar": [
+    {
+      "name": "SSH-369",
+      "crop": "Jowar",
+      "detail_url": "https://sathyaseeds.com/product-jowar-SSH-369.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Jowar/ssh-369.jpg",
+      "local_img": "/products/jowar_ssh-369.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SSH-379",
+      "crop": "Jowar",
+      "detail_url": "https://sathyaseeds.com/product-jowar-SSH-379.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Jowar/ssh-379.jpg",
+      "local_img": "/products/jowar_ssh-379.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SSH-389",
+      "crop": "Jowar",
+      "detail_url": "https://sathyaseeds.com/product-jowar-SSH-389.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Jowar/ssh-389.jpg",
+      "local_img": "/products/jowar_ssh-389.jpg",
+      "specs": {}
+    }
+  ],
+  "redgram": [
+    {
+      "name": "SRV-36",
+      "crop": "Redgram",
+      "detail_url": "https://sathyaseeds.com/product-redgram-SRV-36.php",
+      "img_url": "https://sathyaseeds.com/assets/img/redgram/srv-36.jpg",
+      "local_img": "/products/redgram_srv-36.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SRV-66",
+      "crop": "Redgram",
+      "detail_url": "https://sathyaseeds.com/product-redgram-SRV-66.php",
+      "img_url": "https://sathyaseeds.com/assets/img/redgram/srv-66.jpg",
+      "local_img": "/products/redgram_srv-66.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SRV-88",
+      "crop": "Redgram",
+      "detail_url": "https://sathyaseeds.com/product-redgram-SRV-88.php",
+      "img_url": "https://sathyaseeds.com/assets/img/redgram/srv-88.jpg",
+      "local_img": "/products/redgram_srv-88.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SRV-99",
+      "crop": "Redgram",
+      "detail_url": "https://sathyaseeds.com/product-redgram-SRV-99.php",
+      "img_url": "https://sathyaseeds.com/assets/img/redgram/srv-99.jpg",
+      "local_img": "/products/redgram_srv-99.jpg",
+      "specs": {}
+    }
+  ],
+  "sunflower": [
+    {
+      "name": "SSFH-222",
+      "crop": "Sunflower",
+      "detail_url": "https://sathyaseeds.com/product-sunflower-SSFH-222.php",
+      "img_url": "https://sathyaseeds.com/assets/img/sunflower/ssfh-222.jpg",
+      "local_img": "/products/sunflower_ssfh-222.jpg",
+      "specs": {}
+    }
+  ],
+  "wheat": [
+    {
+      "name": "SWV-234",
+      "crop": "Wheat",
+      "detail_url": "https://sathyaseeds.com/product-wheat-SWV-234.php",
+      "img_url": "https://sathyaseeds.com/assets/img/wheat/SWV-234.jpg",
+      "local_img": "/products/wheat_swv-234.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SWV-237",
+      "crop": "Wheat",
+      "detail_url": "https://sathyaseeds.com/product-wheat-SWV-237.php",
+      "img_url": "https://sathyaseeds.com/assets/img/wheat/SWV-237.jpg",
+      "local_img": "/products/wheat_swv-237.jpg",
+      "specs": {}
+    }
+  ],
+  "tomato": [
+    {
+      "name": "STMH-3",
+      "crop": "Tomato",
+      "detail_url": "https://sathyaseeds.com/product-tomato-STMH-3.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Tomato/STMH-3.JPG",
+      "local_img": "/products/tomato_stmh-3.JPG",
+      "specs": {}
+    },
+    {
+      "name": "STMH-6",
+      "crop": "Tomato",
+      "detail_url": "https://sathyaseeds.com/product-tomato-STMH-6.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Tomato/STMH-6.JPG",
+      "local_img": "/products/tomato_stmh-6.JPG",
+      "specs": {}
+    },
+    {
+      "name": "STMH-9",
+      "crop": "Tomato",
+      "detail_url": "https://sathyaseeds.com/product-tomato-STMH-9.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Tomato/STMH-9.JPG",
+      "local_img": "/products/tomato_stmh-9.JPG",
+      "specs": {}
+    },
+    {
+      "name": "STMH-12",
+      "crop": "Tomato",
+      "detail_url": "https://sathyaseeds.com/product-tomato-STMH-12.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Tomato/STMH-12.JPG",
+      "local_img": "/products/tomato_stmh-12.JPG",
+      "specs": {}
+    },
+    {
+      "name": "STMH-15",
+      "crop": "Tomato",
+      "detail_url": "https://sathyaseeds.com/product-tomato-STMH-15.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Tomato/STMH-15.JPG",
+      "local_img": "/products/tomato_stmh-15.JPG",
+      "specs": {}
+    },
+    {
+      "name": "STMH-18",
+      "crop": "Tomato",
+      "detail_url": "https://sathyaseeds.com/product-tomato-STMH-18.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Tomato/STMH-18.JPG",
+      "local_img": "/products/tomato_stmh-18.JPG",
+      "specs": {}
+    },
+    {
+      "name": "STMH-21",
+      "crop": "Tomato",
+      "detail_url": "https://sathyaseeds.com/product-tomato-STMH-21.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Tomato/STMH-21.JPG",
+      "local_img": "/products/tomato_stmh-21.JPG",
+      "specs": {}
+    },
+    {
+      "name": "STMH-24",
+      "crop": "Tomato",
+      "detail_url": "https://sathyaseeds.com/product-tomato-STMH-24.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Tomato/STMH-24.JPG",
+      "local_img": "/products/tomato_stmh-24.JPG",
+      "specs": {}
+    }
+  ],
+  "chilli": [
+    {
+      "name": "SCPH-111",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-111.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-111.JPG",
+      "local_img": "/products/chilli_scph-111.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-114",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-114.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/scph-114.JPG",
+      "local_img": "/products/chilli_scph-114.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-115",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-115.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-115.JPG",
+      "local_img": "/products/chilli_scph-115.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-116",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-116.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-116.JPG",
+      "local_img": "/products/chilli_scph-116.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-117",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-117.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-117.JPG",
+      "local_img": "/products/chilli_scph-117.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-118",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-118.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-118.JPG",
+      "local_img": "/products/chilli_scph-118.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-120",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-120.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-120.JPG",
+      "local_img": "/products/chilli_scph-120.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-121",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-121.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-121.JPG",
+      "local_img": "/products/chilli_scph-121.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-122",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-122.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-122.JPG",
+      "local_img": "/products/chilli_scph-122.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-123",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-123.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-123.JPG",
+      "local_img": "/products/chilli_scph-123.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-24",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-124.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-124.JPG",
+      "local_img": "/products/chilli_scph-24.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-125",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-125.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-125.JPG",
+      "local_img": "/products/chilli_scph-125.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-126",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-126.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/scph-126.JPG",
+      "local_img": "/products/chilli_scph-126.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-255",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-255.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-255.JPG",
+      "local_img": "/products/chilli_scph-255.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-279",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-279.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/scph-279.JPG",
+      "local_img": "/products/chilli_scph-279.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-288",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-288.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-288.JPG",
+      "local_img": "/products/chilli_scph-288.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-555",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-555.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-555.JPG",
+      "local_img": "/products/chilli_scph-555.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-417",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-417.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-417.JPG",
+      "local_img": "/products/chilli_scph-417.JPG",
+      "specs": {}
+    },
+    {
+      "name": "SCPH-418",
+      "crop": "Chilli",
+      "detail_url": "https://sathyaseeds.com/product-chilli-SCPH-418.php",
+      "img_url": "https://sathyaseeds.com/assets/img/chilli/SCPH-418.JPG",
+      "local_img": "/products/chilli_scph-418.JPG",
+      "specs": {}
+    }
+  ],
+  "okra": [
+    {
+      "name": "SOKH-101",
+      "crop": "Okra",
+      "detail_url": "https://sathyaseeds.com/product-okra-SOKH-101.php",
+      "img_url": "https://sathyaseeds.com/assets/img/okra/sokh-101-1.jpg",
+      "local_img": "/products/okra_sokh-101.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SOKH-102",
+      "crop": "Okra",
+      "detail_url": "https://sathyaseeds.com/product-okra-SOKH-102.php",
+      "img_url": "https://sathyaseeds.com/assets/img/okra/sokh-102.jpg",
+      "local_img": "/products/okra_sokh-102.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SOKH-103",
+      "crop": "Okra",
+      "detail_url": "https://sathyaseeds.com/product-okra-SOKH-103.php",
+      "img_url": "https://sathyaseeds.com/assets/img/okra/sokh-103.jpg",
+      "local_img": "/products/okra_sokh-103.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SOKH-104",
+      "crop": "Okra",
+      "detail_url": "https://sathyaseeds.com/product-okra-SOKH-104.php",
+      "img_url": "https://sathyaseeds.com/assets/img/okra/sokh-104-1.jpg",
+      "local_img": "/products/okra_sokh-104.jpg",
+      "specs": {}
+    }
+  ],
+  "brinjal": [
+    {
+      "name": "sbjh-16",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-16.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-16.JPG",
+      "local_img": "/products/brinjal_sbjh-16.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-17",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-17.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-17.JPG",
+      "local_img": "/products/brinjal_sbjh-17.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-18",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-18.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-18.JPG",
+      "local_img": "/products/brinjal_sbjh-18.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-19",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-19.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-19.JPG",
+      "local_img": "/products/brinjal_sbjh-19.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-20",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-20.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-20.JPG",
+      "local_img": "/products/brinjal_sbjh-20.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-21",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-21.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-21.JPG",
+      "local_img": "/products/brinjal_sbjh-21.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-22",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-22.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-22.JPG",
+      "local_img": "/products/brinjal_sbjh-22.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-23",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-23.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-23.JPG",
+      "local_img": "/products/brinjal_sbjh-23.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-24",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-24.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-24.JPG",
+      "local_img": "/products/brinjal_sbjh-24.JPG",
+      "specs": {}
+    },
+    {
+      "name": "sbjh-25",
+      "crop": "Brinjal",
+      "detail_url": "https://sathyaseeds.com/product-brinjal-SBJH-25.php",
+      "img_url": "https://sathyaseeds.com/assets/img/Brinjal/sbjh-25.JPG",
+      "local_img": "/products/brinjal_sbjh-25.JPG",
+      "specs": {}
+    }
+  ],
+  "watermelon": [
+    {
+      "name": "SWMH-024",
+      "crop": "Watermelon",
+      "detail_url": "https://sathyaseeds.com/product-watermelon-SWMH-024.php",
+      "img_url": "https://sathyaseeds.com/assets/img/watermelon/swmh-024.jpg",
+      "local_img": "/products/watermelon_swmh-024.jpg",
+      "specs": {}
+    },
+    {
+      "name": "SWMH-033",
+      "crop": "Watermelon",
+      "detail_url": "https://sathyaseeds.com/product-watermelon-SWMH-033.php",
+      "img_url": "https://sathyaseeds.com/assets/img/watermelon/swmh-033.jpg",
+      "local_img": "/products/watermelon_swmh-033.jpg",
+      "specs": {}
+    }
+  ],
+  "sweetcorn": [
+    {
+      "name": "SSCH-54",
+      "crop": "Sweetcorn",
+      "detail_url": "https://sathyaseeds.com/product-sweetcorn-SSCH-54.php",
+      "img_url": "https://sathyaseeds.com/assets/img/sweetcorn/corn.jpg",
+      "local_img": "/products/sweetcorn_ssch-54.jpg",
+      "specs": {}
+    }
+  ]
+}
