@@ -218,6 +218,28 @@ export const Footer: React.FC = () => {
 
       </div>
 
+      {/* 4. Bottom Copyright & Designed By Bar (Directly overlaid on dark green image base) */}
+      <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-auto">
+        <div className="max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-14 xl:px-20 py-3.5 sm:py-4 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-xs sm:text-[13px] text-white/90">
+          
+          {/* Left: Copyright & All Rights Reserved */}
+          <div className="flex items-center gap-1.5 font-medium tracking-wide text-white/85 text-center sm:text-left">
+            <span>© {new Date().getFullYear()}</span>
+            <span className="font-bold text-white">Sri Sathya Seeds</span>.
+            <span>All Rights Reserved.</span>
+          </div>
+
+          {/* Right: Designed By Credit */}
+          <div className="flex items-center gap-1.5 font-medium text-white/85">
+            <span>Designed by</span>
+            <span className="font-bold text-white hover:text-[#FECACA] transition-colors cursor-pointer">
+              Sagar Bavane
+            </span>
+          </div>
+
+        </div>
+      </div>
+
     </footer>
   );
 };
