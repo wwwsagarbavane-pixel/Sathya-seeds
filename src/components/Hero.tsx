@@ -12,14 +12,21 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
       id="home"
-      className="relative w-full h-[520px] xs:h-[560px] sm:h-auto sm:aspect-[1671/941] overflow-hidden select-none bg-slate-900 flex flex-col justify-between"
+      className="relative w-full overflow-hidden select-none bg-[#014973] md:bg-slate-900 min-h-[640px] xs:min-h-[700px] md:min-h-0 md:aspect-[1671/941] flex flex-col justify-between"
       aria-label="Sathya Seeds Hero Section"
     >
-      {/* 1. Main Background Image: 100% Full Panoramic Photo without any zoom/crop on desktop */}
+      {/* 1. Mobile Background Image: Seamlessly extended sky on top, farmer & landscape below */}
+      <img
+        src="/hero-mobile-blended.png"
+        alt="Farmer Beneath a Sunset Halo"
+        className="md:hidden absolute inset-0 w-full h-full object-cover object-bottom z-0 pointer-events-none select-none"
+      />
+
+      {/* 2. Desktop Background Image: 100% Full Panoramic Photo without any zoom/crop on desktop */}
       <img
         src="/hero-farmer-halo.png"
         alt="Farmer Beneath a Sunset Halo"
-        className="absolute inset-0 w-full h-full object-cover object-right sm:object-center z-0 pointer-events-none select-none"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none select-none"
       />
 
       {/* 2. Floating Header in the Open Sky */}
@@ -197,15 +204,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         )}
       </header>
 
-      {/* 3. Hero Content: Perfectly Centered Vertically in the Sky */}
-      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-center py-6 sm:py-8 lg:py-10">
-        <div className="w-full max-w-[85%] xs:max-w-[78%] sm:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
+      {/* 3. Hero Content: Sits in the upper sky space on mobile, vertically centered on desktop */}
+      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start md:items-center pt-4 xs:pt-6 sm:pt-8 lg:pt-10 pb-64 xs:pb-72 sm:pb-80 md:pb-10">
+        <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
       </div>
 
-      {/* 4. Natural Bottom Spacer */}
-      <div className="h-6 sm:h-10 lg:h-12 pointer-events-none" aria-hidden="true" />
+      {/* 4. Natural Bottom Spacer for Desktop */}
+      <div className="hidden md:block h-6 sm:h-10 lg:h-12 pointer-events-none" aria-hidden="true" />
 
     </section>
   );
