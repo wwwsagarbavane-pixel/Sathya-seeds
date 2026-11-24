@@ -84,13 +84,13 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ initialCrop, selecte
           className="relative w-full h-[260px] sm:h-[320px] lg:h-[370px] bg-cover bg-center overflow-hidden flex items-center shadow-inner"
           style={{ backgroundImage: `url('${activeCrop.banner}')` }}
         >
-          {/* Nature Crimson Gradient Backdrop Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#3B0707]/85 via-[#E50201]/40 to-transparent z-0" />
+          {/* Natural Lush Agricultural Emerald Green Gradient Backdrop Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#042813]/90 via-[#0a4820]/50 to-transparent z-0" />
 
           {/* Banner Typography on Left */}
           <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-16 text-left">
             <div className="inline-flex items-center gap-1.5 text-white/95 text-xs sm:text-sm font-semibold tracking-wide">
-              <Sprout className="w-4 h-4 text-[#FF6B6B]" />
+              <Sprout className="w-4 h-4 text-[#4ADE80]" />
               <span>Our Products</span>
             </div>
 
