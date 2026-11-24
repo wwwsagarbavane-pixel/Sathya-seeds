@@ -12,13 +12,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden select-none bg-[#014973] md:bg-slate-900 min-h-[640px] xs:min-h-[700px] md:min-h-0 md:aspect-[1671/941] flex flex-col justify-between"
+      className="relative w-full overflow-hidden select-none bg-slate-900 min-h-[660px] xs:min-h-[720px] sm:min-h-[760px] md:min-h-0 md:aspect-[1671/941] flex flex-col justify-between"
       aria-label="Sathya Seeds Hero Section"
     >
-      {/* 1. Mobile Background Image: Seamlessly extended sky on top, farmer & landscape below */}
+      {/* 1. Mobile Background Image: Farmer Beneath a Radiant Sunrise Sky (941x1672 Portrait) */}
       <img
-        src="/hero-mobile-blended.png"
-        alt="Farmer Beneath a Sunset Halo"
+        src="/hero-farmer-mobile.png"
+        alt="Farmer Beneath a Radiant Sunrise Sky"
         className="md:hidden absolute inset-0 w-full h-full object-cover object-bottom z-0 pointer-events-none select-none"
       />
 
@@ -205,13 +205,24 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </header>
 
       {/* 3. Hero Content: Sits in the upper sky space on mobile, vertically centered on desktop */}
-      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start md:items-center pt-4 xs:pt-6 sm:pt-8 lg:pt-10 pb-64 xs:pb-72 sm:pb-80 md:pb-10">
+      <div className="relative z-20 w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start md:items-center pt-3 xs:pt-5 sm:pt-8 lg:pt-10 pb-64 xs:pb-72 sm:pb-80 md:pb-10">
         <div className="w-full max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
           <HeroContent />
         </div>
       </div>
 
-      {/* 4. Natural Bottom Spacer for Desktop */}
+      {/* 4. Bottom Organic White Wave Transition into Our Products (Mobile) */}
+      <div className="md:hidden absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-full h-8 xs:h-11 sm:h-14 text-white fill-current"
+        >
+          <path d="M0,0 C300,80 800,10 1200,60 L1200,120 L0,120 Z" />
+        </svg>
+      </div>
+
+      {/* 5. Natural Bottom Spacer for Desktop */}
       <div className="hidden md:block h-6 sm:h-10 lg:h-12 pointer-events-none" aria-hidden="true" />
 
     </section>
