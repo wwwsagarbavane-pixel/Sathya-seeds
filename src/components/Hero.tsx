@@ -97,13 +97,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 4: GREEN LAYERED WAVE BORDER (z-index: 10)
-          Original green wave graphic along the bottom edge
+          Original green wave graphic shifted lower down for sleek bottom transition
           ========================================================================= */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none select-none z-[10]">
+      <div className="absolute -bottom-3 sm:-bottom-5 lg:-bottom-7 left-0 w-full overflow-hidden leading-none pointer-events-none select-none z-[10]">
         <img
           src="/wave-border.png"
           alt="Layered Green Wave Border"
-          className="w-full h-auto max-h-[100px] sm:max-h-[120px] lg:max-h-[135px] object-cover object-bottom block select-none"
+          className="w-full h-auto max-h-[85px] sm:max-h-[105px] lg:max-h-[120px] object-cover object-bottom block select-none"
         />
       </div>
 
