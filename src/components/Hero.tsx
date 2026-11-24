@@ -47,15 +47,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     >
       {/* =========================================================================
           LAYER 1: BACKGROUND (z-index: 1)
-          Full-width 'Golden Sunrise Sunflower Fields' preserving original blue sky,
-          golden sunlight, rolling hills, tractor and sunflower field.
-          Zero crop, zero zoom.
+          Full-width 'Golden Sunrise Sunflower Fields' shifted slightly upwards
           ========================================================================= */}
       <div className="absolute inset-0 w-full h-full z-[1] overflow-hidden pointer-events-none select-none">
         <img
           src="/golden-sunrise-sunflower-fields.png"
           alt="Golden Sunrise Sunflower Fields"
-          className="w-full h-full object-cover md:object-fill object-center pointer-events-none select-none"
+          className="w-full h-[106%] sm:h-[108%] lg:h-[110%] -translate-y-2 sm:-translate-y-4 lg:-translate-y-6 object-cover object-center pointer-events-none select-none"
           loading="eager"
         />
       </div>
