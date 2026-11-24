@@ -65,10 +65,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* =========================================================================
           LAYER 2: FARMER (z-index: 2)
           Transparent 'Proud Farmer in Traditional White Attire' grounded at bottom-0
-          Scaled on mobile so head sits comfortably below buttons with clear breathing room
+          Bold, large, prominent scale on both mobile and desktop
           ========================================================================= */}
       <div
-        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[46%] xs:h-[50%] sm:h-[56%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px]"
+        className="absolute z-[2] bottom-0 pointer-events-none flex items-end justify-center right-[-3%] xs:right-0 sm:right-[1%] md:right-[3%] lg:right-[5%] xl:right-[7%] 2xl:right-[9%] h-[57%] xs:h-[61%] sm:h-[67%] md:h-[79%] lg:h-[83%] xl:h-[87%] max-h-[740px]"
         aria-hidden="true"
       >
         <img
@@ -81,12 +81,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* =========================================================================
           LAYER 3: SUNFLOWER FOREGROUND (z-index: 3)
-          Tall foreground sunflowers anchored at bottom-0 (ZERO gaps, ZERO seams)
+          Lush, prominent foreground sunflowers anchored at bottom-0
           Reaches up to naturally overlap farmer's lower body with vibrant blooms
           ========================================================================= */}
       <div
         className="absolute bottom-0 left-0 w-full z-[3] pointer-events-none select-none overflow-hidden leading-none"
-        style={{ height: 'clamp(170px, 30vw, 440px)' }}
+        style={{ height: 'clamp(210px, 34vw, 460px)' }}
         aria-hidden="true"
       >
         <img
