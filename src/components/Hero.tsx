@@ -21,20 +21,19 @@ const PRODUCT_CATEGORIES: DropdownCategory[] = [
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-  const heroRef = useRef<HTMLElement | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const dropdownTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Parallax & Smooth Camera State
+  const [scrollY, setScrollY] = useState(0);
+  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const [isEntered, setIsEntered] = useState(false);
   const [cameraSettled, setCameraSettled] = useState(false);
 
-  // Smooth LERP Target & Current Vectors (0 React re-renders on mousemove)
+  // Smooth LERP Target & Current Vectors
   const targetMouse = useRef({ x: 0, y: 0 });
   const currentMouse = useRef({ x: 0, y: 0 });
-  const targetScroll = useRef(0);
-  const currentScroll = useRef(0);
 
   useEffect(() => {
     // 1. Trigger graceful cinematic entry on mount
@@ -42,25 +41,32 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       setIsEntered(true);
     }, 50);
 
-    // 2. Settle into real-time silky smooth LERP tracking after entry
+    // 2. Settle into real-time silky smooth tracking after entry
     const settledTimer = setTimeout(() => {
       setCameraSettled(true);
-    }, 2000);
+    }, 1800);
 
-    // 3. Ultra-smooth LERP rAF loop at native display refresh rate (60Hz / 120Hz)
+    // 3. Ultra-smooth LERP rAF loop for mouse tilt
     let rafId: number;
+    let lastX = 0;
+    let lastY = 0;
     const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
 
     const tick = () => {
-      // Soft physics damping (0.065) creates luxury weighted gimbal camera feel
-      currentMouse.current.x = lerp(currentMouse.current.x, targetMouse.current.x, 0.065);
-      currentMouse.current.y = lerp(currentMouse.current.y, targetMouse.current.y, 0.065);
-      currentScroll.current = lerp(currentScroll.current, targetScroll.current, 0.08);
+      // Soft physics damping (0.08) creates luxurious gimbal camera feel
+      currentMouse.current.x = lerp(currentMouse.current.x, targetMouse.current.x, 0.08);
+      currentMouse.current.y = lerp(currentMouse.current.y, targetMouse.current.y, 0.08);
 
-      if (heroRef.current) {
-        heroRef.current.style.setProperty('--mouse-x', currentMouse.current.x.toFixed(4));
-        heroRef.current.style.setProperty('--mouse-y', currentMouse.current.y.toFixed(4));
-        heroRef.current.style.setProperty('--scroll-y', `${currentScroll.current.toFixed(1)}px`);
+      const dx = Math.abs(currentMouse.current.x - lastX);
+      const dy = Math.abs(currentMouse.current.y - lastY);
+
+      if (dx > 0.003 || dy > 0.003) {
+        lastX = currentMouse.current.x;
+        lastY = currentMouse.current.y;
+        setMouseOffset({
+          x: Math.round(lastX * 1000) / 1000,
+          y: Math.round(lastY * 1000) / 1000,
+        });
       }
 
       rafId = requestAnimationFrame(tick);
@@ -68,8 +74,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
     rafId = requestAnimationFrame(tick);
 
+    let ticking = false;
     const handleScroll = () => {
-      targetScroll.current = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -111,7 +124,6 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   return (
     <section
-      ref={heroRef}
       id="home"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -140,11 +152,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           style={{
             transformStyle: 'preserve-3d',
             transform: isEntered
-              ? 'rotateX(calc(var(--mouse-y, 0) * -2.4deg)) rotateY(calc(var(--mouse-x, 0) * 3.2deg)) rotateZ(calc(var(--mouse-x, 0) * -0.4deg)) scale(1)'
-              : 'rotateX(2.5deg) rotateY(-2deg) scale(1.08)',
+              ? `rotateX(${(mouseOffset.y * -3.8) + (scrollY * 0.016)}deg) rotateY(${mouseOffset.x * 5.2}deg) rotateZ(${mouseOffset.x * -0.7}deg) scale(1)`
+              : 'rotateX(3.5deg) rotateY(-2.5deg) scale(1.10)',
             transition: cameraSettled
-              ? 'none'
-              : 'transform 2000ms cubic-bezier(0.16, 1, 0.3, 1)',
+              ? 'transform 120ms ease-out'
+              : 'transform 1800ms cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
           {/* Layer 1: Deep Background at Z = -160px */}
@@ -153,12 +165,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             style={{
               transformStyle: 'preserve-3d',
               transform: isEntered
-                ? 'translate3d(calc(var(--mouse-x, 0) * -8px), calc(var(--scroll-y, 0px) * 0.12 + var(--mouse-y, 0) * -6px), -160px) scale(1.18)'
-                : 'translate3d(0, -18px, -160px) scale(1.24)',
+                ? `translate3d(${mouseOffset.x * -14}px, ${scrollY * 0.22 + mouseOffset.y * -9}px, -160px) scale(${1.18 + scrollY * 0.00018})`
+                : 'translate3d(0, -22px, -160px) scale(1.25)',
               opacity: isEntered ? 1 : 0.85,
               transition: cameraSettled
-                ? 'none'
-                : 'transform 2000ms cubic-bezier(0.16, 1, 0.3, 1), opacity 1600ms ease-out',
+                ? 'transform 100ms ease-out'
+                : 'transform 1800ms cubic-bezier(0.16, 1, 0.3, 1), opacity 1500ms ease-out',
             }}
           >
             <img
@@ -175,12 +187,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             style={{
               transformStyle: 'preserve-3d',
               transform: isEntered
-                ? 'translate3d(calc(var(--mouse-x, 0) * 11px), calc(var(--scroll-y, 0px) * 0.08 + var(--mouse-y, 0) * 5px), 0px) scale(1)'
-                : 'translate3d(0, 45px, 0px) scale(1.06)',
+                ? `translate3d(${mouseOffset.x * 18}px, ${scrollY * 0.12 + mouseOffset.y * 8}px, 0px) scale(1)`
+                : 'translate3d(0, 50px, 0px) scale(1.08)',
               opacity: isEntered ? 1 : 0,
               transition: cameraSettled
-                ? 'none'
-                : 'transform 1900ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, opacity 1500ms ease-out 120ms',
+                ? 'transform 100ms ease-out'
+                : 'transform 1800ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, opacity 1400ms ease-out 120ms',
             }}
             aria-hidden="true"
           >
@@ -199,12 +211,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               transformStyle: 'preserve-3d',
               height: 'clamp(210px, 34vw, 460px)',
               transform: isEntered
-                ? 'translate3d(calc(var(--mouse-x, 0) * 20px), calc(var(--scroll-y, 0px) * -0.04 + var(--mouse-y, 0) * 8px), 80px) scale(1)'
-                : 'translate3d(0, 55px, 80px) scale(1.08)',
+                ? `translate3d(${mouseOffset.x * 32}px, ${-scrollY * 0.08 + mouseOffset.y * 14}px, 80px) scale(1)`
+                : 'translate3d(0, 65px, 80px) scale(1.12)',
               opacity: isEntered ? 1 : 0,
               transition: cameraSettled
-                ? 'none'
-                : 'transform 1900ms cubic-bezier(0.16, 1, 0.3, 1) 220ms, opacity 1500ms ease-out 220ms',
+                ? 'transform 100ms ease-out'
+                : 'transform 1800ms cubic-bezier(0.16, 1, 0.3, 1) 220ms, opacity 1400ms ease-out 220ms',
             }}
             aria-hidden="true"
           >
@@ -458,9 +470,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         className="relative z-[20] w-full max-w-[1920px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-16 xl:px-20 flex-1 flex items-start pt-2 xs:pt-3 sm:pt-6 md:pt-8 lg:pt-11 xl:pt-14 pb-0 will-change-transform"
         style={{
           transform: isEntered
-            ? 'translate3d(0, calc(var(--scroll-y, 0px) * 0.12), 0)'
+            ? `translate3d(0, ${scrollY * 0.18}px, 0)`
             : 'translate3d(0, 35px, 0)',
-          opacity: isEntered ? 1 : 0,
+          opacity: isEntered
+            ? Math.max(0, 1 - scrollY / 600)
+            : 0,
           transition: cameraSettled
             ? 'none'
             : 'transform 1400ms cubic-bezier(0.16, 1, 0.3, 1) 250ms, opacity 1200ms ease-out 250ms',
